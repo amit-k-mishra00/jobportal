@@ -925,3 +925,116 @@ body {
         font-size: 20px;
     }
 }
+/* Signup form motion */
+.signup-card {
+    animation: signup-card-enter 650ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+    transform-origin: top center;
+}
+
+.input-wrapper {
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.input-wrapper:focus-within {
+    transform: translateY(-1px);
+}
+
+@keyframes signup-card-enter {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.985);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .signup-card {
+        animation: none;
+    }
+
+    .input-wrapper {
+        transition: none;
+    }
+}
+
+/* Reveal signup fields in reading order */
+#employerForm .form-group,
+#jobSeekerForm .form-group,
+#employerForm .terms-row,
+#jobSeekerForm .terms-row,
+#employerForm .create-account-btn,
+#jobSeekerForm .create-account-btn {
+    animation: signup-field-enter 420ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+#employerForm .form-row > .form-group:first-child,
+#jobSeekerForm .form-row > .form-group:first-child {
+    animation-delay: 120ms;
+}
+
+#employerForm .form-row > .form-group:nth-child(2),
+#jobSeekerForm .form-row > .form-group:nth-child(2) {
+    animation-delay: 200ms;
+}
+
+#employerForm > .form-group:nth-of-type(2),
+#jobSeekerForm > .form-group:nth-of-type(2) {
+    animation-delay: 280ms;
+}
+
+#employerForm > .form-group:nth-of-type(3),
+#jobSeekerForm > .form-group:nth-of-type(3) {
+    animation-delay: 360ms;
+}
+
+#employerForm > .form-group:nth-of-type(4),
+#jobSeekerForm > .form-group:nth-of-type(4) {
+    animation-delay: 440ms;
+}
+
+#employerForm > .form-group:nth-of-type(5),
+#jobSeekerForm > .form-group:nth-of-type(5) {
+    animation-delay: 520ms;
+}
+
+#employerForm > .form-group:nth-of-type(6),
+#jobSeekerForm > .form-group:nth-of-type(6) {
+    animation-delay: 600ms;
+}
+
+#employerForm .terms-row,
+#jobSeekerForm .terms-row {
+    animation-delay: 680ms;
+}
+
+#employerForm .create-account-btn,
+#jobSeekerForm .create-account-btn {
+    animation-delay: 760ms;
+}
+
+@keyframes signup-field-enter {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #employerForm .form-group,
+    #jobSeekerForm .form-group,
+    #employerForm .terms-row,
+    #jobSeekerForm .terms-row,
+    #employerForm .create-account-btn,
+    #jobSeekerForm .create-account-btn {
+        animation: none;
+    }
+}

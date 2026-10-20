@@ -1,0 +1,56 @@
+/* Shared motion polish for TalentBridge pages. */
+html {
+  scroll-behavior: smooth;
+}
+
+.motion-reveal {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition:
+    opacity 620ms cubic-bezier(0.2, 0.75, 0.25, 1),
+    transform 620ms cubic-bezier(0.2, 0.75, 0.25, 1);
+  transition-delay: var(--motion-delay, 0ms);
+}
+
+.motion-reveal.is-visible,
+.motion-reveal:focus-within {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.motion-interactive {
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .motion-interactive:hover {
+    transform: translateY(-2px);
+  }
+
+  .motion-interactive:active {
+    transform: translateY(0) scale(0.98);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .motion-reveal,
+  .motion-reveal.is-visible,
+  .motion-reveal:focus-within,
+  .motion-interactive,
+  .motion-interactive:hover,
+  .motion-interactive:active {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    transition-delay: 0ms;
+  }
+}

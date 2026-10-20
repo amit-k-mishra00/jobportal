@@ -35,6 +35,101 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Success stories carousel: page through cards at every screen size.
+    const successTrack = document.getElementById('successStoriesTrack');
+    const successDots = document.getElementById('successCarouselDots');
+    const successPrev = document.querySelector('.success-prev');
+    const successNext = document.querySelector('.success-next');
+
+    if (successTrack && successDots && successPrev && successNext) {
+        const successCards = Array.from(successTrack.querySelectorAll('.success-story-card'));
+        let successCurrentIndex = 0;
+
+        const cardsPerPage = () => {
+            if (window.matchMedia('(max-width: 600px)').matches) return 1;
+            if (window.matchMedia('(max-width: 1100px)').matches) return 2;
+            return 3;
+        };
+        const maxStartIndex = () => Math.max(0, successCards.length - cardsPerPage());
+        const pageStarts = () => {
+            const lastStart = maxStartIndex();
+            const step = cardsPerPage();
+            const starts = [];
+            for (let index = 0; index <= lastStart; index += step) starts.push(index);
+            if (starts[starts.length - 1] !== lastStart) starts.push(lastStart);
+            return starts;
+        };
+        const cardScrollLeft = index => successCards[index].offsetLeft - successTrack.offsetLeft;
+        const nearestCardIndex = () => {
+            let nearest = 0;
+            let nearestDistance = Infinity;
+            successCards.forEach((card, index) => {
+                const distance = Math.abs(cardScrollLeft(index) - successTrack.scrollLeft);
+                if (distance < nearestDistance) {
+                    nearest = index;
+                    nearestDistance = distance;
+                }
+            });
+            return nearest;
+        };
+        const currentPageIndex = starts => {
+            let pageIndex = 0;
+            starts.forEach((start, index) => {
+                if (start <= successCurrentIndex) pageIndex = index;
+            });
+            return pageIndex;
+        };
+        const updateSuccessControls = (readTrackPosition = true) => {
+            if (!successCards.length) return;
+            if (readTrackPosition) successCurrentIndex = nearestCardIndex();
+            const activePage = currentPageIndex(pageStarts());
+            successDots.querySelectorAll('.success-dot').forEach((dot, index) => {
+                const isActive = index === activePage;
+                dot.classList.toggle('active', isActive);
+                dot.setAttribute('aria-current', isActive ? 'true' : 'false');
+            });
+        };
+        const goToSuccessCard = index => {
+            if (!successCards.length) return;
+            successCurrentIndex = Math.max(0, Math.min(index, maxStartIndex()));
+            successTrack.scrollTo({
+                left: cardScrollLeft(successCurrentIndex),
+                behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+            });
+            updateSuccessControls(false);
+        };
+        const renderSuccessDots = () => {
+            successDots.replaceChildren();
+            pageStarts().forEach((start, index) => {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = 'success-dot';
+                dot.setAttribute('aria-label', 'Show success stories page ' + (index + 1));
+                dot.setAttribute('aria-current', 'false');
+                dot.addEventListener('click', () => goToSuccessCard(start));
+                successDots.appendChild(dot);
+            });
+        };
+        const moveSuccessPage = direction => {
+            const starts = pageStarts();
+            const page = currentPageIndex(starts);
+            const nextPage = (page + direction + starts.length) % starts.length;
+            goToSuccessCard(starts[nextPage]);
+        };
+
+        successPrev.addEventListener('click', () => moveSuccessPage(-1));
+        successNext.addEventListener('click', () => moveSuccessPage(1));
+        successTrack.addEventListener('scroll', () => window.requestAnimationFrame(updateSuccessControls), { passive: true });
+        window.addEventListener('resize', () => {
+            successCurrentIndex = Math.min(successCurrentIndex, maxStartIndex());
+            renderSuccessDots();
+            goToSuccessCard(successCurrentIndex);
+        });
+
+        renderSuccessDots();
+        updateSuccessControls();
+    }
+
     // FAQ Accordion Toggle Interaction
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
