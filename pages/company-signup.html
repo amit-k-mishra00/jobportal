@@ -1,0 +1,502 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employer Sign Up | TalentBridge AI</title>
+
+    <link rel="stylesheet" href="../css/company-signup.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Background decoration -->
+    <div class="background-overlay"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="brand">
+            <span class="brand-icon">
+                <svg viewBox="0 0 48 48" fill="none">
+                    <rect x="5" y="13" width="38" height="29" rx="5"
+                          stroke="currentColor" stroke-width="3"/>
+                    <path d="M17 13V8C17 6.3 18.3 5 20 5H28C29.7 5 31 6.3 31 8V13"
+                          stroke="currentColor" stroke-width="3"/>
+                    <path d="M6 23L24 33L42 23"
+                          stroke="currentColor" stroke-width="3"
+                          stroke-linejoin="round"/>
+                </svg>
+            </span>
+
+            <span class="brand-text">
+                <strong>TalentBridge <span>AI</span></strong>
+                <small>Bridging Talent. Building Tomorrow.</small>
+            </span>
+        </a>
+
+        <nav class="header-nav">
+            <a href="login.html" class="sign-in-link">Sign In</a>
+
+            <span class="nav-divider"></span>
+
+            <a href="signup-role.html" class="home-link">
+                Choose Account Type
+            </a>
+
+            <a href="index.html" class="home-link">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M3 10L12 3L21 10"
+                          stroke="currentColor" stroke-width="2.2"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M5.5 9V21H18.5V9"
+                          stroke="currentColor" stroke-width="2.2"
+                          stroke-linejoin="round"/>
+                    <path d="M10 21V14H14V21"
+                          stroke="currentColor" stroke-width="2.2"/>
+                </svg>
+                Back to Home
+            </a>
+        </nav>
+    </header>
+
+    <!-- Main content -->
+    <main class="main-container">
+
+        <section class="signup-card">
+
+            <!-- Card heading -->
+            <div class="card-heading">
+
+                <div class="heading-icon">
+                    <svg viewBox="0 0 64 64" fill="none">
+                        <rect x="8" y="23" width="48" height="32"
+                              rx="5" stroke="currentColor"
+                              stroke-width="4"/>
+                        <path d="M22 23V15C22 12.8 23.8 11 26 11H38C40.2 11 42 12.8 42 15V23"
+                              stroke="currentColor" stroke-width="4"/>
+                        <path d="M9 34L32 43L55 34"
+                              stroke="currentColor" stroke-width="4"
+                              stroke-linejoin="round"/>
+                        <path d="M26 34H38"
+                              stroke="currentColor" stroke-width="4"
+                              stroke-linecap="round"/>
+                    </svg>
+                </div>
+
+                <h1>Create Employer Account</h1>
+                <p>Find, hire and manage the best talent with ease.</p>
+
+            </div>
+
+            <!-- Registration form -->
+            <form id="employerForm">
+
+                <!-- First name and last name -->
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="firstName">First Name <span>*</span></label>
+
+                        <div class="input-wrapper">
+                            <svg class="field-icon" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="8" r="4"
+                                        stroke="currentColor" stroke-width="1.8"/>
+                                <path d="M4 21V19C4 15.7 7.6 14 12 14C16.4 14 20 15.7 20 19V21H4Z"
+                                      stroke="currentColor" stroke-width="1.8"
+                                      stroke-linejoin="round"/>
+                            </svg>
+
+                            <input type="text" id="firstName" name="firstName"
+                                   placeholder="Enter your first name"
+                                   autocomplete="given-name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Last Name <span>*</span></label>
+
+                        <div class="input-wrapper">
+                            <svg class="field-icon" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="8" r="4"
+                                        stroke="currentColor" stroke-width="1.8"/>
+                                <path d="M4 21V19C4 15.7 7.6 14 12 14C16.4 14 20 15.7 20 19V21H4Z"
+                                      stroke="currentColor" stroke-width="1.8"
+                                      stroke-linejoin="round"/>
+                            </svg>
+
+                            <input type="text" id="lastName" name="lastName"
+                                   placeholder="Enter your last name"
+                                   autocomplete="family-name" required>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Company name -->
+                <div class="form-group">
+                    <label for="companyName">Company Name <span>*</span></label>
+
+                    <div class="input-wrapper">
+                        <svg class="field-icon" viewBox="0 0 24 24" fill="none">
+                            <rect x="4" y="3" width="16" height="18" rx="1"
+                                  stroke="currentColor" stroke-width="1.8"/>
+                            <path d="M8 7H9M8 11H9M8 15H9M15 7H16M15 11H16M15 15H16M10 21V18H14V21"
+                                  stroke="currentColor" stroke-width="1.8"
+                                  stroke-linecap="round"/>
+                        </svg>
+
+                        <input type="text" id="companyName" name="companyName"
+                               placeholder="Enter your company name"
+                               autocomplete="organization" required>
+                    </div>
+                </div>
+
+                <!-- Work email -->
+                <div class="form-group">
+                    <label for="email">Work Email <span>*</span></label>
+
+                    <div class="input-wrapper">
+                        <svg class="field-icon" viewBox="0 0 24 24" fill="none">
+                            <rect x="3" y="5" width="18" height="14" rx="2"
+                                  stroke="currentColor" stroke-width="1.8"/>
+                            <path d="M4 7L12 13L20 7"
+                                  stroke="currentColor" stroke-width="1.8"
+                                  stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                        <input type="email" id="email" name="email"
+                               placeholder="name@company.com"
+                               autocomplete="email" required>
+                    </div>
+                </div>
+
+                <!-- Phone number -->
+                <div class="form-group">
+                    <label for="phone">Phone Number <span>*</span></label>
+
+                    <div class="input-wrapper">
+                        <svg class="field-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M7 3H4C3.4 3 3 3.5 3 4.2C3 13.5 10.5 21 19.8 21C20.5 21 21 20.6 21 20V17L15.8 15.5L13.8 18C10.5 16.5 7.5 13.5 6 10.2L8.5 8.2L7 3Z"
+                                  stroke="currentColor" stroke-width="1.8"
+                                  stroke-linejoin="round"/>
+                        </svg>
+
+                        <input type="tel" id="phone" name="phone"
+                               placeholder="+91 98765 43210"
+                               autocomplete="tel"
+                               pattern="[+]?[0-9 ()-]{7,20}" required>
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Password <span>*</span></label>
+
+                    <div class="input-wrapper">
+                        <svg class="field-icon" viewBox="0 0 24 24" fill="none">
+                            <rect x="5" y="10" width="14" height="11" rx="2"
+                                  stroke="currentColor" stroke-width="1.8"/>
+                            <path d="M8 10V7C8 4.8 9.8 3 12 3C14.2 3 16 4.8 16 7V10"
+                                  stroke="currentColor" stroke-width="1.8"/>
+                            <circle cx="12" cy="15" r="1.2"
+                                    fill="currentColor"/>
+                        </svg>
+
+                        <input type="password" id="password" name="password"
+                               placeholder="Create a password"
+                               autocomplete="new-password" required>
+
+                        <button type="button" class="toggle-password"
+                                data-target="password"
+                                aria-label="Show password">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M2 12S5.5 5.5 12 5.5S22 12 22 12S18.5 18.5 12 18.5S2 12 2 12Z"
+                                      stroke="currentColor" stroke-width="1.8"/>
+                                <circle cx="12" cy="12" r="3"
+                                        stroke="currentColor" stroke-width="1.8"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Strength meter -->
+                    <div class="strength-row">
+                        <div class="strength-meter" id="strengthMeter">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <span class="strength-label" id="strengthLabel">Weak</span>
+                    </div>
+
+                    <!-- Password requirements -->
+                    <ul class="password-rules">
+                        <li data-rule="length">
+                            <span class="rule-dot"></span>
+                            At least 8 characters
+                        </li>
+                        <li data-rule="upper">
+                            <span class="rule-dot"></span>
+                            One uppercase letter (A–Z)
+                        </li>
+                        <li data-rule="lower">
+                            <span class="rule-dot"></span>
+                            One lowercase letter (a–z)
+                        </li>
+                        <li data-rule="number">
+                            <span class="rule-dot"></span>
+                            One number (0–9)
+                        </li>
+                        <li data-rule="special">
+                            <span class="rule-dot"></span>
+                            One special character (!, @, #, $, etc.)
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Confirm password -->
+                <div class="form-group confirm-group">
+                    <label for="confirmPassword">
+                        Confirm Password <span>*</span>
+                    </label>
+
+                    <div class="input-wrapper">
+                        <svg class="field-icon" viewBox="0 0 24 24" fill="none">
+                            <rect x="5" y="10" width="14" height="11" rx="2"
+                                  stroke="currentColor" stroke-width="1.8"/>
+                            <path d="M8 10V7C8 4.8 9.8 3 12 3C14.2 3 16 4.8 16 7V10"
+                                  stroke="currentColor" stroke-width="1.8"/>
+                            <circle cx="12" cy="15" r="1.2"
+                                    fill="currentColor"/>
+                        </svg>
+
+                        <input type="password" id="confirmPassword"
+                               name="confirmPassword"
+                               placeholder="Confirm your password"
+                               autocomplete="new-password" required>
+
+                        <button type="button" class="toggle-password"
+                                data-target="confirmPassword"
+                                aria-label="Show password">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M2 12S5.5 5.5 12 5.5S22 12 22 12S18.5 18.5 12 18.5S2 12 2 12Z"
+                                      stroke="currentColor" stroke-width="1.8"/>
+                                <circle cx="12" cy="12" r="3"
+                                        stroke="currentColor" stroke-width="1.8"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <small id="passwordMatch" class="password-match"></small>
+                </div>
+
+                <!-- Terms and conditions -->
+                <div class="terms-row">
+                    <input type="checkbox" id="terms" name="terms" required>
+
+                    <label for="terms">
+                        I agree to the
+                        <a href="terms.html">Terms of Service</a>
+                        and
+                        <a href="privacy.html">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="create-account-btn">
+                    <span>Create Employer Account</span>
+
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12H19M12 5L19 12L12 19"
+                              stroke="currentColor" stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                    </svg>
+                </button>
+
+                <p id="formMessage" class="form-message" role="status"></p>
+
+            </form>
+
+            <!-- Social sign-up -->
+            <div class="social-section">
+
+                <div class="separator">
+                    <span></span>
+                    <p>or continue with</p>
+                    <span></span>
+                </div>
+
+                <div class="social-buttons">
+
+                    <button type="button" class="social-btn google-btn"
+                            aria-label="Continue with Google">
+                        <span class="google-logo">G</span>
+                    </button>
+
+                    <button type="button" class="social-btn linkedin-btn"
+                            aria-label="Continue with LinkedIn">
+                        <span>in</span>
+                    </button>
+
+                    <button type="button" class="social-btn microsoft-btn"
+                            aria-label="Continue with Microsoft">
+                        <span class="microsoft-logo">
+                            <i></i><i></i><i></i><i></i>
+                        </span>
+                    </button>
+
+                </div>
+
+                <p class="login-prompt">
+                    Already have an account?
+                    <a href="login.html">Sign In</a>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+        const passwordInput = document.getElementById("password");
+        const confirmInput = document.getElementById("confirmPassword");
+        const strengthMeter = document.getElementById("strengthMeter");
+        const strengthLabel = document.getElementById("strengthLabel");
+        const passwordMatch = document.getElementById("passwordMatch");
+        const form = document.getElementById("employerForm");
+        const formMessage = document.getElementById("formMessage");
+
+        // Show and hide passwords
+        document.querySelectorAll(".toggle-password").forEach(button => {
+            button.addEventListener("click", () => {
+                const input = document.getElementById(button.dataset.target);
+                const isHidden = input.type === "password";
+
+                input.type = isHidden ? "text" : "password";
+                button.setAttribute(
+                    "aria-label",
+                    isHidden ? "Hide password" : "Show password"
+                );
+            });
+        });
+
+        // Password requirements
+        function getPasswordRules(password) {
+            return {
+                length: password.length >= 8,
+                upper: /[A-Z]/.test(password),
+                lower: /[a-z]/.test(password),
+                number: /[0-9]/.test(password),
+                special: /[^A-Za-z0-9]/.test(password)
+            };
+        }
+
+        // Update strength meter
+        function updatePasswordStrength() {
+            const password = passwordInput.value;
+            const rules = getPasswordRules(password);
+            const passedRules = Object.values(rules).filter(Boolean).length;
+
+            document.querySelectorAll(".password-rules li").forEach(item => {
+                const rule = item.dataset.rule;
+                item.classList.toggle("valid", rules[rule]);
+            });
+
+            const segments = strengthMeter.querySelectorAll("span");
+
+            segments.forEach((segment, index) => {
+                segment.className = "";
+
+                if (index < passedRules) {
+                    if (passedRules <= 2) {
+                        segment.classList.add("weak");
+                    } else if (passedRules <= 4) {
+                        segment.classList.add("medium");
+                    } else {
+                        segment.classList.add("strong");
+                    }
+                }
+            });
+
+            strengthMeter.className = "strength-meter";
+
+            if (passedRules <= 2) {
+                strengthLabel.textContent = "Weak";
+                strengthLabel.className = "strength-label weak-text";
+            } else if (passedRules <= 4) {
+                strengthLabel.textContent = "Medium";
+                strengthLabel.className = "strength-label medium-text";
+            } else {
+                strengthLabel.textContent = "Strong";
+                strengthLabel.className = "strength-label strong-text";
+            }
+
+            checkPasswordMatch();
+        }
+
+        // Confirm password validation
+        function checkPasswordMatch() {
+            if (!confirmInput.value) {
+                passwordMatch.textContent = "";
+                passwordMatch.className = "password-match";
+                return false;
+            }
+
+            if (passwordInput.value === confirmInput.value) {
+                passwordMatch.textContent = "Passwords match";
+                passwordMatch.className = "password-match match-success";
+                return true;
+            }
+
+            passwordMatch.textContent = "Passwords do not match";
+            passwordMatch.className = "password-match match-error";
+            return false;
+        }
+
+        passwordInput.addEventListener("input", updatePasswordStrength);
+        confirmInput.addEventListener("input", checkPasswordMatch);
+
+        // Form validation
+        form.addEventListener("submit", event => {
+            event.preventDefault();
+            formMessage.textContent = "";
+            formMessage.className = "form-message";
+
+            const rules = getPasswordRules(passwordInput.value);
+            const allRulesPassed = Object.values(rules).every(Boolean);
+
+            if (!allRulesPassed) {
+                formMessage.textContent =
+                    "Please meet all five password requirements.";
+                formMessage.classList.add("error-message");
+                return;
+            }
+
+            if (passwordInput.value !== confirmInput.value) {
+                formMessage.textContent = "Your passwords do not match.";
+                formMessage.classList.add("error-message");
+                return;
+            }
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            formMessage.textContent =
+                "Form validated! Connect your backend to create your account.";
+            formMessage.classList.add("success-message");
+        });
+    </script>
+
+</body>
+</html>

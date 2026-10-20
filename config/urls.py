@@ -1,4 +1,4 @@
-"""
+﻿"""
 URL configuration for config project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -16,9 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.views.generic import TemplateView
 from jobs import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
+    path('signup/', TemplateView.as_view(template_name='signup-role.html'), name='signup'),
+    path('company-signup/', TemplateView.as_view(template_name='company-signup.html'), name='company-signup'),
+    path('employer/', TemplateView.as_view(template_name='employer.html'), name='employer'),
+    path('employee/', TemplateView.as_view(template_name='employee.html'), name='employee'),
 ]
+
+
+
