@@ -14,19 +14,42 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from pathlib import Path
+
 from django.contrib import admin
-from django.urls import path
-from django.views.generic import TemplateView
+from django.urls import path, re_path
+from django.views.generic import RedirectView
+from django.views.static import serve
 from jobs import views
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+PAGES = {
+    'signup': 'signup-role.html',
+    'company-signup': 'company-signup.html',
+    'jobseeker-signup': 'jobseeker-signup.html',
+    'employer': 'employer.html',
+    'employee': 'employee.html',
+    'login': 'login.html',
+    'pricing': 'pricing.html',
+    'posting-job': 'posting-job.html',
+    'terms': 'terms.html',
+    'privacy': 'privacy.html',
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('signup/', TemplateView.as_view(template_name='signup-role.html'), name='signup'),
-    path('company-signup/', TemplateView.as_view(template_name='company-signup.html'), name='company-signup'),
-    path('employer/', TemplateView.as_view(template_name='employer.html'), name='employer'),
-    path('employee/', TemplateView.as_view(template_name='employee.html'), name='employee'),
+    path('index.html', serve, {'document_root': BASE_DIR, 'path': 'index.html'}),
 ]
 
+urlpatterns += [
+    path(f'{slug}/', RedirectView.as_view(url=f'/pages/{filename}', query_string=True), name=slug)
+    for slug, filename in PAGES.items()
+]
 
-
+urlpatterns += [
+    re_path(r'^pages/(?P<path>.*)$', serve, {'document_root': BASE_DIR / 'pages'}),
+    re_path(r'^css/(?P<path>.*)$', serve, {'document_root': BASE_DIR / 'css'}),
+    re_path(r'^js/(?P<path>.*)$', serve, {'document_root': BASE_DIR / 'js'}),
+    re_path(r'^images/(?P<path>.*)$', serve, {'document_root': BASE_DIR / 'images'}),
+]

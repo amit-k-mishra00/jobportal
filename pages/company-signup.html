@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/motion.css">
+  <link rel="stylesheet" href="../css/site-header.css">
 </head>
 
 <body>
@@ -20,50 +21,22 @@
     <div class="background-overlay"></div>
 
     <!-- Header -->
-    <header class="header">
-        <a href="../index.html" class="brand">
-            <span class="brand-icon">
-                <svg viewBox="0 0 48 48" fill="none">
-                    <rect x="5" y="13" width="38" height="29" rx="5"
-                          stroke="currentColor" stroke-width="3"/>
-                    <path d="M17 13V8C17 6.3 18.3 5 20 5H28C29.7 5 31 6.3 31 8V13"
-                          stroke="currentColor" stroke-width="3"/>
-                    <path d="M6 23L24 33L42 23"
-                          stroke="currentColor" stroke-width="3"
-                          stroke-linejoin="round"/>
-                </svg>
-            </span>
-
-            <span class="brand-text">
-                <strong>TalentBridge <span>AI</span></strong>
-                <small>Bridging Talent. Building Tomorrow.</small>
-            </span>
-        </a>
-
-        <nav class="header-nav">
-            <a href="login.html" class="sign-in-link">Sign In</a>
-
-            <span class="nav-divider"></span>
-
-            <a href="signup-role.html" class="home-link">
-                Choose Account Type
-            </a>
-
-            <a href="../index.html" class="home-link">
-                <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M3 10L12 3L21 10"
-                          stroke="currentColor" stroke-width="2.2"
-                          stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M5.5 9V21H18.5V9"
-                          stroke="currentColor" stroke-width="2.2"
-                          stroke-linejoin="round"/>
-                    <path d="M10 21V14H14V21"
-                          stroke="currentColor" stroke-width="2.2"/>
-                </svg>
-                Back to Home
-            </a>
+    <header class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <a href="../index.html">TalentBridge AI<span class="logo-accent">:</span></a>
+        </div>
+        <nav class="nav-links" aria-label="Main navigation">
+            <a href="employer.html" class="active" aria-current="page">For Employers</a>
+            <a href="employee.html">For Job Seekers</a>
+            <a href="pricing.html">Pricing</a>
         </nav>
-    </header>
+        <div class="auth-actions">
+            <a href="login.html" class="auth-btn auth-signin">Sign In</a>
+            <a href="signup-role.html" class="auth-btn auth-signup">Sign Up</a>
+        </div>
+    </div>
+</header>
 
     <!-- Main content -->
     <main class="main-container">

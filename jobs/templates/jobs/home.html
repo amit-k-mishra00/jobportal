@@ -1,2 +1,101 @@
-﻿C:\Users\meow
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Search current job opportunities and find a role that fits your skills with TalentBridge AI.">
+  <title>Find Jobs | TalentBridge AI</title>
+  <link rel="stylesheet" href="{% static 'site-header.css' %}">
+  <style>
+    :root { color-scheme: light; font-family: Inter, Manrope, Arial, sans-serif; color: #15233e; background: #f7faff; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: #f7faff; }
+    .jobs-hero { padding: clamp(46px, 7vw, 88px) 22px 52px; text-align: center; background: radial-gradient(circle at 85% 0, #dceaff 0, transparent 34%), linear-gradient(135deg, #fff, #edf5ff); }
+    .jobs-hero-inner, .jobs-results { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .jobs-eyebrow { color: #075cff; font-size: 12px; font-weight: 800; letter-spacing: 1.7px; }
+    .jobs-hero h1 { margin: 13px 0 12px; font-size: clamp(36px, 6vw, 62px); line-height: 1.06; letter-spacing: -2.5px; }
+    .jobs-hero p { color: #5b6c89; line-height: 1.7; }
+    .jobs-search { display: grid; grid-template-columns: 1fr 1fr auto; gap: 10px; max-width: 850px; margin: 28px auto 0; padding: 10px; border: 1px solid #e0e9f6; border-radius: 18px; background: #fff; box-shadow: 0 15px 38px rgba(30, 67, 123, .1); }
+    .jobs-search input { min-width: 0; min-height: 48px; padding: 0 14px; border: 1px solid #e5ebf4; border-radius: 10px; color: #15233e; font: inherit; }
+    .jobs-search input:focus-visible { outline: 3px solid rgba(7, 92, 255, .25); border-color: #075cff; }
+    .jobs-search button { min-height: 48px; padding: 0 22px; border: 0; border-radius: 10px; background: #075cff; color: #fff; font: inherit; font-weight: 800; cursor: pointer; }
+    .jobs-search button:hover { background: #0049d8; }
+    .jobs-results { padding: 42px 0 80px; }
+    .jobs-results-heading { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 18px; }
+    .jobs-results-heading p { margin: 0 0 5px; color: #075cff; font-size: 11px; font-weight: 800; letter-spacing: 1.3px; text-transform: uppercase; }
+    .jobs-results-heading h2 { margin: 0; font-size: clamp(25px, 4vw, 36px); letter-spacing: -1px; }
+    .jobs-count { color: #60708b; font-size: 13px; }
+    .jobs-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .job-card { padding: 22px; border: 1px solid #e3ebf6; border-radius: 17px; background: #fff; box-shadow: 0 8px 25px rgba(33, 64, 110, .05); }
+    .job-card h3 { margin: 0 0 5px; color: #172744; font-size: 20px; }
+    .job-company { color: #52627b; font-weight: 700; }
+    .job-meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0; }
+    .job-meta span { padding: 6px 10px; border-radius: 999px; background: #eef5ff; color: #355886; font-size: 12px; font-weight: 700; }
+    .job-description { color: #5b6c89; line-height: 1.65; }
+    .job-skills { margin: 14px 0 0; color: #334b70; font-size: 13px; }
+    .empty-jobs { grid-column: 1 / -1; padding: 34px 22px; border: 1px dashed #cbd9ed; border-radius: 17px; background: #fff; text-align: center; color: #5b6c89; }
+    .empty-jobs a { color: #075cff; font-weight: 800; }
+    @media (max-width: 680px) { .jobs-search { grid-template-columns: 1fr; } .jobs-search button { width: 100%; } .jobs-grid { grid-template-columns: 1fr; } .jobs-results-heading { align-items: flex-start; flex-direction: column; } }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+        <div class="logo"><a href="/index.html">TalentBridge AI<span class="logo-accent">:</span></a></div>
+        <nav class="nav-links" aria-label="Main navigation">
+            <a href="/pages/employer.html">For Employers</a>
+            <a href="/pages/employee.html" class="active" aria-current="page">For Job Seekers</a>
+            <a href="/pages/pricing.html">Pricing</a>
+        </nav>
+        <div class="auth-actions">
+            <a href="/pages/login.html" class="auth-btn auth-signin">Sign In</a>
+            <a href="/pages/signup-role.html" class="auth-btn auth-signup">Sign Up</a>
+        </div>
+    </div>
+</header>
 
+  <main>
+    <section class="jobs-hero">
+      <div class="jobs-hero-inner">
+        <span class="jobs-eyebrow">YOUR NEXT CAREER STARTS HERE</span>
+        <h1>Find work that fits.</h1>
+        <p>Search opportunities by role, skills, or location.</p>
+        <form class="jobs-search" method="get" action="{% url 'home' %}">
+          <input type="search" name="keyword" value="{{ keyword }}" aria-label="Job title or skills" placeholder="Job title or skills">
+          <input type="search" name="location" value="{{ location }}" aria-label="City or location" placeholder="City or location">
+          <button type="submit">Search jobs</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="jobs-results" aria-labelledby="jobs-heading">
+      <div class="jobs-results-heading">
+        <div><p>TalentBridge opportunities</p><h2 id="jobs-heading">Latest jobs</h2></div>
+        <span class="jobs-count">{{ jobs|length }} role{{ jobs|length|pluralize }}</span>
+      </div>
+      <div class="jobs-grid">
+        {% for job in jobs %}
+          <article class="job-card">
+            <h3>{{ job.title }}</h3>
+            <div class="job-company">{{ job.company.name }}</div>
+            <div class="job-meta">
+              {% if job.location %}<span>{{ job.location }}</span>{% endif %}
+              <span>{{ job.get_job_type_display }}</span>
+              {% if job.experience %}<span>{{ job.experience }}</span>{% endif %}
+              {% if job.salary %}<span>{{ job.salary }}</span>{% endif %}
+            </div>
+            <p class="job-description">{{ job.description|truncatewords:34 }}</p>
+            {% if job.skills %}<p class="job-skills"><strong>Skills:</strong> {{ job.skills }}</p>{% endif %}
+          </article>
+        {% empty %}
+          <div class="empty-jobs">
+            <p>No matching jobs found{% if keyword or location %} for your search{% endif %}.</p>
+            {% if keyword or location %}<a href="{% url 'home' %}">Clear filters</a>{% else %}<p>Check back soon for new opportunities.</p>{% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -4,26 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Find and hire the right people with TalentBridge AI. Create a job post, match candidates and manage your hiring in one place.">
-  <title>For Employers | TalentBridge AI</title>
+  <title>Post a Job | TalentBridge AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/posting-job.css">
   <link rel="stylesheet" href="../css/motion.css">
+  <link rel="stylesheet" href="../css/site-header.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="../index.html" aria-label="TalentBridge AI home"><span class="brand-mark">T</span><span>TalentBridge <b>AI</b><small>AI WORKFORCE PLATFORM</small></span></a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigation"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
-    <nav class="main-nav" id="main-nav">
-      <a href="#how-it-works">Product <span aria-hidden="true">&rarr;</span></a>
-      <a class="selected" href="posting-job.html">For Employers <span aria-hidden="true">&rarr;</span></a>
-      <a href="employee.html">For Employees</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="#talent">Resources <span aria-hidden="true">&#9662;</span></a>
-    </nav>
-    <div class="header-actions"><a class="search" href="#how-it-works" aria-label="Search">&#8981;</a><a class="login" href="login.html">Log in</a><a class="button button-small" href="#post-job">Get started <span aria-hidden="true">&rarr;</span></a></div>
-  </header>
+  <header class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <a href="../index.html">TalentBridge AI<span class="logo-accent">:</span></a>
+        </div>
+        <nav class="nav-links" aria-label="Main navigation">
+            <a href="employer.html" class="active" aria-current="page">For Employers</a>
+            <a href="employee.html">For Job Seekers</a>
+            <a href="pricing.html">Pricing</a>
+        </nav>
+        <div class="auth-actions">
+            <a href="login.html" class="auth-btn auth-signin">Sign In</a>
+            <a href="signup-role.html" class="auth-btn auth-signup">Sign Up</a>
+        </div>
+    </div>
+</header>
 
   <main>
     <section class="hero section-wrap">
@@ -71,15 +76,7 @@
     <section class="cta-section section-wrap" id="post-job"><div><div class="eyebrow">READY TO FIND YOUR NEXT GREAT HIRE?</div><h2>Build your team with confidence.</h2><p>Create a free job post and start discovering relevant candidates.</p></div><a class="button" href="mailto:careers@example.com?subject=Post%20a%20job">Post a job for free <span aria-hidden="true">&rarr;</span></a></section>
   </main>
   <footer id="contact"><a class="brand" href="../index.html"><span class="brand-mark">T</span><span>TalentBridge <b>AI</b><small>AI WORKFORCE PLATFORM</small></span></a><span>&copy; 2026 TalentBridge AI. All rights reserved.</span><a href="pricing.html">Pricing</a></footer>
-  <script>
-    const menuButton = document.querySelector('.menu-toggle');
-    const navigation = document.querySelector('.main-nav');
-    menuButton.addEventListener('click', () => {
-      const open = menuButton.getAttribute('aria-expanded') === 'true';
-      menuButton.setAttribute('aria-expanded', String(!open));
-      navigation.classList.toggle('is-open', !open);
-    });
-  </script>
+  
   <script src="../js/motion.js"></script>
 </body>
 </html>

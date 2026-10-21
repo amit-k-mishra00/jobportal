@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The AI Workforce Platform</title>
+    <title>TalentBridge AI | AI Workforce Platform</title>
     <!-- Fonts: Manrope Only -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +21,7 @@
         window.scrollTo(0, 0);
     </script>
   <link rel="stylesheet" href="css/motion.css">
+  <link rel="stylesheet" href="css/site-header.css">
 </head>
 <body>
 
@@ -28,12 +29,12 @@
     <header class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <a href="index.html">TalentBridge AI<span class="logo-accent">:</span></a>
+                <a href="index.html" aria-current="page">TalentBridge AI<span class="logo-accent">:</span></a>
             </div>
-            <nav class="nav-links">
+            <nav class="nav-links" aria-label="Main navigation">
                 <a href="pages/employer.html">For Employers</a>
                 <a href="pages/employee.html">For Job Seekers</a>
-                <a href="#">Upcoming</a>
+                <a href="pages/pricing.html">Pricing</a>
             </nav>
             <div class="auth-actions">
                 <a href="pages/login.html" class="auth-btn auth-signin">Sign In</a>
@@ -826,196 +827,204 @@
 
 <!-- SECTION 3: FOR JOB SEEKERS -->
 <section id="for-job-seekers" class="jobseekers-section">
-
     <div class="jobseekers-container">
-
-        <!-- LEFT COLUMN: HEADLINE AND CTA -->
         <div class="jobseekers-left">
-
             <div class="jobseekers-eyebrow">
-                FOR PROFESSIONALS
+                <span class="jobseekers-eyebrow-icon" aria-hidden="true">&#9679;</span>
+                FOR EMPLOYEES
             </div>
 
             <h2 class="jobseekers-title">
-                Your next move.
-                <span>A better role.</span>
-                <span>A future that fits.</span>
+                One profile.<br>
+                Get noticed by<br>
+                <span>the right companies.</span>
             </h2>
 
             <p class="jobseekers-description">
-                Build one smart professional profile, discover relevant
-                job opportunities, and move forward with confidence.
+                Create your universal profile with our Smart Card. Let AI showcase your skills and help the right employers find you.
             </p>
 
             <div class="jobseekers-actions">
-                <a href="pages/employee.html"
-                   class="jobseekers-btn jobseekers-btn-primary">
-                    Build my Smart Card <span>&rarr;</span>
+                <a href="pages/signup-role.html" class="jobseekers-btn jobseekers-btn-primary">
+                    Create your Smart Card <span aria-hidden="true">&rarr;</span>
                 </a>
-
-                <a href="pages/employee.html"
-                   class="jobseekers-btn jobseekers-btn-secondary">
-                    Explore jobs
+                <a href="#smart-card-steps" class="jobseekers-btn jobseekers-btn-secondary">
+                    <span class="jobseekers-play" aria-hidden="true">&#9654;</span>
+                    See how it works
                 </a>
             </div>
 
-            <ul class="jobseekers-benefits">
-                <li>&#10003; One profile for multiple opportunities</li>
-                <li>&#10003; Relevant job matches</li>
-                <li>&#10003; Track your applications</li>
+            <ul class="jobseekers-benefits" aria-label="Smart Card benefits">
+                <li>One profile for every opportunity</li>
+                <li>Skills highlighted by AI</li>
+                <li>Employers can find you</li>
             </ul>
-
         </div>
 
-        <!-- RIGHT COLUMN: PROFESSIONAL SMART CARD -->
-        <div class="jobseekers-right">
+        <div class="jobseekers-right" role="group" aria-label="Smart Card preview">
+            <div class="jobseekers-visual">
 
-            <div class="jobseekers-card-label">
-                SMART CANDIDATE CARD &middot; FRONT
-            </div>
-
-            <div class="jobseekers-profile-card">
-
-                <!-- CARD HEADER -->
-                <div class="jobseekers-card-header">
-                    <div class="jobseekers-brand">
-                        <div class="jobseekers-brand-icon">W</div>
-                        <div>
-                            <h3>TalentBridge AI</h3>
-                            <p>AI WORKFORCE PLATFORM</p>
-                        </div>
+                <div class="jobseekers-workflow" role="list" aria-label="How your Smart Card is created">
+                    <div class="jobseekers-flow-step jobseekers-flow-step-upload" role="listitem">
+                        <span class="jobseekers-flow-icon" aria-hidden="true">&#8593;</span>
+                        <span>
+                            <strong>Upload resume</strong>
+                            <small>PDF, DOC, DOCX</small>
+                        </span>
                     </div>
-
-                    <div class="jobseekers-brand-tag">
-                        Talent for a<br>Stronger Tomorrow
+                    <div class="jobseekers-flow-step jobseekers-flow-step-ai" role="listitem">
+                        <span class="jobseekers-flow-icon" aria-hidden="true">AI</span>
+                        <span>
+                            <strong>AI extracts</strong>
+                            <small>Your skills and experience</small>
+                        </span>
+                    </div>
+                    <div class="jobseekers-flow-step jobseekers-flow-step-ready" role="listitem">
+                        <span class="jobseekers-flow-icon" aria-hidden="true">&#10003;</span>
+                        <span>
+                            <strong>Universal profile</strong>
+                            <small>Skills, experience &amp; certificates</small>
+                        </span>
                     </div>
                 </div>
 
-                <!-- PROFILE DETAILS -->
-                <div class="jobseekers-card-body">
+                <div class="jobseekers-profile-stack">
+                    <article class="jobseekers-profile-card">
+                        <div class="jobseekers-card-header">
+                            <span class="jobseekers-card-side">SMART CARD / FRONT</span>
+                            <div class="jobseekers-profile-top">
+                                <img
+                                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&auto=format&fit=crop&q=80"
+                                    alt="Profile photo of Rahul Sharma"
+                                    class="jobseekers-avatar">
+                                <div class="jobseekers-person-details">
+                                    <span class="jobseekers-available"><span></span> Open to opportunities</span>
+                                    <h3>Rahul Sharma <span class="jobseekers-verified" role="img" aria-label="Verified">&#10003;</span></h3>
+                                    <p class="jobseekers-role">Backend Developer</p>
+                                    <p class="jobseekers-location">Indore, Madhya Pradesh</p>
+                                </div>
+                            </div>
+                        </div>
 
-                    <div class="jobseekers-profile-top">
+                        <div class="jobseekers-card-body">
+                            <div class="jobseekers-skills-box">
+                                <h4>SKILLS</h4>
+                                <div class="jobseekers-skills">
+                                    <a href="pages/signup-role.html">Python</a>
+                                    <a href="pages/signup-role.html">Django</a>
+                                    <a href="pages/signup-role.html">REST APIs</a>
+                                    <a href="pages/signup-role.html">PostgreSQL</a>
+                                    <a href="pages/signup-role.html">AWS</a>
+                                    <a href="pages/signup-role.html">+3</a>
+                                </div>
+                            </div>
 
-                        <div class="jobseekers-avatar-wrap">
-                            <img
-                                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&auto=format&fit=crop&q=80"
-                                alt="Professional profile preview"
-                                class="jobseekers-avatar">
+                            <div class="jobseekers-certificates">
+                                <h4>CERTIFICATES</h4>
+                                <div class="jobseekers-certificate-list">
+                                    <a href="pages/signup-role.html">AWS Certified</a>
+                                    <a href="pages/signup-role.html">Docker</a>
+                                    <a href="pages/signup-role.html">PostgreSQL</a>
+                                    <a href="pages/signup-role.html">System Design</a>
+                                </div>
+                            </div>
 
-                            <span class="jobseekers-available">
-                                <span></span> Open to Opportunities
+                            <div class="jobseekers-info-grid">
+                                <div class="jobseekers-info-item">
+                                    <h4>EXPERIENCE</h4>
+                                    <strong>5 years</strong>
+                                </div>
+                                <div class="jobseekers-info-item">
+                                    <h4>NOTICE PERIOD</h4>
+                                    <strong>30 days</strong>
+                                </div>
+                                <div class="jobseekers-info-item">
+                                    <h4>WORK PREFERENCE</h4>
+                                    <strong>Onsite / Hybrid</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <details class="jobseekers-profile-more">
+                            <summary>
+                                <span>Featured project &amp; strengths</span>
+                                <span class="jobseekers-more-icon" aria-hidden="true">+</span>
+                            </summary>
+                            <div class="jobseekers-profile-more-content">
+                                <p>Designed a cloud-ready order API that reduced processing time and improved reliability.</p>
+                                <div class="jobseekers-strengths">
+                                    <span>API design</span>
+                                    <span>AWS deployment</span>
+                                    <span>Data modelling</span>
+                                </div>
+                                <a href="pages/signup-role.html">Build a profile like this <span aria-hidden="true">&rarr;</span></a>
+                            </div>
+                        </details>
+                        <div class="jobseekers-card-footer">
+                            <span class="jobseekers-card-status"><span></span> Profile complete</span>
+                            <a class="jobseekers-card-link" href="pages/signup-role.html">Create a card like this <span aria-hidden="true">&rarr;</span></a>
+                        </div>
+                    </article>
+
+                    <article class="jobseekers-experience-card" aria-labelledby="jobseekers-experience-title">
+                        <div class="jobseekers-experience-heading">
+                            <h3 id="jobseekers-experience-title">Recent Experience</h3>
+                            <span>BACK SIDE</span>
+                        </div>
+                        <div class="jobseekers-company-row">
+                            <span class="jobseekers-company-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4 21V3h16v18h-6v-5h-4v5H4Zm3-14v2h2V7H7Zm0 4v2h2v-2H7Zm0 4v2h2v-2H7Zm4-8v2h2V7h-2Zm0 4v2h2v-2h-2Zm0 4v2h2v-2h-2Zm4-8v2h2V7h-2Zm0 4v2h2v-2h-2Zm0 4v2h2v-2h-2Z"/></svg></span>
+                            <span class="jobseekers-company-details">
+                                <strong>ABC Technologies Pvt. Ltd.</strong>
+                                <small>Software Engineer</small>
                             </span>
+                            <time datetime="2022-01">Jan 2022 - Present</time>
                         </div>
-
-                        <div class="jobseekers-person-details">
-                            <h3>
-                                Rahul Sharma
-                                <span class="jobseekers-verified">&#10003;</span>
-                            </h3>
-
-                            <p class="jobseekers-role">
-                                Software Engineer
-                            </p>
-
-                            <p>Location: Bengaluru, Karnataka</p>
-                            <p>Email: rahul.sharma@example.com</p>
-                            <p>Experience: 5 years</p>
+                        <div class="jobseekers-experience-details">
+                            <div>
+                                <h4>KEY PROJECTS</h4>
+                                <ul>
+                                    <li>Built scalable APIs with Django and PostgreSQL.</li>
+                                    <li>Automated cloud deployments on AWS.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>RESPONSIBILITIES</h4>
+                                <ul>
+                                    <li>Designed backend services and modules.</li>
+                                    <li>Worked across product and engineering teams.</li>
+                                </ul>
+                            </div>
                         </div>
-
-                    </div>
-
-                    <!-- SKILLS -->
-                    <div class="jobseekers-skills-box">
-                        <h4>SKILLS</h4>
-
-                        <div class="jobseekers-skills">
-                            <span>JavaScript</span>
-                            <span>React.js</span>
-                            <span>Node.js</span>
-                            <span>Python</span>
-                            <span>PostgreSQL</span>
-                            <span>AWS</span>
-                            <span>Docker</span>
-                            <span>Git</span>
-                            <span>System Design</span>
-                            <span>+2</span>
+                        <div class="jobseekers-experience-footer">
+                            <span>Show employers your experience</span>
+                            <a href="pages/signup-role.html">Create your Smart Card <span aria-hidden="true">&rarr;</span></a>
                         </div>
-                    </div>
-
-                    <!-- PROFESSIONAL INFORMATION -->
-                    <div class="jobseekers-info-grid">
-
-                        <div class="jobseekers-info-item">
-                            <h4>CERTIFICATES</h4>
-                            <p>AWS Certified Developer</p>
-                            <p>Google Cloud Associate</p>
-                            <p>Meta Frontend Developer</p>
-                        </div>
-
-                        <div class="jobseekers-info-item">
-                            <h4>NOTICE PERIOD</h4>
-                            <strong>30 Days</strong>
-                        </div>
-
-                        <div class="jobseekers-info-item">
-                            <h4>WORK PREFERENCE</h4>
-                            <p>Onsite</p>
-                            <p>Hybrid</p>
-                            <p>Remote</p>
-                        </div>
-
-                    </div>
-
+                    </article>
                 </div>
 
-                <!-- CARD FOOTER -->
-                <div class="jobseekers-card-footer">
-                    <p>Let's build a stronger tomorrow.</p>
-                    <span>PROFILE<br>PREVIEW</span>
-                </div>
-
+                <span class="jobseekers-spark jobseekers-spark-one" aria-hidden="true">&#10022;</span>
+                <span class="jobseekers-spark jobseekers-spark-two" aria-hidden="true">&#10022;</span>
             </div>
         </div>
-
     </div>
-
-    <!-- BOTTOM FEATURE STRIP -->
-    <div class="jobseekers-features">
-
+    <div class="jobseekers-features" id="smart-card-steps">
         <div class="jobseekers-feature">
-            <div class="jobseekers-feature-icon">&#9673;</div>
-            <div>
-                <h4>One Smart Profile</h4>
-                <p>Keep your skills, experience<br>and preferences organised.</p>
-            </div>
+            <span class="jobseekers-feature-icon" aria-hidden="true">&#8593;</span>
+            <span><strong>Upload your resume</strong><small>Add your details once.</small></span>
         </div>
-
         <div class="jobseekers-feature">
-            <div class="jobseekers-feature-icon">&#8599;</div>
-            <div>
-                <h4>Relevant Opportunities</h4>
-                <p>Discover roles that match<br>your profile.</p>
-            </div>
+            <span class="jobseekers-feature-icon" aria-hidden="true">AI</span>
+            <span><strong>AI builds your Smart Card</strong><small>Skills and experience, organised.</small></span>
         </div>
-
         <div class="jobseekers-feature">
-            <div class="jobseekers-feature-icon">&#10003;</div>
-            <div>
-                <h4>Know Your Fit</h4>
-                <p>See how your profile aligns<br>with each role.</p>
-            </div>
+            <span class="jobseekers-feature-icon" aria-hidden="true">&#10003;</span>
+            <span><strong>Get noticed by employers</strong><small>Be discovered for relevant roles.</small></span>
         </div>
-
         <div class="jobseekers-feature">
-            <div class="jobseekers-feature-icon">&#9776;</div>
-            <div>
-                <h4>Track Your Progress</h4>
-                <p>Manage your applications<br>in one place.</p>
-            </div>
+            <span class="jobseekers-feature-icon" aria-hidden="true">&#9733;</span>
+            <span><strong>Opportunities directly to you</strong><small>Hear about roles that fit.</small></span>
         </div>
-
     </div>
-
 </section>
 <!-- END SECTION 3 -->
 
@@ -1669,9 +1678,9 @@
                         <li><a href="#">Trust center</a></li>
                         <li><a href="#">AI audit center</a></li>
                         <li><a href="#">Platform status</a></li>
-                        <li><a href="#">Privacy & cookies</a></li>
+                        <li><a href="pages/privacy.html">Privacy & cookies</a></li>
                         <li><a href="#">Cookie Preferences</a></li>
-                        <li><a href="#">Terms &amp; Conditions</a></li>
+                        <li><a href="pages/terms.html">Terms &amp; Conditions</a></li>
                     </ul>
                 </div>
 
