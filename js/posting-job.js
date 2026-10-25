@@ -567,9 +567,9 @@
       }
     }
     if (!saveDraft(true)) return;
-    setStatus('Draft saved on this device. Create an account to post this job.');
-    toast('Draft saved. Continue by creating an account to post this job.');
-    window.location.assign('signup-role.html');
+    setStatus('Draft saved on this device. Create an employer account to continue posting this job.');
+    toast('Draft saved. Continue by creating an employer account to post this job.');
+    window.location.assign('company-signup.html');
   });
 
   // Update draft UI and clear validation as fields are corrected.

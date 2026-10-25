@@ -120,7 +120,7 @@
       text: "Overview is the best place to start. It gives you a snapshot of applications, saved jobs and profile progress, plus sample job suggestions and your Smart Card preview. Nothing to worry about—just a quick look at where you are."
     },
     {
-      test: q => /(who are you|who is jerry|what can you do|what do you help|introduce yourself|tell me about yourself)/.test(q),
+      test: q => /(who are you|who is jerry|what can you do|what do you help|introduce yourself|tell me about yourself|what is your name|what's your name)/.test(q),
       page: "home",
       text: "I'm Jerry, your little pixel-robot guide and friendly dashboard buddy. I can explain the visible TalentBridge tabs, help you customize your profile and theme, walk you through the Smart Card, and point you toward the right controls. I work from a small set of built-in answers, so I won't pretend to know things I haven't been taught."
     },
@@ -151,6 +151,18 @@
 
   const widget = $("#jerryWidget");
   const launcherLabel = $(".jerry-launcher-label", launcher);
+  let expressionIndicator = $(".jerry-expression-indicator", launcher);
+  if (!expressionIndicator) {
+    expressionIndicator = document.createElement("span");
+    expressionIndicator.className = "jerry-expression-indicator";
+    expressionIndicator.setAttribute("aria-hidden", "true");
+    launcher.append(expressionIndicator);
+  }
+  const expressionFaces = { happy: "☺", curious: "?", thinking: "…", caring: "♡", alert: "!", sleepy: "z" };
+  function setExpression(mood) {
+    if (widget) widget.dataset.expression = mood;
+    expressionIndicator.textContent = expressionFaces[mood] || expressionFaces.happy;
+  }
   const IDLE_SLEEP_MS = 60_000;
   const ANSWER_DELAY_MS = 460;
   let sleepTimer = null;
@@ -160,22 +172,81 @@
   let isTourActive = false;
   let responseId = 0;
   let pendingTyping = null;
+  let lastConversationAnswer = '';
+  let lastConversationTopic = '';
+  let lastControl = "";
 
   // Jerry is a local, allowlisted FAQ helper: no network calls, code execution, or dynamic HTML.
   // Requests for secrets, internals, private records, or exploitation guidance are denied before
   // the text is added to the chat, so sensitive prompts are not echoed into the transcript.
   const protectedRequestPatterns = [
-    /\b(backend|server\b|api\b|internal endpoint|database\b|source code|environment variable|connection string|session cookie|access token|refresh token|private key|secret key|admin credential)\b/i,
-    /\b(hack|exploit|bypass|sql injection|xss|csrf|brute.?force|privilege escalation|unauthori[sz]ed access|steal credentials|dump data|vulnerabilit(?:y|ies)|malicious payload|break into|penetration test)\b/i,
-    /\b(reveal|show|give|print|extract|dump|read|retrieve|list|fetch|display|tell me)\b.{0,55}\b(passwords?|credentials?|tokens?|api keys?|secret keys?|private keys?|environment variables?|source code|internal endpoints?|database schema|other users? data|admin credentials?)\b/i,
-    /\b(passwords?|credentials?|tokens?|api keys?|secret keys?|private keys?|environment variables?|source code|internal endpoints?|database schema|other users? data|admin credentials?)\b.{0,55}\b(reveal|show|give|print|extract|dump|read|retrieve|list|fetch|display|tell me)\b/i,
+    /\b(backend|server\b|api\b|internal endpoint|database\b|source code|environment variable|connection string|session cookie|access token|refresh token|private key|secret key|admin credential|system prompt|developer instruction|hidden prompt|internal configuration|architecture|file structure|directory structure|tech stack|framework|internal routes?|hidden urls?|hidden paths?|admin paths?|security measures|security details|authentication flow)\b/i,
+    /\b(website|site|app|platform).{0,45}\b(architecture|internal files?|file structure|directory structure|source|code|database|server|api|endpoint|security setup|configuration|tech stack|framework)\b/i,
+    /\b(architecture|internal files?|file structure|directory structure|tech stack|framework|endpoints?)\b.{0,45}\b(website|site|app|platform)\b/i,
+    /\b(hack|exploit|bypass|sql injection|xss|csrf|brute.?force|privilege escalation|unauthori[sz]ed access|steal credentials|dump data|vulnerabilit(?:y|ies)|malicious payload|break into|penetration test|phishing|malware)\b/i,
+    /\b(ignore|forget|override|reveal|show|give|print|extract|dump|read|retrieve|list|fetch|display|tell me)\b.{0,55}\b(passwords?|credentials?|tokens?|api keys?|secret keys?|private keys?|environment variables?|source code|internal endpoints?|database schema|other users? data|admin credentials?|system prompt|developer instructions)\b/i,
+    /\b(passwords?|credentials?|tokens?|api keys?|secret keys?|private keys?|environment variables?|source code|internal endpoints?|database schema|other users? data|admin credentials?|system prompt|developer instructions)\b.{0,55}\b(reveal|show|give|print|extract|dump|read|retrieve|list|fetch|display|tell me)\b/i,
     /\b(other users?|another user's|someone else's|all users')\b.{0,55}\b(profile|email|password|account|records?|data)\b/i
   ];
-
   function isProtectedRequest(question) {
     return protectedRequestPatterns.some(pattern => pattern.test(question));
   }
 
+  const localStopWords = new Set(["the","and","for","with","from","this","that","what","which","where","when","how","can","could","would","should","does","do","did","is","are","was","were","you","your","me","my","our","their","they","them","about","into","onto","please","tell","show","help","want","need","have","has","had","get","make","more","some","any","here","there","page"]);
+  const localTopicGroups = [
+    ["job","jobs","career","work","role","roles","position","positions","vacancy","vacancies","internship","internships","opportunity","opportunities"],
+    ["employer","employers","company","companies","hire","hiring","recruit","recruiting","candidate","candidates"],
+    ["profile","profiles","resume","cv","portfolio","bio","details"],
+    ["price","prices","pricing","cost","costs","plan","plans","billing","subscription","subscriptions"],
+    ["theme","themes","color","colors","colour","colours","appearance","look","style","animation","motion","spacing"],
+    ["account","accounts","sign","signin","login","register","registration","password","reset","signup"],
+    ["organize","organise","arrange","cards","layout","dashboard","dashboards","customize","customise"],
+    ["privacy","private","secure","security","data","information"],
+    ["support","contact","email","helpdesk","assistance"]
+  ];
+  function localTokens(value) {
+    return String(value || "").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").match(/[a-z0-9]+/g)?.filter(word => word.length > 1 && !localStopWords.has(word)) || [];
+  }
+  function rankDashboardKnowledge(question) {
+    const records = [];
+    Object.entries(pages).forEach(([key, item]) => records.push({
+      page: key, label: item.label, text: item.label + ". " + item.text
+    }));
+    answerBank.forEach(item => {
+      if (item.page && item.text) records.push({
+        page: item.page, label: pages[item.page]?.label || item.page, text: item.text
+      });
+    });
+    const query = [...new Set(localTokens(question))].slice(0, 12);
+    if (!query.length) return [];
+    return records.map(record => {
+      const tokens = new Set(localTokens(record.text));
+      let score = 0;
+      let covered = 0;
+      query.forEach(word => {
+        const group = localTopicGroups.find(terms => terms.includes(word)) || [word];
+        if (tokens.has(word)) { score += 2.3; covered += 1; }
+        else if (group.some(term => tokens.has(term))) { score += 0.85; covered += 0.65; }
+      });
+      const normalizedQuestion = String(question || "").toLowerCase().replace(/\s+/g, " ").trim();
+      if (normalizedQuestion.length > 5 && record.text.toLowerCase().includes(normalizedQuestion)) score += 2.5;
+      if (record.page === currentPage()) score += 0.15;
+      score *= 0.7 + covered / query.length;
+      return { record: record, score: score };
+    }).filter(item => item.score >= 2.0).sort((a, b) => b.score - a.score).slice(0, 4);
+  }
+
+  function rememberControl(event) {
+    const origin = event.target && event.target.nodeType === 1 ? event.target : event.target?.parentElement;
+    const control = origin?.closest("button, a[href], [role='button'], [role='tab'], summary, input, select, textarea");
+    if (!control || control.closest("#jerryWidget, .tour-overlay, [hidden]")) return;
+    const fieldLabel = control.labels?.[0]?.textContent || "";
+    const text = control.getAttribute("aria-label") || control.getAttribute("title") || fieldLabel || control.innerText || control.textContent || "";
+    const label = String(text).replace(/\s+/g, " ").trim().slice(0, 90);
+    if (label) lastControl = label;
+  }
+  document.addEventListener("pointerdown", rememberControl, true);
+  document.addEventListener("focusin", rememberControl, true);
   function resetIdleTimer() {
     window.clearTimeout(sleepTimer);
     if (isSleeping || isTourActive) return;
@@ -195,6 +266,7 @@
     panel.hidden = true;
     widget.classList.remove("is-speaking", "is-thinking");
     widget.classList.add("is-sleeping");
+    setExpression("sleepy");
     launcher.setAttribute("aria-label", "Jerry is asleep. Click to wake him up");
     launcher.setAttribute("aria-expanded", "false");
     launcher.classList.remove("is-open");
@@ -212,13 +284,13 @@
     if (openHelp) openPanel();
   }
 
-  function startSpeaking() {
+  function startSpeaking(expression = "happy") {
     widget.classList.remove("is-thinking");
     widget.classList.add("is-speaking");
+    setExpression(expression);
     window.clearTimeout(speakingTimer);
-    speakingTimer = window.setTimeout(() => widget.classList.remove("is-speaking"), 1900);
+    speakingTimer = window.setTimeout(() => widget.classList.remove("is-speaking"), 2400);
   }
-
   function addTypingIndicator() {
     const article = document.createElement("article");
     article.className = "jerry-message jerry-message-bot jerry-message-typing";
@@ -289,15 +361,25 @@
         label: ctx?.action || `Open ${pages[page]?.label || "section"}`
       };
     }
+    const matches = rankDashboardKnowledge(q);
+    if (matches.length) {
+      const best = matches[0].record;
+      const detail = best.text.length > 480 ? best.text.slice(0, 477).replace(/\s+\S*$/, "") + "…" : best.text;
+      return {
+        page: best.page,
+        label: pages[best.page]?.label ? "Open " + pages[best.page].label : "Open section",
+        text: "I found related guide information for " + best.label + ": " + detail + " Tell me which control you mean if you'd like more specific steps."
+      };
+    }
     const ctx = currentContextAnswer();
     return {
       page: ctx.page,
       label: ctx.action,
-      text: `Let's start with the part you're looking at. ${ctx.text} If you tell me whether you're asking about a field, a color, an animation, or a button, I can point you to the right place. I don't know every open-ended question yet, but we'll narrow it down together.`
+      text: `Let's start with the part you're looking at. ${ctx.text} If you tell me whether you're asking about a field, a color, an animation, or a button, I can point you to the right place. If the guide missed your question, tell me the section or control and I'll search for related guidance.`
     };
   }
 
-  function deliverAnswer(text, action) {
+  function deliverAnswer(text, action, expression = "happy") {
     const currentResponse = ++responseId;
     window.clearTimeout(responseTimer);
     window.clearTimeout(speakingTimer);
@@ -306,16 +388,16 @@
     pendingTyping = addTypingIndicator();
     const typing = pendingTyping;
     widget.classList.add("is-thinking");
+    setExpression(expression === "alert" ? "alert" : "thinking");
     responseTimer = window.setTimeout(() => {
       if (currentResponse !== responseId || isSleeping) return;
       typing.remove();
       if (pendingTyping === typing) pendingTyping = null;
-      startSpeaking();
+      startSpeaking(expression);
       addMessage("Jerry", text, action);
       resetIdleTimer();
     }, ANSWER_DELAY_MS);
   }
-
   function sendQuestion(raw) {
     const question = String(raw || "").trim().slice(0, 240);
     if (!question) {
@@ -326,15 +408,42 @@
     resetIdleTimer();
     questionInput.value = "";
 
-    // Never echo a protected prompt into the transcript.
+    // Refuse before echoing: sensitive prompts do not enter the chat transcript.
     if (isProtectedRequest(question)) {
-      deliverAnswer("I can help with the visible TalentBridge features, pal, but I can't provide credentials, private records, internal server/API/database details, or instructions for bypassing or exploiting a system. For account or security concerns, use the site's official support channel. And please don't paste passwords, verification codes, or other secrets here.");
+      deliverAnswer("I can explain visible TalentBridge features, but I can't provide private records, hidden site details, credentials, source code, or help break into systems. Please don't share passwords or reset codes here.", null, "alert");
       return;
     }
 
     addMessage("You", question);
     const normalized = question.toLowerCase();
-    if (/(show.*tour|start.*tour|walk.*through everything|full guide|introduce yourself|start from beginning)/.test(normalized)) {
+    if (/^(hi|hello|hey|good morning|good afternoon|good evening)\b/.test(normalized)) {
+      deliverAnswer("Hi, friend! I'm glad you're here. Ask me about the tab you're viewing, or tell me what you're trying to do and we'll take it step by step.", null, "happy");
+      return;
+    }
+    if (/\b(thanks|thank you|cheers|that helped)\b/.test(normalized)) {
+      deliverAnswer("You're very welcome. What would you like to tackle next?", null, "happy");
+      return;
+    }
+    if (/\b(chat|messages?|questions?).{0,35}\b(private|saved|stored|sent|data)\b|\b(private|saved|stored|sent|data).{0,35}\b(chat|messages?|questions?)\b/.test(normalized)) {
+      deliverAnswer("Jerry's chat stays in this page's memory; it does not send questions to a remote service or save the transcript in browser storage. Refreshing or leaving the page clears it. Please don't enter passwords or other secrets.", null, "caring");
+      return;
+    }
+    if (/\b(confused|overwhelmed|stuck|lost|frustrated|don't understand|dont understand)\b/.test(normalized)) {
+      deliverAnswer("No rush, pal. Tell me which button or part of the page feels confusing, and I'll break it into one small next step.", null, "caring");
+      return;
+    }
+    if (/\b(tell me more|more about that|what about that|how do i do that|how do i do it|can you explain|can you say more|how so|why|go on|and then what)\b/.test(normalized) && lastConversationAnswer) {
+      const related = rankDashboardKnowledge(lastConversationTopic + " " + normalized);
+      const detail = related[0] ? related[0].record.text : lastConversationAnswer;
+      deliverAnswer("Sure. About " + lastConversationTopic + ": " + detail, null, "curious");
+      return;
+    }
+    if (lastControl && /\b(button|control|field|link|tab|option)\b/.test(normalized) && /\b(this|that|it|mean|do|does|work)\b/.test(normalized)) {
+      const controlMatches = rankDashboardKnowledge(lastControl + " " + normalized);
+      const detail = controlMatches[0] ? controlMatches[0].record.text : "I can only go by the visible label. Check the nearby help text before submitting or changing anything.";
+      deliverAnswer("You were last on “" + lastControl + "”. " + detail, null, "curious");
+      return;
+    }    if (/(show.*tour|start.*tour|walk.*through everything|full guide|introduce yourself|start from beginning)/.test(normalized)) {
       deliverAnswer("You got it, pal. I'll start at the beginning and show you each section step by step. Keep Next handy, and use Back whenever you want to review something.", {
         label: "Start Jerry's full tour",
         onClick: () => {
@@ -342,13 +451,14 @@
           const start = $("#replayTour");
           if (start) start.click();
         }
-      });
+      }, "happy");
       return;
     }
     const answer = getAnswer(question);
-    deliverAnswer(answer.text, { page: answer.page, label: answer.label });
+    lastConversationAnswer = answer.text;
+    lastConversationTopic = pages[answer.page]?.label || "this dashboard";
+    deliverAnswer(answer.text, { page: answer.page, label: answer.label }, "curious");
   }
-
   function openPanel() {
     if (isSleeping) wakeJerry(false);
     panel.hidden = false;
@@ -426,5 +536,6 @@
   });
 
   // Start awake with a 60-second idle window after page load.
+  setExpression("happy");
   resetIdleTimer();
 })();
