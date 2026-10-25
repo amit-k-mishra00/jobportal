@@ -1,0 +1,801 @@
+/* Shared, persistent site theme. The page's original accent colors stay intact. */
+html[data-color-mode] { color-scheme: light; }
+html[data-color-mode="dark"] { color-scheme: dark; }
+
+body[data-public-page] {
+  transition: background-color .28s ease, color .28s ease;
+}
+body[data-public-page] .navbar,
+body[data-public-page] .auth-btn,
+body[data-public-page] .site-theme-toggle,
+body[data-public-page] .site-header-search,
+body[data-public-page] .login-card,
+body[data-public-page] .signup-card,
+body[data-public-page] .role-card,
+body[data-public-page] .plan-card,
+body[data-public-page] .pricing-card,
+body[data-public-page] .faq-item,
+body[data-public-page] .card,
+body[data-public-page] .job-builder-card,
+body[data-public-page] .feature-card,
+body[data-public-page] .content-card,
+body[data-public-page] article {
+  transition: background-color .28s ease, color .28s ease, border-color .28s ease, box-shadow .28s ease;
+}
+
+body[data-public-page] .site-theme-toggle,
+body[data-public-page] .site-header-search {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 8px 0;
+  border: 0;
+  color: #475569;
+  background: transparent;
+  font: inherit;
+  font-size: .95rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+body[data-public-page] .site-theme-toggle:hover,
+body[data-public-page] .site-header-search:hover { color: #0052ff; }
+body[data-public-page] .site-theme-icon { font-size: 1.15em; line-height: 1; }
+body[data-public-page] .site-theme-toggle:focus-visible,
+body[data-public-page] .site-header-search:focus-visible {
+  outline: 3px solid rgba(0, 82, 255, .38);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+html[data-color-mode="dark"] body[data-public-page] {
+  --ink: #e8eef9;
+  --text: #e8eef9;
+  --navy: #e8eef9;
+  --muted: #a5b2c8;
+  --border: #344258;
+  color: #e8eef9 !important;
+  background-color: #101827 !important;
+  background-image: radial-gradient(ellipse at 50% 0%, rgba(34, 70, 128, .20), transparent 62%) !important;
+}
+html[data-color-mode="dark"] body[data-public-page] .navbar {
+  border-color: rgba(91, 111, 145, .35);
+  background: rgba(16, 24, 39, .92) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, .22);
+}
+html[data-color-mode="dark"] body[data-public-page] .logo,
+html[data-color-mode="dark"] body[data-public-page] .logo a { color: #edf3ff; }
+html[data-color-mode="dark"] body[data-public-page] .nav-links a,
+html[data-color-mode="dark"] body[data-public-page] .site-theme-toggle,
+html[data-color-mode="dark"] body[data-public-page] .site-header-search { color: #c0cce0; }
+html[data-color-mode="dark"] body[data-public-page] .nav-links a:hover,
+html[data-color-mode="dark"] body[data-public-page] .nav-links a[aria-current="page"],
+html[data-color-mode="dark"] body[data-public-page] .site-theme-toggle:hover,
+html[data-color-mode="dark"] body[data-public-page] .site-header-search:hover { color: #83b2ff; }
+html[data-color-mode="dark"] body[data-public-page] .nav-links a::after { background: #76a9ff; }
+html[data-color-mode="dark"] body[data-public-page] .auth-signin,
+html[data-color-mode="dark"] body[data-public-page] .auth-dashboard {
+  color: #b7d1ff;
+  border-color: #4269a5;
+  background: #17243a;
+}
+html[data-color-mode="dark"] body[data-public-page] .auth-signin:hover,
+html[data-color-mode="dark"] body[data-public-page] .auth-dashboard:hover { background: #223552; }
+html[data-color-mode="dark"] body[data-public-page] .auth-signup {
+  color: #fff;
+  border-color: #1765e8;
+  background: #1765e8;
+}
+html[data-color-mode="dark"] body[data-public-page] .nav-links.is-open {
+  border-color: #344258;
+  background: rgba(20, 31, 49, .98);
+}
+
+html[data-color-mode="dark"] body[data-public-page] h1,
+html[data-color-mode="dark"] body[data-public-page] h2,
+html[data-color-mode="dark"] body[data-public-page] h3,
+html[data-color-mode="dark"] body[data-public-page] h4,
+html[data-color-mode="dark"] body[data-public-page] p,
+html[data-color-mode="dark"] body[data-public-page] li,
+html[data-color-mode="dark"] body[data-public-page] label,
+html[data-color-mode="dark"] body[data-public-page] .eyebrow,
+html[data-color-mode="dark"] body[data-public-page] .muted { color: #d5deed; }
+
+html[data-color-mode="dark"] body[data-public-page] .login-card,
+html[data-color-mode="dark"] body[data-public-page] .signup-card,
+html[data-color-mode="dark"] body[data-public-page] .role-card,
+html[data-color-mode="dark"] body[data-public-page] .plan-card,
+html[data-color-mode="dark"] body[data-public-page] .pricing-card,
+html[data-color-mode="dark"] body[data-public-page] .faq-item,
+html[data-color-mode="dark"] body[data-public-page] .card,
+html[data-color-mode="dark"] body[data-public-page] .job-builder-card,
+html[data-color-mode="dark"] body[data-public-page] .feature-card,
+html[data-color-mode="dark"] body[data-public-page] .content-card,
+html[data-color-mode="dark"] body[data-public-page] article {
+  color: #e8eef9;
+  border-color: #334158;
+  background-color: #182235;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, .20);
+}
+html[data-color-mode="dark"] body[data-public-page] .login-card *,
+html[data-color-mode="dark"] body[data-public-page] .signup-card *,
+html[data-color-mode="dark"] body[data-public-page] .role-card *,
+html[data-color-mode="dark"] body[data-public-page] .plan-card *,
+html[data-color-mode="dark"] body[data-public-page] .pricing-card *,
+html[data-color-mode="dark"] body[data-public-page] .faq-item *,
+html[data-color-mode="dark"] body[data-public-page] .card *,
+html[data-color-mode="dark"] body[data-public-page] .job-builder-card *,
+html[data-color-mode="dark"] body[data-public-page] .feature-card *,
+html[data-color-mode="dark"] body[data-public-page] .content-card *,
+html[data-color-mode="dark"] body[data-public-page] article * { border-color: #334158; }
+html[data-color-mode="dark"] body[data-public-page] a:not(.auth-btn):not(.button):not(.btn):not(.role-button):not(.plan-button) { color: #91baff; }
+html[data-color-mode="dark"] body[data-public-page] .button-ghost,
+html[data-color-mode="dark"] body[data-public-page] .button-outline,
+html[data-color-mode="dark"] body[data-public-page] .button-white {
+  color: #b7d1ff;
+  border-color: #47658f;
+  background: #1c2c45;
+}
+html[data-color-mode="dark"] body[data-public-page] input:not([type="checkbox"]):not([type="radio"]),
+html[data-color-mode="dark"] body[data-public-page] select,
+html[data-color-mode="dark"] body[data-public-page] textarea {
+  color: #edf3ff !important;
+  border-color: #40516c !important;
+  background-color: #111b2c !important;
+}
+html[data-color-mode="dark"] body[data-public-page] input::placeholder,
+html[data-color-mode="dark"] body[data-public-page] textarea::placeholder { color: #94a3ba; opacity: 1; }
+html[data-color-mode="dark"] body[data-public-page] option { color: #edf3ff; background: #111b2c; }
+html[data-color-mode="dark"] body[data-public-page] .site-footer,
+html[data-color-mode="dark"] body[data-public-page] footer { color: #aab8ce; border-color: #334158; }
+html[data-color-mode="dark"] body[data-public-page] .search-panel {
+  color: #d5deed;
+  border-color: #334158;
+  background: #182235;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, .28);
+}
+
+/* Auth cards sit in the page area below the shared title bar. */
+body[data-auth-page] .main-container {
+  min-height: max(540px, calc(100svh - 78px));
+  padding: clamp(28px, 5vh, 54px) 20px;
+  align-items: center !important;
+}
+body[data-auth-page] .main-content {
+  min-height: max(540px, calc(100svh - 78px));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  padding-block: clamp(28px, 5vh, 54px);
+}
+@supports not (height: 100svh) {
+  body[data-auth-page] .main-container,
+  body[data-auth-page] .main-content { min-height: max(540px, calc(100vh - 78px)); }
+}
+
+.organizer-page .organizer-theme-toggle {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 12px;
+  border: 1px solid var(--border, #dce5f1);
+  border-radius: 11px;
+  color: inherit;
+  background: var(--surface, #fff);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+}
+.organizer-page .organizer-theme-toggle:hover { transform: translateY(-1px); }
+.organizer-page .organizer-theme-toggle:focus-visible { outline: 3px solid rgba(40, 104, 232, .3); outline-offset: 3px; }
+
+@media (max-width: 760px) {
+  body[data-public-page] .site-theme-toggle,
+  body[data-public-page] .site-header-search { width: 100%; justify-content: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body[data-public-page],
+  body[data-public-page] *,
+  body[data-public-page] *::before,
+  body[data-public-page] *::after,
+  .organizer-page .organizer-theme-toggle {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+/* Workspace pages share the homepage title bar while keeping their own navigation. */
+body:not([data-public-page]) .navbar .site-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 8px 0;
+  border: 0;
+  color: #475569;
+  background: transparent;
+  font: inherit;
+  font-size: .95rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+body:not([data-public-page]) .navbar .site-theme-toggle:hover { color: #0052ff; }
+body:not([data-public-page]) .navbar .site-theme-toggle:focus-visible {
+  outline: 3px solid rgba(0, 82, 255, .38);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+html[data-color-mode="dark"] body:not([data-public-page]) .navbar {
+  border-color: rgba(91, 111, 145, .35);
+  background: rgba(16, 24, 39, .96) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, .25);
+}
+html[data-color-mode="dark"] body:not([data-public-page]) .navbar .logo,
+html[data-color-mode="dark"] body:not([data-public-page]) .navbar .logo a { color: #edf3ff; }
+html[data-color-mode="dark"] body:not([data-public-page]) .navbar .nav-links a,
+html[data-color-mode="dark"] body:not([data-public-page]) .navbar .site-theme-toggle { color: #c0cce0; }
+html[data-color-mode="dark"] body:not([data-public-page]) .navbar .nav-links a:hover,
+html[data-color-mode="dark"] body:not([data-public-page]) .navbar .nav-links a[aria-current="page"],
+html[data-color-mode="dark"] body:not([data-public-page]) .navbar .site-theme-toggle:hover { color: #83b2ff; }
+html[data-color-mode="dark"] body:not([data-public-page]) .navbar .auth-signin,
+html[data-color-mode="dark"] body:not([data-public-page]) .navbar .auth-dashboard {
+  color: #b7d1ff;
+  border-color: #4269a5;
+  background: #17243a;
+}
+html[data-color-mode="dark"] body:not([data-public-page]) .navbar .auth-signup {
+  color: #fff;
+  border-color: #1765e8;
+  background: #1765e8;
+}
+body:not([data-public-page]) > .navbar + .app-shell,
+body:not([data-public-page]) > .navbar + .organizer-shell {
+  min-height: calc(100vh - var(--workspace-header-height, 76px));
+}
+body:not([data-public-page]) > .navbar + .app-shell .sidebar {
+  top: var(--workspace-header-height, 76px);
+}
+body:not([data-public-page]) > .navbar + .app-shell .topbar {
+  top: var(--workspace-header-height, 76px);
+}
+@media (max-width: 760px) {
+  body:not([data-public-page]) .navbar .site-theme-toggle { width: 100%; justify-content: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body:not([data-public-page]) .navbar,
+  body:not([data-public-page]) .navbar * {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+}
+html[data-workspace-page] { font-size: 16px; }
+
+html[data-color-mode="dark"] body[data-public-page] .navbar .nav-menu-toggle,
+html[data-color-mode="dark"] body:not([data-public-page]) .navbar .nav-menu-toggle {
+  color: #eaf1ff;
+  border-color: #3a4b66;
+  background: #17243a;
+}
+html[data-color-mode="dark"] body[data-public-page] .navbar .nav-menu-toggle:hover,
+html[data-color-mode="dark"] body:not([data-public-page]) .navbar .nav-menu-toggle:hover {
+  background: #223552;
+  border-color: #526a8b;
+}
+html[data-color-mode="dark"] body:not([data-public-page]) .navbar .nav-links.is-open {
+  border-color: #344258;
+  background: rgba(20, 31, 49, .98);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, .3);
+}
+/* Theme controls are intentionally icon-only; their accessible names remain in JavaScript. */
+body[data-public-page] .site-theme-toggle,
+body:not([data-public-page]) .navbar .site-theme-toggle {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  padding: 0;
+  gap: 0;
+  border: 1px solid #dbe5f5;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .78);
+}
+body[data-public-page] .site-theme-toggle:hover,
+body:not([data-public-page]) .navbar .site-theme-toggle:hover {
+  background: #eff6ff;
+  border-color: #b9d0f7;
+}
+.site-theme-icon { font-size: 1.25rem; line-height: 1; }
+.organizer-page .organizer-theme-toggle {
+  width: 40px;
+  height: 40px;
+  min-height: 40px;
+  flex: 0 0 40px;
+  padding: 0;
+}
+html[data-color-mode="dark"] body[data-public-page] .site-theme-toggle,
+html[data-color-mode="dark"] body:not([data-public-page]) .navbar .site-theme-toggle {
+  color: #eaf1ff;
+  border-color: #3a4b66;
+  background: #17243a;
+}
+html[data-color-mode="dark"] body[data-public-page] .site-theme-toggle:hover,
+html[data-color-mode="dark"] body:not([data-public-page]) .navbar .site-theme-toggle:hover {
+  background: #223552;
+  border-color: #526a8b;
+}
+@media (max-width: 760px) {
+  body[data-public-page] .site-theme-toggle,
+  body:not([data-public-page]) .navbar .site-theme-toggle {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    justify-content: center;
+  }
+}
+@supports (height: 100dvh) {
+  body:not([data-public-page]) > .navbar + .app-shell,
+  body:not([data-public-page]) > .navbar + .organizer-shell {
+    min-height: calc(100dvh - var(--workspace-header-height, 76px));
+  }
+}
+/* Page-specific light surfaces are normalized here so dark mode stays consistent
+   across the marketing pages, forms, and job builder. */
+html[data-color-mode="dark"] body[data-public-page] main > section:not(.login-card):not(.signup-card),
+html[data-color-mode="dark"] body[data-public-page] > .footer-section,
+html[data-color-mode="dark"] body[data-public-page] .footer-section {
+  background-color: #101827 !important;
+  background-image:
+    radial-gradient(ellipse at 12% 8%, rgba(48, 91, 157, .18), transparent 42%),
+    linear-gradient(145deg, #111b2b, #101827 72%) !important;
+  transition: background-color .28s ease, background-image .28s ease, border-color .28s ease;
+}
+html[data-color-mode="dark"] body[data-public-page] main.main-content {
+  border-color: #27364d;
+  background: transparent !important;
+}
+html[data-color-mode="dark"] body[data-public-page] .legal-wrap {
+  color: #e8eef9;
+}
+html[data-color-mode="dark"] body[data-public-page] .legal-wrap p,
+html[data-color-mode="dark"] body[data-public-page] .legal-wrap li { color: #b6c4d8; }
+html[data-color-mode="dark"] body[data-public-page] .legal-wrap a { color: #91baff; }
+
+/* Shared surfaces, including cards that are built from divs rather than articles. */
+html[data-color-mode="dark"] body[data-public-page] .flow-step,
+html[data-color-mode="dark"] body[data-public-page] .profile-card,
+html[data-color-mode="dark"] body[data-public-page] .card-stacked,
+html[data-color-mode="dark"] body[data-public-page] .dashboard-card,
+html[data-color-mode="dark"] body[data-public-page] .floating-badge,
+html[data-color-mode="dark"] body[data-public-page] .faq-support-card,
+html[data-color-mode="dark"] body[data-public-page] .faq-pillar-item,
+html[data-color-mode="dark"] body[data-public-page] .feature-card-emp,
+html[data-color-mode="dark"] body[data-public-page] .applicant-row,
+html[data-color-mode="dark"] body[data-public-page] .candidate-match-card,
+html[data-color-mode="dark"] body[data-public-page] .satellite-badge,
+html[data-color-mode="dark"] body[data-public-page] .syndication-card,
+html[data-color-mode="dark"] body[data-public-page] .job-posting-card,
+html[data-color-mode="dark"] body[data-public-page] .employee-section .job-card,
+html[data-color-mode="dark"] body[data-public-page] .jobseekers-flow-step,
+html[data-color-mode="dark"] body[data-public-page] .floating-card,
+html[data-color-mode="dark"] body[data-public-page] .candidate-card,
+html[data-color-mode="dark"] body[data-public-page] .story-card,
+html[data-color-mode="dark"] body[data-public-page] .way-card,
+html[data-color-mode="dark"] body[data-public-page] .dash-card-frame,
+html[data-color-mode="dark"] body[data-public-page] .dash-topbar-panel,
+html[data-color-mode="dark"] body[data-public-page] .dash-job-panel,
+html[data-color-mode="dark"] body[data-public-page] .dash-applicants-panel,
+html[data-color-mode="dark"] body[data-public-page] .faq-item,
+html[data-color-mode="dark"] body[data-public-page] .plan-card,
+html[data-color-mode="dark"] body[data-public-page] .support-card {
+  color: #e8eef9;
+  border-color: #334158 !important;
+  background: #182235 !important;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, .2);
+  transition: background-color .28s ease, color .28s ease, border-color .28s ease, box-shadow .28s ease;
+}
+html[data-color-mode="dark"] body[data-public-page] .active-step {
+  background: linear-gradient(135deg, #1b304c, #223b5d) !important;
+}
+html[data-color-mode="dark"] body[data-public-page] .featured-plan {
+  border-color: #4269a5 !important;
+  background: linear-gradient(150deg, #1b304c, #182235 78%) !important;
+}
+html[data-color-mode="dark"] body[data-public-page] .hero-benefits,
+html[data-color-mode="dark"] body[data-public-page] .plan-benefits,
+html[data-color-mode="dark"] body[data-public-page] .benefits {
+  border-color: #334158;
+  background: rgba(20, 31, 49, .84) !important;
+}
+html[data-color-mode="dark"] body[data-public-page] .input-wrapper,
+html[data-color-mode="dark"] body[data-public-page] .input-wrapper:focus-within,
+html[data-color-mode="dark"] body[data-public-page] .social-btn,
+html[data-color-mode="dark"] body[data-public-page] .social-btn:hover,
+html[data-color-mode="dark"] body[data-public-page] .description-helper,
+html[data-color-mode="dark"] body[data-public-page] .hiring-guide,
+html[data-color-mode="dark"] body[data-public-page] .form-mode-switch,
+html[data-color-mode="dark"] body[data-public-page] .form-mode-switch button.active,
+html[data-color-mode="dark"] body[data-public-page] .live-preview-card,
+html[data-color-mode="dark"] body[data-public-page] .search,
+html[data-color-mode="dark"] body[data-public-page] .search label {
+  color: #e8eef9;
+  border-color: #334158 !important;
+  background: #182235 !important;
+}
+html[data-color-mode="dark"] body[data-public-page] .search .location {
+  border-left-color: #334158;
+}
+html[data-color-mode="dark"] body[data-public-page] .main-nav a:not([aria-current="page"]),
+html[data-color-mode="dark"] body[data-public-page] .job-name p,
+html[data-color-mode="dark"] body[data-public-page] .job-meta,
+html[data-color-mode="dark"] body[data-public-page] .meta,
+html[data-color-mode="dark"] body[data-public-page] .bottom,
+html[data-color-mode="dark"] body[data-public-page] .profile-meta,
+html[data-color-mode="dark"] body[data-public-page] .info-label,
+html[data-color-mode="dark"] body[data-public-page] .metric-label,
+html[data-color-mode="dark"] body[data-public-page] .badge-sub,
+html[data-color-mode="dark"] body[data-public-page] .faq-pillar-sub,
+html[data-color-mode="dark"] body[data-public-page] .faq-answer,
+html[data-color-mode="dark"] body[data-public-page] .story-quote-text,
+html[data-color-mode="dark"] body[data-public-page] .story-user-role,
+html[data-color-mode="dark"] body[data-public-page] .story-location,
+html[data-color-mode="dark"] body[data-public-page] .ai-card-title,
+html[data-color-mode="dark"] body[data-public-page] .cand-info p,
+html[data-color-mode="dark"] body[data-public-page] .dash-metric-label {
+  color: #aebbd0 !important;
+}
+html[data-color-mode="dark"] body[data-public-page] .story-user-name,
+html[data-color-mode="dark"] body[data-public-page] .story-company-name,
+html[data-color-mode="dark"] body[data-public-page] .jd-header h3,
+html[data-color-mode="dark"] body[data-public-page] .jd-role-box h4,
+html[data-color-mode="dark"] body[data-public-page] .cand-info h4,
+html[data-color-mode="dark"] body[data-public-page] .way-card:hover .way-card-title {
+  color: #e8eef9 !important;
+}
+html[data-color-mode="dark"] body[data-public-page] .way-card:hover .way-card-desc { color: #aebbd0 !important; }
+html[data-color-mode="dark"] body[data-public-page] .jd-icon,
+html[data-color-mode="dark"] body[data-public-page] .jd-tag,
+html[data-color-mode="dark"] body[data-public-page] .cand-skills span,
+html[data-color-mode="dark"] body[data-public-page] .skill-pill,
+html[data-color-mode="dark"] body[data-public-page] .job-tag,
+html[data-color-mode="dark"] body[data-public-page] .story-skill-tag,
+html[data-color-mode="dark"] body[data-public-page] .faq-number,
+html[data-color-mode="dark"] body[data-public-page] .faq-num,
+html[data-color-mode="dark"] body[data-public-page] .support-label,
+html[data-color-mode="dark"] body[data-public-page] .plan-icon,
+html[data-color-mode="dark"] body[data-public-page] .benefit-icon,
+html[data-color-mode="dark"] body[data-public-page] .icon-circle-light,
+html[data-color-mode="dark"] body[data-public-page] .step-icon,
+html[data-color-mode="dark"] body[data-public-page] .icon-box,
+html[data-color-mode="dark"] body[data-public-page] .job-briefcase-icon,
+html[data-color-mode="dark"] body[data-public-page] .jobseekers-flow-icon,
+html[data-color-mode="dark"] body[data-public-page] .jobseekers-feature-icon,
+html[data-color-mode="dark"] body[data-public-page] .jobseekers-company-icon,
+html[data-color-mode="dark"] body[data-public-page] .jobseekers-more-icon,
+html[data-color-mode="dark"] body[data-public-page] .jobseekers-eyebrow,
+html[data-color-mode="dark"] body[data-public-page] .success-eyebrow,
+html[data-color-mode="dark"] body[data-public-page] .jobseekers-strengths span,
+html[data-color-mode="dark"] body[data-public-page] .jobseekers-skills span,
+html[data-color-mode="dark"] body[data-public-page] .jobseekers-certificate-list span,
+html[data-color-mode="dark"] body[data-public-page] .jobseekers-card-footer {
+  color: #b9d1f5 !important;
+  border-color: #3a506f !important;
+  background-color: #20324d !important;
+}
+html[data-color-mode="dark"] body[data-public-page] .jd-body-skeleton .skel-line,
+html[data-color-mode="dark"] body[data-public-page] .skeleton,
+html[data-color-mode="dark"] body[data-public-page] .skeleton-line,
+html[data-color-mode="dark"] body[data-public-page] .ai-progress-track,
+html[data-color-mode="dark"] body[data-public-page] .progress-track,
+html[data-color-mode="dark"] body[data-public-page] .faq-support-divider,
+html[data-color-mode="dark"] body[data-public-page] .footer-divider {
+  background-color: #2a3a52 !important;
+}
+html[data-color-mode="dark"] body[data-public-page] .status-hired,
+html[data-color-mode="dark"] body[data-public-page] .status-returning,
+html[data-color-mode="dark"] body[data-public-page] .jobseekers-available {
+  color: #9ce4c7 !important;
+  background-color: #18483d !important;
+}
+html[data-color-mode="dark"] body[data-public-page] .status-offers,
+html[data-color-mode="dark"] body[data-public-page] .status-switch {
+  color: #b8d2ff !important;
+  background-color: #233c60 !important;
+}
+html[data-color-mode="dark"] body[data-public-page] .status-interview,
+html[data-color-mode="dark"] body[data-public-page] .status-new {
+  color: #ffda91 !important;
+  background-color: #4a3923 !important;
+}
+html[data-color-mode="dark"] body[data-public-page] .role-card,
+html[data-color-mode="dark"] body[data-public-page] .employer-card,
+html[data-color-mode="dark"] body[data-public-page] .seeker-card {
+  color: #e8eef9;
+  border-color: #334158 !important;
+  background: linear-gradient(145deg, #1b304c, #182235 76%) !important;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, .25);
+}
+html[data-color-mode="dark"] body[data-public-page] .signin-link a,
+html[data-color-mode="dark"] body[data-public-page] .btn-secondary,
+html[data-color-mode="dark"] body[data-public-page] .btn-footer-secondary,
+html[data-color-mode="dark"] body[data-public-page] .btn-pj-secondary,
+html[data-color-mode="dark"] body[data-public-page] .btn-view-matched,
+html[data-color-mode="dark"] body[data-public-page] .btn-profile-link,
+html[data-color-mode="dark"] body[data-public-page] .outline,
+html[data-color-mode="dark"] body[data-public-page] .plan-button:not(.primary-button),
+html[data-color-mode="dark"] body[data-public-page] .button-outline,
+html[data-color-mode="dark"] body[data-public-page] .button-ghost {
+  color: #b7d1ff !important;
+  border-color: #47658f !important;
+  background: #1c2c45 !important;
+}
+html[data-color-mode="dark"] body[data-public-page] .signin-link a:hover,
+html[data-color-mode="dark"] body[data-public-page] .btn-secondary:hover,
+html[data-color-mode="dark"] body[data-public-page] .btn-footer-secondary:hover,
+html[data-color-mode="dark"] body[data-public-page] .btn-pj-secondary:hover,
+html[data-color-mode="dark"] body[data-public-page] .btn-view-matched:hover,
+html[data-color-mode="dark"] body[data-public-page] .btn-profile-link:hover,
+html[data-color-mode="dark"] body[data-public-page] .outline:hover,
+html[data-color-mode="dark"] body[data-public-page] .plan-button:not(.primary-button):hover,
+html[data-color-mode="dark"] body[data-public-page] .button-outline:hover,
+html[data-color-mode="dark"] body[data-public-page] .button-ghost:hover {
+  background: #263a58 !important;
+}
+html[data-color-mode="dark"] body[data-public-page] .main-nav a[aria-current="page"],
+html[data-color-mode="dark"] body[data-public-page] .view-all {
+  color: #91baff !important;
+}
+html[data-color-mode="dark"] body[data-public-page] .navbar .nav-links.is-open {
+  border-color: #344258 !important;
+  background: rgba(20, 31, 49, .98) !important;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, .3);
+}
+html[data-color-mode="dark"] body[data-public-page] .navbar .nav-links.is-open a { color: #c0cce0; }
+html[data-color-mode="dark"] body[data-public-page] .navbar .nav-links.is-open a:hover,
+html[data-color-mode="dark"] body[data-public-page] .navbar .nav-links.is-open a[aria-current="page"] { color: #83b2ff; }
+html[data-color-mode="dark"] body[data-public-page] .input-wrapper .toggle-password,
+html[data-color-mode="dark"] body[data-public-page] .input-wrapper .field-icon {
+  color: #aebbd0;
+}
+html[data-color-mode="dark"] body[data-public-page] .social-btn { color: #d5deed; }
+html[data-color-mode="dark"] body[data-public-page] .social-btn:hover { border-color: #526a8b !important; }
+html[data-color-mode="dark"] body[data-public-page] .faq-item summary strong { color: #e8eef9; }
+html[data-color-mode="dark"] body[data-public-page] .faq-item[open] { background: #1c2b40 !important; }
+html[data-color-mode="dark"] body[data-public-page] .role-button { color: #fff !important; }
+html[data-color-mode="dark"] body[data-public-page] .candidate-card .skeleton { background: #2a3a52 !important; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html[data-color-mode] body[data-public-page] main > section,
+  html[data-color-mode] body[data-public-page] .site-theme-toggle {
+    transition: background-color .28s ease, background-image .28s ease, color .28s ease, border-color .28s ease;
+  }
+}
+
+/* Job seeker dashboard dark mode */
+body[data-jobseeker-dashboard] .site-theme-toggle {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  color: #475569;
+  background: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+body[data-jobseeker-dashboard] .site-theme-toggle:hover { color: #0052ff; }
+body[data-jobseeker-dashboard] .site-theme-toggle:focus-visible {
+  outline: 3px solid rgba(0, 82, 255, .38);
+  outline-offset: 3px;
+}
+body[data-jobseeker-dashboard] .site-theme-icon { font-size: 18px; line-height: 1; }
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] {
+  color-scheme: dark;
+  --ink: #e8eef9;
+  --muted: #a5b2c8;
+  --line: #344258;
+  --paper: #182235;
+  --bg: #101827;
+  color: #d5deed;
+  background: #101827;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .topbar {
+  border-color: #344258;
+  background: #101827;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .topbar strong,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .section-title h2,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .panel h2,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .job-info h3,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .job-card-title h3,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .application-row strong,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .page-heading h1,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .tour-box h2,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .preferences-row h2,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .setting-row strong,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .form-section-heading h3,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .world-tab strong {
+  color: #e8eef9;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .muted,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .topbar small,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .stat small,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .panel-head p,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .page-heading > p,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .job-info p,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .job-info small,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .application-row small,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .profile-form label,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .editor-label,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .setting-row p,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .preferences-row p,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .form-section-heading p,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .job-meta,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .check {
+  color: #a5b2c8;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .panel,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .stat,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .job-card,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .job-row,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .application-row,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .customize-tile,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .world-tab,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .custom-field-row,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .custom-field-add-row,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .tour-box,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .jerry-panel,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .jerry-message-bot {
+  color: #e8eef9;
+  border-color: #344258;
+  background-color: #182235;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .public-preview {
+  color: #e8eef9;
+  border-color: #344258;
+  background: linear-gradient(145deg, #18263b, #111b2c);
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .public-preview h2,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .public-preview h3,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .public-preview .public-detail strong {
+  color: #e8eef9;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .public-preview p,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .public-preview .public-detail span,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .public-preview-meta,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .public-preview-footer {
+  color: #a5b2c8;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .search-row input,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .profile-form input,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .profile-form textarea,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .editor-label input,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .editor-label textarea,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .custom-field-row input,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .custom-field-row select,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .custom-field-add-row input,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .custom-field-add-row select,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] select,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] textarea {
+  color: #edf3ff;
+  border-color: #40516c;
+  background-color: #111b2c;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] input::placeholder,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] textarea::placeholder {
+  color: #94a3ba;
+  opacity: 1;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .filter,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .world-tab,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .button.outline,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .button.ghost,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .text-button,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .icon-link,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .jerry-quick-actions button {
+  color: #c0cce0;
+  border-color: #40516c;
+  background-color: #1c2c45;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .filter:hover,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .world-tab:hover,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .button.outline:hover,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .jerry-quick-actions button:hover {
+  background-color: #263a58;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .status {
+  color: #bdd0ec;
+  border-color: #40516c;
+  background-color: #23334b;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .progress-track,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .tour-progress,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .jerry-chat-log {
+  background-color: #111b2c;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .check i {
+  border-color: #52637c;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .tour-box > p,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .tour-tip p,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .jerry-message p {
+  color: #bac7da;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .site-theme-toggle {
+  color: #e8eef9;
+  border-color: #40516c;
+  background-color: #182235;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .site-theme-toggle:hover {
+  color: #83b2ff;
+}
+html[data-color-mode="dark"] body[data-public-page] .footer-link-placeholder {
+  color: #93a2b8;
+}
+/* Job seeker dashboard dark control states */
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] { --accent-soft: #203550; }
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .save-button,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .close-button {
+  color: #c0cce0;
+  border-color: #40516c;
+  background-color: #1c2c45;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .save-button:hover,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .close-button:hover {
+  color: #edf3ff;
+  background-color: #263a58;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .empty-state,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .tour-tip,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .world-notice,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .private-banner {
+  color: #d5deed;
+  border-color: #344258;
+  background: #1c2c45;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .tour-tip strong,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .private-banner strong,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .private-banner > span {
+  color: #bdd0ec;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .tour-tip p,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .private-banner p {
+  color: #a5b2c8;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .preview-lock {
+  color: #8be1bc;
+  background: #173e36;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .status.review {
+  color: #ffda91;
+  background: #493921;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .status.interview {
+  color: #8be1bc;
+  background: #173e36;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .jerry-panel-header {
+  border-color: #344258;
+  background: #182235;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .jerry-panel-header span,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .jerry-quick-title,
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .jerry-message-name {
+  color: #a5b2c8;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .remove-custom-field {
+  color: #ffb4aa;
+  border-color: #633c44;
+  background: #3d2630;
+}
+html[data-color-mode="dark"] body[data-jobseeker-dashboard] .remove-custom-field:hover {
+  background: #53303a;
+}

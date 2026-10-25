@@ -1187,3 +1187,18 @@ p {
     font-size: 11px;
   }
 }
+
+.product-tab:focus-visible,
+.plan-button:focus-visible,
+.support-button:focus-visible {
+  outline: 3px solid rgba(8, 98, 247, .35);
+  outline-offset: 3px;
+}
+.product-tab { transition: color .2s ease, background-color .2s ease, box-shadow .2s ease, transform .2s ease; }
+.product-tab:hover { transform: translateY(-1px); }
+@media (prefers-reduced-motion: reduce) {
+  .product-tab,
+  .plan-button,
+  .support-button { transition: none; }
+  .product-tab:hover { transform: none; }
+}

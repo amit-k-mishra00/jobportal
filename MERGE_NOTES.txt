@@ -1,0 +1,7 @@
+JobPortal combined project
+
+Base: user-provided Vansh back up project.
+Merged: compact workflow icon/arrow sizing and desktop headline-overlap CSS refinement.
+The original project database and source files were preserved. The local virtual environment was excluded because it is machine-specific and can be recreated from requirements.txt.
+
+Please run locally and visually verify the layout; automated browser screenshot testing was not performed.

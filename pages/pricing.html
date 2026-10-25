@@ -10,26 +10,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/motion.css">
   <link rel="stylesheet" href="../css/site-header.css">
+  <link rel="stylesheet" href="../css/dark-mode.css">
+  <script src="../js/dark-mode.js"></script>
 </head>
-<body>
+<body data-public-page>
 
 <!-- ================= SECTION 1: PRICING HERO ================= -->
 
 <header class="navbar">
-    <div class="nav-container">
-        <div class="logo">
-            <a href="../index.html">TalentBridge AI<span class="logo-accent">:</span></a>
-        </div>
-        <nav class="nav-links" aria-label="Main navigation">
-            <a href="employer.html">For Employers</a>
-            <a href="employee.html">For Job Seekers</a>
-            <a href="pricing.html" class="active" aria-current="page">Pricing</a>
-        </nav>
-        <div class="auth-actions">
-            <a href="login.html" class="auth-btn auth-signin">Sign In</a>
-            <a href="signup-role.html" class="auth-btn auth-signup">Sign Up</a>
-        </div>
+  <div class="nav-container">
+    <div class="logo"><a href="../index.html">TalentBridge AI<span class="logo-accent">:</span></a></div>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="employer.html">For Employers</a>
+      <a href="jobseaker.html">For Job Seekers</a>
+      <a href="pricing.html" aria-current="page">Pricing</a>
+      
+    </nav>
+    <div class="auth-actions">
+      <a href="login.html" class="auth-btn auth-signin">Sign In</a>
+      <a href="signup-role.html" class="auth-btn auth-signup">Sign Up</a>
+      <a href="dashboard/cdashboard.html" class="auth-btn auth-dashboard">Dashboard</a>
     </div>
+  </div>
+  
 </header>
 
 <main>
@@ -48,14 +51,14 @@
       hiring in one place. Three plans. Simple, transparent pricing.
     </p>
 
-    <div class="product-tabs" role="tablist">
-      <button class="product-tab selected" data-tab="jobs">
+    <div class="product-tabs" role="group" aria-label="Hiring product focus">
+      <button class="product-tab selected" type="button" data-tab="jobs" aria-pressed="true">
         ▤ &nbsp; Job Posts
       </button>
-      <button class="product-tab" data-tab="reach">
+      <button class="product-tab" type="button" data-tab="reach" aria-pressed="false">
         ♧ &nbsp; Reach
       </button>
-      <button class="product-tab" data-tab="autopilot">
+      <button class="product-tab" type="button" data-tab="autopilot" aria-pressed="false">
         ϟ &nbsp; Autopilot
       </button>
     </div>
@@ -355,8 +358,12 @@
 
   productTabs.forEach(tab => {
     tab.addEventListener("click", () => {
-      productTabs.forEach(item => item.classList.remove("selected"));
+      productTabs.forEach(item => {
+        item.classList.remove("selected");
+        item.setAttribute("aria-pressed", "false");
+      });
       tab.classList.add("selected");
+      tab.setAttribute("aria-pressed", "true");
 
       const selectedProduct = tab.dataset.tab;
       const heading = document.querySelector(".hero-content h1");

@@ -1,0 +1,120 @@
+/* Jerry's standalone guide UI. Keep this stylesheet with jerry-guide.js and assets/. */
+:root {
+  --jerry-navy: #071a33;
+  --jerry-blue: #247cf4;
+  --jerry-cyan: #55d9f7;
+  --jerry-line: #dce8f7;
+  --jerry-ink: #18304c;
+  --jerry-muted: #7b8da5;
+}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.jerry-widget{position:fixed;right:22px;bottom:22px;z-index:140;display:flex;align-items:flex-end;flex-direction:column;gap:12px;font-family:"DM Sans",sans-serif}
+.jerry-launcher{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;gap:4px;width:78px;height:82px;padding:0;border:0;background:transparent;filter:drop-shadow(0 9px 16px #092b5540);transition:transform .22s ease;cursor:pointer}
+.jerry-launcher:hover{transform:translateY(-4px) scale(1.035)}
+.jerry-launcher img{position:relative;z-index:2;width:100%;height:100%;object-fit:contain;image-rendering:pixelated;animation:jerryHover 3.2s ease-in-out infinite}
+.jerry-launcher-halo{position:absolute;z-index:0;inset:19px 12px 9px;border-radius:50%;background:radial-gradient(circle,#40bfff44,transparent 70%);filter:blur(5px)}
+.jerry-launcher-label{position:absolute;right:73px;bottom:20px;white-space:nowrap;padding:7px 10px;background:#0c294b;color:#e9f7ff;border:1px solid #3b93ca;border-radius:10px;font-size:11px;font-weight:800;box-shadow:0 8px 24px #092b5520;opacity:0;transform:translateX(5px);transition:opacity .2s ease,transform .2s ease;pointer-events:none}
+.jerry-launcher:hover .jerry-launcher-label,.jerry-launcher:focus-visible .jerry-launcher-label{opacity:1;transform:translateX(0)}
+.jerry-panel{width:min(370px,calc(100vw - 28px));height:min(650px,calc(100vh - 145px));min-height:410px;display:flex;flex-direction:column;overflow:hidden;background:#fff;border:1px solid #cfe0f3;border-radius:21px;box-shadow:0 24px 70px #051a3440;animation:jerryPanelIn .22s ease both}
+.jerry-panel[hidden]{display:none!important}
+.jerry-panel-header{display:flex;align-items:center;gap:10px;padding:12px 14px;background:linear-gradient(115deg,#071a33,#0d3b67);color:white;border-bottom:1px solid #ffffff14}
+.jerry-panel-header>img{width:43px;height:43px;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(0 2px 5px #0004)}
+.jerry-panel-header>div{display:grid;gap:3px;min-width:0;flex:1}
+.jerry-panel-header strong{font:800 15px Manrope,sans-serif;color:#fff}
+.jerry-panel-header span{font-size:10px;color:#b8d2ec;line-height:1.4}
+.jerry-close{width:29px;height:29px;flex:none;border:1px solid #ffffff22;border-radius:9px;background:#ffffff0d;color:#e9f5ff;font-size:21px;line-height:1;cursor:pointer}
+.jerry-close:hover{background:#ffffff1d}
+.jerry-welcome{padding:14px 15px 13px;margin:11px 11px 8px;background:linear-gradient(135deg,#eff7ff,#f7fbff);border:1px solid #d8eafd;border-radius:14px;color:var(--jerry-ink)}
+.jerry-eyebrow{font-size:8px;letter-spacing:1.5px;font-weight:900;color:#3382da;margin:0 0 8px}
+.jerry-welcome>strong{font:800 14px Manrope,sans-serif}
+.jerry-welcome>p:not(.jerry-eyebrow){font-size:11px;line-height:1.65;color:#637894;margin:6px 0 10px}
+.jerry-start-tour{display:flex;justify-content:space-between;align-items:center;gap:8px;width:100%;text-align:left;padding:9px 10px;border:1px solid #c9e2ff;border-radius:9px;background:#fff;color:#1969c8;font-size:10px;font-weight:800;cursor:pointer}
+.jerry-start-tour span{font-size:15px;transition:transform .2s}
+.jerry-start-tour:hover span{transform:translateX(3px)}
+.jerry-quick-title{padding:0 14px 7px;font-size:9px;letter-spacing:.45px;font-weight:800;color:#8191a7}
+.jerry-quick-actions{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 10px}
+.jerry-quick-actions button{border:1px solid #dce8f6;background:#fff;color:#315372;border-radius:99px;padding:7px 9px;font-size:9px;font-weight:700;cursor:pointer;transition:background .18s,border-color .18s,transform .18s}
+.jerry-quick-actions button:hover{background:#eff7ff;border-color:#9dcafa;transform:translateY(-1px)}
+.jerry-chat-log{flex:1;min-height:52px;overflow:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:8px;padding:10px 12px 12px;border-top:1px solid #eef3f8;background:#fbfdff}
+.jerry-message{max-width:94%;padding:9px 11px;border-radius:12px;animation:jerryMessageIn .18s ease both}
+.jerry-message-name{display:block;font-size:9px;font-weight:900;letter-spacing:.3px;margin-bottom:4px;color:#3a7dc4}
+.jerry-message p{font-size:10px;line-height:1.65;margin:0;overflow-wrap:anywhere;color:#3c5068}
+.jerry-message-bot{align-self:flex-start;border:1px solid #e0ebf7;background:#fff;border-top-left-radius:4px}
+.jerry-message-user{align-self:flex-end;background:#e9f3ff;border:1px solid #cce2ff;border-top-right-radius:4px}
+.jerry-message-user .jerry-message-name{color:#2867ac;text-align:right}
+.jerry-action-link{display:inline-flex;margin-top:8px;border:0;background:transparent;color:#176bd2;padding:0;font-size:10px;font-weight:900;cursor:pointer}
+.jerry-action-link:hover{text-decoration:underline}
+.jerry-ask-form{display:flex;align-items:center;gap:6px;padding:10px 11px;border-top:1px solid #e6eef8;background:#fff}
+.jerry-ask-form input{width:0;min-width:0;flex:1;padding:11px 12px;border:1px solid #dce7f4;border-radius:10px;background:#f8fbff;color:#1d3551;font-size:11px;outline:none}
+.jerry-ask-form input:focus{border-color:#71b5ff;box-shadow:0 0 0 3px #2678f31a}
+.jerry-ask-form input::placeholder{color:#96a5b8}
+.jerry-ask-form button{display:flex;align-items:center;gap:7px;justify-content:center;border:0;border-radius:10px;background:linear-gradient(115deg,#2678f3,#36a7ff);color:white;font-size:10px;font-weight:900;padding:11px 12px;cursor:pointer;box-shadow:0 5px 12px #2678f326}
+.jerry-ask-form button span{font-size:15px;line-height:10px}
+.jerry-disclaimer{font-size:8px;color:#9aa7b7;text-align:center;padding:0 12px 10px;margin:0;background:#fff;line-height:1.45}
+.tour-mascot-row{display:flex;align-items:center;gap:10px;margin:3px 0 14px;min-height:75px}
+.tour-mascot{display:block;flex:none;width:76px;height:78px;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(0 6px 10px #2876b322);animation:jerryHover 3.2s ease-in-out infinite}
+.tour-mascot-copy{min-width:0;flex:1;padding:10px 11px;background:linear-gradient(135deg,#eff7ff,#f9fcff);border:1px solid #dbeafd;border-radius:12px;position:relative}
+.tour-mascot-copy:before{content:"";position:absolute;left:-5px;top:26px;width:9px;height:9px;background:#eff7ff;border-left:1px solid #dbeafd;border-bottom:1px solid #dbeafd;transform:rotate(45deg)}
+.tour-mascot-copy strong{font-size:11px;color:#1a548f;font-weight:900}
+.tour-mascot-copy p{margin:4px 0 0;font-size:9px;line-height:1.55;color:#657b94}
+.tour-mascot-row .tour-symbol{width:32px;height:32px;flex:none;border-radius:10px;font-size:17px}
+.tour-box{width:min(470px,100%)}
+.tour-box>p#tourDescription{font-size:12px;line-height:1.75}
+.tour-box .tour-target{line-height:1.45}
+.jerry-tour-focus{position:relative!important;outline:3px solid #288bff!important;outline-offset:3px!important;box-shadow:0 0 0 7px #288bff29,0 11px 26px #0c4d8b17!important;border-radius:12px!important;transition:outline-color .15s,box-shadow .15s!important}
+.jerry-tour-focus:focus{outline-offset:4px!important}
+@keyframes jerryHover{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes jerryPanelIn{from{opacity:0;transform:translateY(10px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes jerryMessageIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){
+ .jerry-widget{right:10px;bottom:10px;gap:8px}
+ .jerry-launcher{width:66px;height:70px}
+ .jerry-panel{width:min(370px,calc(100vw - 20px));height:min(620px,calc(100dvh - 105px));min-height:370px}
+ .tour-mascot{width:62px;height:66px}
+ .tour-mascot-row{gap:7px}
+ .tour-mascot-row .tour-symbol{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+ .jerry-launcher img,.tour-mascot{animation:none!important}
+ .jerry-panel,.jerry-message{animation:none!important}
+ .jerry-widget *{scroll-behavior:auto!important;transition:none!important}
+}
+body.motion-reduced .jerry-launcher img,body.motion-reduced .tour-mascot{animation-duration:.01ms!important;animation-iteration-count:1!important}
+body.motion-off .jerry-launcher img,body.motion-off .tour-mascot{animation:none!important}
+body.motion-off .jerry-widget *,body.motion-reduced .jerry-widget *{transition:none!important}
+@media print{.jerry-widget{display:none!important}}
+
+
+/* Jerry's interaction states: awake, answering, and resting after inactivity. */
+.jerry-sleep-indicator,
+.jerry-speaking-indicator{position:absolute;z-index:4;pointer-events:none;opacity:0;transform:translateY(3px);transition:opacity .18s ease,transform .18s ease}
+.jerry-sleep-indicator{top:-3px;right:1px;padding:4px 7px;border:1px solid #8bb8e9;border-radius:999px;background:#eaf5ff;color:#285c96;font:900 10px/1 "DM Sans",sans-serif;letter-spacing:.5px;box-shadow:0 4px 12px #092b5522}
+.jerry-speaking-indicator{top:5px;right:3px;color:#49d7ff;font:900 16px/1 monospace;letter-spacing:1px;text-shadow:0 0 10px #50cfff}
+.jerry-widget.is-sleeping .jerry-sleep-indicator{opacity:1;transform:translateY(0);animation:jerryZzz 2.6s ease-in-out infinite}
+.jerry-widget.is-sleeping .jerry-launcher img{animation:jerrySleep 4.2s ease-in-out infinite;filter:saturate(.7) brightness(.84);opacity:.84}
+.jerry-widget.is-sleeping .jerry-launcher-halo{opacity:.42;transform:scale(.84)}
+.jerry-widget.is-sleeping .jerry-launcher-label{opacity:1;transform:translateX(0)}
+.jerry-widget.is-thinking .jerry-launcher img{animation:jerrySpeak .7s ease-in-out infinite;filter:drop-shadow(0 0 6px #47d9ff62)}
+.jerry-widget.is-thinking .jerry-panel-header>img{animation:jerrySpeak .7s ease-in-out infinite}
+.jerry-widget.is-thinking .jerry-speaking-indicator{opacity:1;transform:translateY(0);animation:jerryDots .75s ease-in-out infinite}
+.jerry-widget.is-speaking .jerry-launcher img{animation:jerrySpeak .46s ease-in-out 3;filter:drop-shadow(0 0 7px #47d9ff70)}
+.jerry-widget.is-speaking .jerry-panel-header>img{animation:jerrySpeak .46s ease-in-out 3}
+.jerry-widget.is-speaking .jerry-launcher-halo{animation:jerryHalo .55s ease-in-out 3}
+.jerry-widget.is-speaking .jerry-speaking-indicator{opacity:1;transform:translateY(0);animation:jerryDots .75s ease-in-out infinite}
+.jerry-widget.is-sleeping .jerry-speaking-indicator{display:none}
+.jerry-typing{display:flex;align-items:center;gap:4px;min-height:18px;padding:2px 0}
+.jerry-typing span{width:5px;height:5px;border-radius:50%;background:#3b9aff;animation:jerryTyping .75s ease-in-out infinite}
+.jerry-typing span:nth-child(2){animation-delay:.12s}
+.jerry-typing span:nth-child(3){animation-delay:.24s}
+.jerry-widget.is-sleeping .jerry-panel{display:none!important}
+@keyframes jerrySleep{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(2px) rotate(-1.5deg)}}
+@keyframes jerryZzz{0%,100%{transform:translate(0,1px) scale(.96);opacity:.72}50%{transform:translate(2px,-3px) scale(1);opacity:1}}
+@keyframes jerrySpeak{0%,100%{transform:translateY(0) scale(1)}35%{transform:translateY(-5px) scale(1.045)}68%{transform:translateY(1px) scale(.985)}}
+@keyframes jerryHalo{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.18)}}
+@keyframes jerryDots{0%,100%{opacity:.3;transform:translateY(2px)}50%{opacity:1;transform:translateY(-1px)}}
+@keyframes jerryTyping{0%,60%,100%{transform:translateY(0);opacity:.45}30%{transform:translateY(-4px);opacity:1}}
+@media(prefers-reduced-motion:reduce){
+ .jerry-widget.is-sleeping .jerry-launcher img,.jerry-widget.is-sleeping .jerry-sleep-indicator,.jerry-widget.is-thinking .jerry-launcher img,.jerry-widget.is-thinking .jerry-panel-header>img,.jerry-widget.is-speaking .jerry-launcher img,.jerry-widget.is-speaking .jerry-panel-header>img,.jerry-widget.is-speaking .jerry-launcher-halo,.jerry-widget.is-speaking .jerry-speaking-indicator,.jerry-typing span{animation:none!important}
+}
+body.motion-reduced .jerry-widget.is-sleeping .jerry-launcher img,body.motion-reduced .jerry-widget.is-sleeping .jerry-sleep-indicator,body.motion-reduced .jerry-widget.is-thinking .jerry-launcher img,body.motion-reduced .jerry-widget.is-thinking .jerry-panel-header>img,body.motion-reduced .jerry-widget.is-speaking .jerry-launcher img,body.motion-reduced .jerry-widget.is-speaking .jerry-panel-header>img,body.motion-reduced .jerry-widget.is-speaking .jerry-launcher-halo,body.motion-reduced .jerry-widget.is-speaking .jerry-speaking-indicator,body.motion-reduced .jerry-typing span{animation:none!important}
+body.motion-off .jerry-widget.is-sleeping .jerry-launcher img,body.motion-off .jerry-widget.is-sleeping .jerry-sleep-indicator,body.motion-off .jerry-widget.is-thinking .jerry-launcher img,body.motion-off .jerry-widget.is-thinking .jerry-panel-header>img,body.motion-off .jerry-widget.is-speaking .jerry-launcher img,body.motion-off .jerry-widget.is-speaking .jerry-panel-header>img,body.motion-off .jerry-widget.is-speaking .jerry-launcher-halo,body.motion-off .jerry-widget.is-speaking .jerry-speaking-indicator,body.motion-off .jerry-typing span{animation:none!important}

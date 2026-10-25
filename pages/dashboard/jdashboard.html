@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TalentBridge AI | Job Seeker</title>
+  <link rel="stylesheet" href="../../css/dashboard/jdashboard.css">
+  <link rel="stylesheet" href="../../css/dashboard/jerry-guide/jerry-guide.css">
+  <link rel="stylesheet" href="../../css/dark-mode.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body data-jobseeker-dashboard>
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#page-home" data-page="home"><span class="brand-symbol">✳</span> TalentBridge <b>AI</b></a>
+    <p class="nav-label">WORKSPACE</p>
+    <nav>
+      <button class="nav-link active" data-page="home">⌂ <span>Overview</span></button>
+      <button class="nav-link" data-page="jobs">⌕ <span>Find jobs</span></button>
+      <button class="nav-link" data-page="applications">▤ <span>Applications</span></button>
+      <button class="nav-link" data-page="profile">◎ <span>Build my profile</span></button>
+      <button class="nav-link" data-page="profile-worlds">◉ <span>Public / Private</span></button>
+      <button class="nav-link" data-page="smartcard">▣ <span>My Smart Card</span></button>
+      <button class="nav-link" data-page="customize">✳ <span>Customize dashboard</span></button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-note"><span>✦</span><strong>Your next chapter starts here.</strong><small>Make your skills stand out.</small></div>
+      <button class="nav-link" data-page="settings">⚙ <span>Settings</span></button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="menu-button" id="menuButton" aria-label="Toggle navigation">☰</button>
+      <div><small class="muted">TalentBridge AI /</small> <strong id="pageLabel">Overview</strong></div>
+      <div class="top-actions"><a class="button outline dashboard-switch" href="cdashboard.html">cdashboard</a>
+        <label class="top-search">⌕ <input id="globalSearch" placeholder="Search jobs..." aria-label="Search jobs"></label>
+        <button class="text-button" data-page="profile" id="headerName">Your profile ↗</button>
+      </div>
+    </header>
+
+    <section class="page active" id="page-home">
+      <div class="hero">
+        <div class="hero-content">
+          <span class="eyebrow"><i></i> YOUR CAREER, YOUR WAY</span>
+          <h1>Make your next move<br><span>your best one.</span></h1>
+          <p>Build a profile that feels like you, discover opportunities, and share your story with confidence.</p>
+          <div class="hero-actions">
+            <button class="button primary" data-page="profile">Craft my profile <span>→</span></button>
+            <button class="button ghost" data-page="jobs">Explore jobs</button>
+          </div>
+          <button class="tour-link" id="replayTour">✦ Take the quick tour</button>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="glow"></div><div class="orbit orbit1"></div><div class="orbit orbit2"></div>
+          <div class="floating-card"><div class="float-top"><span class="mini-brand">TB</span><span>•••</span></div><div class="float-title">Your next chapter</div><div class="float-line wide"></div><div class="float-line"></div><div class="float-tags"><i>Skills</i><i>Goals</i><i>Growth</i></div><div class="float-progress"><i></i></div><div class="float-foot">PROFILE IN PROGRESS <b>✦</b></div></div>
+          <span class="float-chip chip-one">✦ Find your fit</span><span class="float-chip chip-two">✓ Keep growing</span>
+        </div>
+      </div>
+
+      <div class="section-title"><div><span class="eyebrow light">YOUR WORKSPACE</span><h2>Small steps. Real progress.</h2></div><button class="text-button" data-page="profile">Complete profile →</button></div>
+      <div class="stats">
+        <article class="stat"><span class="stat-icon blue">↗</span><div><small>Applications</small><strong id="statApplications">0</strong></div></article>
+        <article class="stat"><span class="stat-icon purple">♡</span><div><small>Saved jobs</small><strong id="statSaved">0</strong></div></article>
+        <article class="stat"><span class="stat-icon green">✓</span><div><small>Profile progress</small><strong id="statProgress">25%</strong></div></article>
+      </div>
+      <div class="content-grid">
+        <section class="panel">
+          <div class="panel-head"><div><h2>Jobs to explore</h2><p>Sample roles to help you test the dashboard.</p></div><button class="text-button" data-page="jobs">View all →</button></div>
+          <div id="homeJobs" class="job-list"></div>
+        </section>
+        <section class="panel card-summary">
+          <div class="panel-head"><div><h2>Your Smart Card</h2><p>A simple digital introduction.</p></div><button class="icon-link" data-page="smartcard">↗</button></div>
+          <div class="mini-smart-card" id="miniSmartCard"><span class="mini-card-brand" id="miniCardBrand">TALENTBRIDGE <b>AI</b></span><h3 id="miniName">Your Name</h3><p id="miniHeadline">Add a professional headline</p><div class="mini-divider"></div><div id="miniSkills" class="mini-skills"><span>Your skills</span></div><span class="mini-card-footer">YOUR STORY. YOUR NEXT MOVE.</span></div>
+          <button class="button outline full" data-page="smartcard">Customize card</button>
+        </section>
+      </div>
+    </section>
+
+    <section class="page" id="page-jobs">
+      <div class="page-heading"><span class="eyebrow light">FIND YOUR FIT</span><h1>Explore <span>opportunities.</span></h1><p>Search roles, save interesting jobs, and track applications.</p></div>
+      <section class="panel search-panel"><div class="search-row"><input id="jobQuery" placeholder="Job title, company, or skill"><input id="jobLocation" placeholder="Location or remote"><button class="button primary" id="searchButton">Search</button></div><div class="filters" id="jobFilters"><button class="filter active" data-filter="All">All jobs</button><button class="filter" data-filter="Remote">Remote</button><button class="filter" data-filter="Full-time">Full-time</button><button class="filter" data-filter="Internship">Internship</button></div></section>
+      <div class="panel-head result-head"><div><h2>Open opportunities</h2><p id="resultCount">Explore sample roles</p></div><select id="jobSort" class="simple-select"><option value="recommended">Recommended</option><option value="company">Company A–Z</option></select></div>
+      <div id="jobsList" class="job-grid"></div>
+    </section>
+
+    <section class="page" id="page-applications">
+      <div class="page-heading"><span class="eyebrow light">YOUR PROGRESS</span><h1>My <span>applications.</span></h1><p>Keep your job search organized in one place.</p></div>
+      <section class="panel"><div class="panel-head"><div><h2>Application tracker</h2><p>Demo applications are saved in this browser.</p></div><select id="applicationFilter" class="simple-select"><option>All</option><option>Applied</option><option>In review</option><option>Interview</option></select></div><div id="applicationList" class="application-list"></div></section>
+    </section>
+
+    <section class="page" id="page-profile">
+      <div class="page-heading"><span class="eyebrow light">YOUR STORY, YOUR WAY</span><h1>Build your <span>profile.</span></h1><p>No profile photo needed. Focus on the details and skills that make you stand out.</p></div>
+      <div class="profile-layout">
+        <form class="panel profile-form" id="profileForm">
+          <div class="panel-head"><div><h2>Profile details</h2><p>Your Smart Card updates from these details.</p></div><span class="live-badge">● Live</span></div>
+          <div class="form-grid">
+            <div class="form-section-heading span-2"><span>00</span><div><h3>Basic introduction</h3><p>Your name, headline, contact preferences, summary, and core skills.</p></div></div>
+            <label>First name<input id="firstName" required placeholder="First name"></label>
+            <label>Last name<input id="lastName" required placeholder="Last name"></label>
+            <label class="span-2">Professional headline<input id="headline" maxlength="90" placeholder="e.g. Aspiring Software Engineer"></label>
+            <label>Email<input id="email" type="email" placeholder="you@example.com"></label>
+            <label>Location<input id="location" placeholder="City, country or remote"></label>
+            <label class="span-2">About you<textarea id="bio" rows="4" maxlength="400" placeholder="A short introduction about your interests, strengths, and goals."></textarea><small class="counter"><span id="bioCount">0</span>/400</small></label>
+            <label class="span-2">Skills <small>(separate with commas)</small><input id="skills" placeholder="HTML, communication, project management"></label>
+            <div class="form-section-heading span-2"><span>01</span><div><h3>Personal details</h3><p>Use only the details you feel comfortable sharing.</p></div></div>
+            <label>Pronouns <small>(optional)</small><input id="pronouns" placeholder="e.g. they/them"></label>
+            <label>Phone <small>(optional)</small><input id="phone" type="tel" placeholder="+91…"></label>
+            <div class="form-section-heading span-2"><span>02</span><div><h3>Career direction</h3><p>Help tailor your profile to the roles you want.</p></div></div>
+            <label>Current role / status<input id="currentRole" placeholder="e.g. Student, Junior Developer"></label>
+            <label>Industry<input id="industry" placeholder="e.g. Technology, Design"></label>
+            <label>Career level<select id="careerLevel"><option value="">Choose level</option><option>Student</option><option>Entry level</option><option>Junior</option><option>Mid-level</option><option>Senior</option><option>Lead / Manager</option><option>Executive</option><option>Career changer</option></select></label>
+            <label>Employment status<select id="employmentStatus"><option value="">Choose status</option><option>Studying</option><option>Seeking first role</option><option>Open to opportunities</option><option>Currently employed</option><option>Freelancing</option><option>Career break</option></select></label>
+            <label>Desired role<input id="desiredRole" placeholder="Role you're aiming for"></label>
+            <label>Work preference<select id="workPreference"><option value="">Choose preference</option><option>Remote</option><option>Hybrid</option><option>On-site</option><option>Flexible</option></select></label>
+            <label>Preferred job types<input id="jobTypes" placeholder="Full-time, internship, contract"></label>
+            <label>Availability<select id="availability"><option value="">Choose availability</option><option>Immediately</option><option>Within 2 weeks</option><option>Within a month</option><option>1–3 months</option><option>Just exploring</option></select></label>
+            <label>Notice period<input id="noticePeriod" placeholder="e.g. 30 days, not applicable"></label>
+            <label>Preferred location<input id="preferredLocation" placeholder="Cities, regions, or remote"></label>
+            <label>Open to relocation<select id="willingToRelocate"><option value="">Choose option</option><option>Yes</option><option>No</option><option>Maybe</option></select></label>
+            <label class="span-2">Work authorization / sponsorship notes <small>(optional)</small><input id="workAuthorization" placeholder="Only share information relevant to your applications"></label>
+            <div class="form-section-heading span-2"><span>03</span><div><h3>Experience, education & proof of work</h3><p>Make it easy for people to understand what you can do.</p></div></div>
+            <label class="span-2">Education<input id="education" placeholder="Course, institution, year, or qualification"></label>
+            <label class="span-2">Experience<textarea id="experience" rows="3" placeholder="Jobs, internships, volunteering, responsibilities, or measurable results"></textarea></label>
+            <label class="span-2">Projects<textarea id="projects" rows="3" placeholder="Project name, what you built, tools used, and the outcome"></textarea></label>
+            <label class="span-2">Certifications & courses<textarea id="certifications" rows="3" placeholder="Certification, provider, completion date, credential URL"></textarea></label>
+            <label class="span-2">Achievements & awards<textarea id="achievements" rows="3" placeholder="Awards, accomplishments, milestones, or recognition"></textarea></label>
+            <label class="span-2">Publications / talks<textarea id="publications" rows="2" placeholder="Articles, talks, research, or presentations (optional)"></textarea></label>
+            <label class="span-2">Volunteering / community<textarea id="volunteer" rows="2" placeholder="Community work, mentoring, or volunteer experience (optional)"></textarea></label>
+            <label>Years of experience<input id="yearsExperience" type="number" min="0" max="60" placeholder="e.g. 2"></label>
+            <label>Languages<input id="languages" placeholder="English, Hindi"></label>
+            <label class="span-2">Interests & strengths<input id="interests" placeholder="Accessibility, writing, teamwork, open source"></label>
+            <div class="form-section-heading span-2"><span>04</span><div><h3>Links & contact</h3><p>Choose what you want to connect to your professional identity.</p></div></div>
+            <label>Portfolio URL<input id="portfolio" type="url" placeholder="https://yourportfolio.com"></label>
+            <label>LinkedIn URL<input id="linkedin" type="url" placeholder="https://linkedin.com/in/…"></label>
+            <label>GitHub / code URL<input id="github" type="url" placeholder="https://github.com/…"></label>
+            <label>Resume URL <small>(optional)</small><input id="resumeUrl" type="url" placeholder="Link to a resume you choose to share"></label>
+            <label>Personal website / extra link<input id="extraLink" type="url" placeholder="https://"></label>
+          </div>
+          <section class="custom-fields-editor">
+            <div class="panel-head"><div><h2>Your own profile fields</h2><p>Anything we missed? Add your own label and value. New fields are private by default.</p></div><span class="live-badge">FLEXIBLE</span></div>
+            <div class="custom-field-add-row"><label>Field name<input id="customFieldLabel" maxlength="50" placeholder="e.g. Preferred professional specialty"></label><label>Field value<input id="customFieldValue" maxlength="300" placeholder="Your custom detail"></label><label>Visibility<select id="customFieldVisibility"><option value="private">Private</option><option value="public">Public</option></select></label><button type="button" id="addCustomField" class="button primary">Add field +</button></div>
+            <div id="customFieldsList" class="custom-fields-list"><p class="muted small">No custom fields yet. Add one whenever you need it.</p></div>
+          </section>
+          <div class="form-actions profile-actions"><button type="button" class="button quiet" id="resetProfile">Reset fields</button><button type="button" class="button outline" data-page="profile-worlds">Public / private →</button><button type="submit" class="button primary">Save profile ✓</button></div><p id="profileMessage" class="message" aria-live="polite"></p>
+        </form>
+        <aside class="panel progress-panel"><h2>Profile progress</h2><div class="progress-number" id="progressNumber">0%</div><div class="progress-track"><i id="progressBar"></i></div><p class="muted">Complete more fields to make your introduction useful to employers.</p><div id="profileChecks" class="checks"></div><button class="button outline full" data-page="smartcard">Preview Smart Card →</button></aside>
+      </div>
+    </section>
+
+    <section class="page" id="page-profile-worlds">
+      <div class="page-heading"><span class="eyebrow light">TWO SIDES OF YOUR STORY</span><h1>Your profile, <span>your boundaries.</span></h1><p>Keep a public profile for opportunities and a private workspace for personal notes. Private information stays hidden from the public preview in this demo.</p></div>
+      <div class="world-switch" role="tablist" aria-label="Profile workspace">
+        <button class="world-tab active" data-world="public" role="tab" aria-selected="true"><span>◎</span><strong>Public profile</strong><small>What other people can see</small></button>
+        <button class="world-tab" data-world="private" role="tab" aria-selected="false"><span>⌑</span><strong>Private workspace</strong><small>For your eyes only</small></button>
+      </div>
+      <div class="world-notice" id="worldNotice">🌐 Your public profile is your professional introduction. Only fields marked public are included in the public preview.</div>
+      <div class="world-layout">
+        <section class="panel world-editor">
+          <div class="panel-head"><div><h2 id="worldEditorTitle">Public profile</h2><p id="worldEditorSub">Choose what to share and how it appears.</p></div><span class="live-badge" id="worldBadge">PUBLIC</span></div>
+          <div id="publicWorldEditor">
+            <div class="form-grid">
+              <label>Display name<input id="publicDisplayName" placeholder="Name shown publicly"></label>
+              <label>Professional title<input id="publicTitle" placeholder="e.g. Junior Web Developer"></label>
+              <label class="span-2">Public introduction<textarea id="publicBio" rows="4" maxlength="500" placeholder="A professional summary you are comfortable sharing"></textarea></label>
+              <label class="span-2">Public skills<input id="publicSkills" placeholder="HTML, UX design, teamwork"></label>
+              <label>Portfolio URL<input id="publicPortfolio" type="url" placeholder="https://yourportfolio.com"></label>
+              <label>Public location<input id="publicLocation" placeholder="City or Remote"></label>
+              <label>Public LinkedIn URL<input id="publicLinkedin" type="url" placeholder="https://linkedin.com/in/…"></label>
+              <label>Public GitHub URL<input id="publicGithub" type="url" placeholder="https://github.com/…"></label>
+            </div>
+            <div class="public-sync-row"><p>Want to start from your main profile details?</p><button type="button" class="button outline" id="syncPublicFromProfile">Copy main profile into public fields ↗</button></div>
+            <div class="visibility-list"><h3>Public visibility controls</h3><p>Switch each item on or off. Hidden fields stay in your saved data but won't appear in the public preview or copied public text.</p>
+              <label><span><strong>Email address</strong><small>Usually best kept private</small></span><input type="checkbox" id="showEmail"></label>
+              <label><span><strong>Location</strong><small>Show your city or preferred work region</small></span><input type="checkbox" id="showLocation" checked></label>
+              <label><span><strong>Skills</strong><small>Highlight your strongest skills</small></span><input type="checkbox" id="showSkills" checked></label>
+              <label><span><strong>Portfolio link</strong><small>Let people explore your work</small></span><input type="checkbox" id="showPortfolio" checked></label>
+              <details class="visibility-more"><summary>More options: career details, qualifications, and links</summary><div class="visibility-more-grid">
+                <label><span><strong>Pronouns</strong><small>Optional identity detail</small></span><input type="checkbox" id="showPronouns"></label>
+                <label><span><strong>Phone</strong><small>Usually keep this private</small></span><input type="checkbox" id="showPhone"></label>
+                <label><span><strong>Current role</strong><small>What you do now</small></span><input type="checkbox" id="showCurrentRole"></label>
+                <label><span><strong>Industry</strong><small>Professional field</small></span><input type="checkbox" id="showIndustry"></label>
+                <label><span><strong>Career level</strong><small>Student, junior, senior, etc.</small></span><input type="checkbox" id="showCareerLevel"></label>
+                <label><span><strong>Employment status</strong><small>Current career situation</small></span><input type="checkbox" id="showEmploymentStatus"></label>
+                <label><span><strong>Desired role</strong><small>Roles you're looking for</small></span><input type="checkbox" id="showDesiredRole"></label>
+                <label><span><strong>Work preference</strong><small>Remote, hybrid, on-site</small></span><input type="checkbox" id="showWorkPreference"></label>
+                <label><span><strong>Preferred job types</strong><small>Full-time, internship, contract</small></span><input type="checkbox" id="showJobTypes"></label>
+                <label><span><strong>Availability</strong><small>When you can start</small></span><input type="checkbox" id="showAvailability"></label>
+                <label><span><strong>Notice period</strong><small>Only if useful to share</small></span><input type="checkbox" id="showNoticePeriod"></label>
+                <label><span><strong>Preferred location</strong><small>Search region</small></span><input type="checkbox" id="showPreferredLocation"></label>
+                <label><span><strong>Years of experience</strong><small>Approximate total</small></span><input type="checkbox" id="showYearsExperience" checked></label>
+                <label><span><strong>Education</strong><small>Qualifications</small></span><input type="checkbox" id="showEducation" checked></label>
+                <label><span><strong>Experience</strong><small>Jobs and internships</small></span><input type="checkbox" id="showExperience" checked></label>
+                <label><span><strong>Projects</strong><small>Work samples and projects</small></span><input type="checkbox" id="showProjects" checked></label>
+                <label><span><strong>Certifications</strong><small>Courses and credentials</small></span><input type="checkbox" id="showCertifications" checked></label>
+                <label><span><strong>Achievements</strong><small>Awards and milestones</small></span><input type="checkbox" id="showAchievements" checked></label>
+                <label><span><strong>Languages</strong><small>Languages you use</small></span><input type="checkbox" id="showLanguages" checked></label>
+                <label><span><strong>Interests & strengths</strong><small>Professional interests</small></span><input type="checkbox" id="showInterests"></label>
+                <label><span><strong>Publications / talks</strong><small>Articles and presentations</small></span><input type="checkbox" id="showPublications"></label>
+                <label><span><strong>Volunteering</strong><small>Community or volunteer work</small></span><input type="checkbox" id="showVolunteer"></label>
+                <label><span><strong>LinkedIn URL</strong><small>Professional social profile</small></span><input type="checkbox" id="showLinkedin"></label>
+                <label><span><strong>GitHub / code URL</strong><small>Code or project repository</small></span><input type="checkbox" id="showGithub"></label>
+                <label><span><strong>Resume URL</strong><small>Resume you choose to share</small></span><input type="checkbox" id="showResume"></label>
+                <label><span><strong>Custom fields</strong><small>Only fields individually marked Public</small></span><input type="checkbox" id="showCustomFields" checked></label>
+              </div></details>
+            </div>
+          </div>
+          <div id="privateWorldEditor" hidden>
+            <div class="private-banner"><span>⌑</span><div><strong>Private by default</strong><p>Personal notes, career goals, salary expectations and interview prep are not included in your public profile preview.</p></div></div>
+            <div class="form-grid">
+              <label class="span-2">Personal notes<textarea id="privateNotes" rows="4" placeholder="Anything you want to remember about your career journey"></textarea></label>
+              <label>Target role<input id="privateTargetRole" placeholder="Role you want next"></label>
+              <label>Target salary<input id="privateSalary" placeholder="Optional range"></label>
+              <label class="span-2">Career goals<textarea id="privateGoals" rows="3" placeholder="Your next goals and milestones"></textarea></label>
+              <label class="span-2">Interview preparation<textarea id="privateInterview" rows="4" placeholder="Questions to practice, examples, and notes"></textarea></label>
+              <label class="span-2">Job-search preferences<textarea id="privatePreferences" rows="3" placeholder="Preferred industries, work style, companies, or deal-breakers"></textarea></label>
+            </div>
+            <p class="privacy-footnote">🔒 Private notes are stored in this browser in this front-end demo. This is not a secure server-side vault; don't store sensitive secrets here.</p>
+          </div>
+          <div class="form-actions"><button class="button quiet" id="resetWorld" type="button">Reset this workspace</button><button class="button primary" id="saveWorld" type="button">Save changes ✓</button></div>
+          <p class="message" id="worldMessage" aria-live="polite"></p>
+        </section>
+        <aside class="panel public-preview-panel"><div class="panel-head"><div><h2>Public preview</h2><p>This is the shareable-facing version.</p></div><span class="preview-lock">◉ PREVIEW</span></div><article class="public-preview" id="publicPreview"><span class="public-preview-brand">✳ TALENTBRIDGE AI</span><p class="public-preview-kicker">PROFESSIONAL PROFILE</p><h2 id="previewPublicName">Your Name</h2><h3 id="previewPublicTitle">Your professional title</h3><p id="previewPublicBio">Add a public introduction to tell people what you do and what you want to build next.</p><div id="previewPublicSkills" class="card-skills"><span>Add skills</span></div><div id="previewPublicDetails" class="public-detail-list"></div><div id="previewPublicCustomFields" class="public-custom-fields"></div><div class="public-preview-meta"><span id="previewPublicLocation">Location hidden</span><a id="previewPublicPortfolio" href="#" target="_blank" rel="noopener" hidden>Portfolio ↗</a><a id="previewPublicLinkedin" href="#" target="_blank" rel="noopener" hidden>LinkedIn ↗</a><a id="previewPublicGithub" href="#" target="_blank" rel="noopener" hidden>GitHub ↗</a><a id="previewPublicResume" href="#" target="_blank" rel="noopener" hidden>Resume ↗</a><span id="previewPublicEmail" hidden></span></div><small class="public-preview-footer">PUBLIC PROFILE PREVIEW · NO PHOTO REQUIRED</small></article><button class="button outline full" id="copyPublicProfile" type="button">Copy public profile text</button></aside>
+      </div>
+    </section>
+
+    <section class="page" id="page-smartcard">
+      <div class="page-heading"><span class="eyebrow light">YOUR DIGITAL INTRODUCTION</span><h1>Your story, in <span>one card.</span></h1><p>Customize the color and content. No photo required.</p></div>
+      <div class="smart-layout">
+        <section class="card-stage"><span class="live-label"><i></i> LIVE PREVIEW</span>
+          <article class="smart-card" id="smartCard">
+            <div class="smart-top"><span class="smart-logo" id="cardBrand"><span id="cardBrandMark">✳</span> <span id="cardBrandText">TalentBridge AI</span></span><span class="availability" id="availabilityLabel">● OPEN TO OPPORTUNITIES</span></div>
+            <div class="smart-copy"><p class="smart-kicker" id="cardKicker">HELLO, I'M</p><h2 id="cardName">Your Name</h2><h3 id="cardHeadline">Your professional headline</h3><p id="cardBio">A short introduction about what you do, what you care about, and what you want to build next.</p></div>
+            <div id="cardSkills" class="card-skills"><span>Your skills</span></div>
+            <div class="smart-bottom"><span id="cardLocation">Your location</span><span id="cardFooter">YOUR NEXT MOVE <b>↗</b></span></div>
+            <div class="card-shine"></div>
+          </article>
+          <p class="stage-caption">Clean. Personal. Ready to share.</p>
+        </section>
+        <section class="panel card-editor"><div class="panel-head"><div><h2>Make it yours</h2><p>Changes appear on the card instantly.</p></div></div>
+          <details class="card-editor-group" open><summary>Content and wording</summary>
+            <label class="editor-label">Brand / logo text<input id="cardBrandInput" maxlength="40" placeholder="TalentBridge AI"></label>
+            <label class="editor-label">Logo mark / symbol<input id="cardBrandMarkInput" maxlength="4" placeholder="✳"></label>
+            <label class="editor-label">Small greeting label<input id="cardKickerInput" maxlength="40" placeholder="HELLO, I'M"></label>
+            <label class="editor-label">Card display name<input id="cardNameInput" maxlength="70" placeholder="Your name"></label>
+            <label class="editor-label">Card headline<input id="cardHeadlineInput" maxlength="100" placeholder="Your professional headline"></label>
+            <label class="editor-label">Short introduction<textarea id="cardBioInput" rows="3" maxlength="260" placeholder="A few words about you"></textarea><small class="field-hint"><span id="cardBioCount">0</span>/260 characters</small></label>
+            <label class="editor-label">Highlighted skills<input id="cardSkillsInput" maxlength="180" placeholder="Design, teamwork, JavaScript"><small class="field-hint">Separate skills with commas. The card displays up to 6.</small></label>
+            <label class="editor-label">Location / remote status<input id="cardLocationInput" maxlength="80" placeholder="e.g. Bhopal · Remote"></label>
+            <label class="editor-label">Footer tagline<input id="cardFooterInput" maxlength="60" placeholder="YOUR NEXT MOVE"></label>
+          </details>
+          <details class="card-editor-group" open><summary>Appearance</summary>
+            <label class="editor-label">Card color theme<div class="swatches"><button type="button" class="swatch selected" data-theme="ocean" aria-label="Ocean blue"></button><button type="button" class="swatch" data-theme="violet" aria-label="Violet"></button><button type="button" class="swatch" data-theme="green" aria-label="Green"></button><button type="button" class="swatch" data-theme="sunset" aria-label="Sunset"></button><button type="button" class="swatch" data-theme="mono" aria-label="Monochrome"></button></div></label>
+            <label class="toggle-row"><span><strong>Use dashboard custom palette</strong><small>Use the colors from Customize dashboard.</small></span><input id="cardUseCustomTheme" type="checkbox"></label>
+            <div class="card-custom-colors"><label>Card background<input id="cardColorA" type="color" value="#0b2443"></label><label>Secondary color<input id="cardColorB" type="color" value="#12517a"></label><label>Glow / accent<input id="cardColorGlow" type="color" value="#47c8f1"></label></div>
+            <label class="editor-label">Text alignment<select id="cardAlignment"><option value="left">Left</option><option value="center">Centered</option></select></label>
+            <label class="editor-label">Card corner style<select id="cardShape"><option value="rounded">Rounded</option><option value="soft">Soft</option><option value="square">Square</option></select></label>
+            <label class="editor-label range-label"><span>Text size <b id="cardScaleValue">100%</b></span><input id="cardTextScale" type="range" min="85" max="120" step="5" value="100"></label>
+          </details>
+          <details class="card-editor-group" open><summary>Show or hide card elements</summary>
+            <label class="toggle-row"><span><strong>Show brand</strong><small>Display the logo text at the top.</small></span><input id="cardShowBrand" type="checkbox" checked></label>
+            <label class="toggle-row"><span><strong>Show display name</strong></span><input id="cardShowName" type="checkbox" checked></label>
+            <label class="toggle-row"><span><strong>Show headline</strong></span><input id="cardShowHeadline" type="checkbox" checked></label>
+            <label class="toggle-row"><span><strong>Show introduction</strong></span><input id="cardShowBio" type="checkbox" checked></label>
+            <label class="toggle-row"><span><strong>Show greeting label</strong></span><input id="cardShowKicker" type="checkbox" checked></label>
+            <label class="toggle-row"><span><strong>Show skills</strong></span><input id="cardShowSkills" type="checkbox" checked></label>
+            <label class="toggle-row"><span><strong>Show location</strong></span><input id="cardShowLocation" type="checkbox" checked></label>
+            <label class="toggle-row"><span><strong>Show footer tagline</strong></span><input id="cardShowFooter" type="checkbox" checked></label>
+            <label class="toggle-row"><span><strong>Show availability</strong><small>Let employers know you're open.</small></span><input id="availabilityToggle" type="checkbox" checked></label>
+          </details>
+          <div class="form-actions"><button class="button quiet" id="resetCard" type="button">Reset</button><button class="button primary" id="saveCard" type="button">Save design ✓</button></div>
+          <div class="share-actions"><button class="button outline" id="shareCard" type="button">Share ↗</button><button class="button outline" id="printCard" type="button">Print / PDF</button><button class="button outline" id="downloadCardText" type="button">Export text ↓</button></div><p class="message" id="cardMessage" aria-live="polite"></p>
+        </section>
+      </div>
+    </section>
+
+    <section class="page" id="page-customize">
+      <div class="page-heading"><span class="eyebrow light">YOUR SPACE, YOUR STYLE</span><h1>Customize your <span>workspace.</span></h1><p>Keep it simple, set your preferred look, and choose how much motion you want.</p></div>
+      <div class="custom-grid">
+        <section class="panel customize-tile"><div class="preview theme-preview"><span>Aa</span><i></i><i></i><i></i></div><h2>Accent color</h2><p>Change the dashboard highlight color.</p><div class="swatches"><button class="swatch selected" data-accent="ocean" aria-label="Blue accent"></button><button class="swatch violet" data-accent="violet" aria-label="Violet accent"></button><button class="swatch green" data-accent="green" aria-label="Green accent"></button><button class="swatch sunset" data-accent="sunset" aria-label="Sunset accent"></button></div></section>
+        <section class="panel customize-tile"><div class="preview motion-preview"><span>✦</span><i></i><i></i></div><h2>Animation</h2><p>Choose how lively the interface feels.</p><div class="segmented" id="motionChoices"><button class="selected" data-motion="full">Full</button><button data-motion="reduced">Reduced</button><button data-motion="off">Off</button></div></section>
+        <section class="panel customize-tile"><div class="preview density-preview"><i></i><i></i><i></i><i></i></div><h2>Layout spacing</h2><p>Choose the amount of space between panels.</p><div class="segmented" id="spacingChoices"><button data-spacing="comfortable">Comfortable</button><button class="selected" data-spacing="compact">Compact</button></div></section>
+        <section class="panel customize-tile"><div class="preview intro-preview"><span>01</span><i></i><i></i><i></i></div><h2>Guided introduction</h2><p>Replay the short tour that explains the main options.</p><button class="button outline full" id="tourFromCustomize">Play the tour ↗</button></section>
+      </div>
+      <section class="panel custom-theme-builder" id="customThemeBuilder">
+        <div class="panel-head"><div><span class="eyebrow light">ADVANCED PERSONALIZATION</span><h2>Build your own theme</h2><p>Pick your own colors, typography, and corner style. Your choices apply across the dashboard and stay saved in this browser.</p></div><span class="live-badge">YOUR THEME</span></div>
+        <div class="theme-builder-layout">
+          <div class="theme-controls">
+            <label class="editor-label">Theme name<input id="customThemeName" maxlength="40" placeholder="e.g. Midnight Ocean"></label>
+            <div class="theme-color-grid">
+              <label>Accent color<input id="customAccent" type="color" value="#2678f3"></label>
+              <label>Page background<input id="customBackground" type="color" value="#f5f7fb"></label>
+              <label>Panel / card<input id="customPanel" type="color" value="#ffffff"></label>
+              <label>Text color<input id="customText" type="color" value="#1b2b42"></label>
+              <label>Sidebar color<input id="customSidebar" type="color" value="#081a33"></label>
+              <label>Secondary accent<input id="customAccent2" type="color" value="#55d4f4"></label>
+            </div>
+            <label class="editor-label">Font family<select id="customFont"><option value="DM Sans">DM Sans</option><option value="Manrope">Manrope</option><option value="Inter">Inter</option><option value="Arial">Arial</option><option value="Georgia">Georgia</option><option value="system-ui">System UI</option></select></label>
+            <label class="editor-label range-label"><span>Corner roundness <b id="customRadiusValue">16px</b></span><input id="customRadius" type="range" min="4" max="28" value="16"></label>
+            <label class="toggle-row"><span><strong>Use my custom theme</strong><small>Turn this off to return to preset accent colors.</small></span><input id="customThemeEnabled" type="checkbox"></label>
+            <div class="form-actions theme-actions"><button type="button" class="button quiet" id="resetCustomTheme">Reset theme</button><button type="button" class="button outline" id="exportTheme">Export theme JSON ↓</button><label class="button outline import-button">Import theme JSON<input type="file" id="importTheme" accept=".json,application/json" hidden></label><button type="button" class="button primary" id="saveCustomTheme">Save my theme ✓</button></div>
+            <p class="message" id="themeMessage" aria-live="polite"></p>
+          </div>
+          <aside class="theme-demo-wrap"><div class="theme-demo" id="themeDemo"><div class="theme-demo-sidebar"><i></i><i></i><i></i><i></i></div><div class="theme-demo-content"><div class="theme-demo-top"><span id="themeDemoName">My custom theme</span><span class="theme-demo-pill">Live</span></div><h3>Make it yours.</h3><p>Your workspace, your rules.</p><div class="theme-demo-card"><i></i><i></i><i></i><span>Personalized for you</span></div><button type="button" class="theme-demo-button">Sample action</button></div></div><small>Live theme preview</small></aside>
+        </div>
+      </section>
+      <section class="panel preferences-row"><div><h2>Want to see the options again?</h2><p>Replay the introduction at any time.</p></div><button class="button primary" id="replayTourBottom">Replay introduction →</button></section>
+    </section>
+
+    <section class="page" id="page-settings">
+      <div class="page-heading"><span class="eyebrow light">PREFERENCES</span><h1>Simple <span>settings.</span></h1><p>Your changes are saved in this browser for this demo.</p></div>
+      <section class="panel settings-panel"><div class="setting-row"><div><strong>Export my profile data</strong><p>Download a JSON backup of profile and customization settings.</p></div><button class="button outline" id="exportData">Export JSON ↓</button></div><div class="setting-row"><div><strong>Import profile data</strong><p>Restore a JSON backup created by this dashboard.</p></div><label class="button outline import-button">Choose JSON file<input type="file" id="importData" accept=".json,application/json" hidden></label></div><div class="setting-row"><div><strong>Auto-open guided tour on page load</strong><p>Show the guided tour when the dashboard opens.</p></div><input type="checkbox" id="tourOnLoad" checked></div><div class="setting-row"><div><strong>Reset demo data</strong><p>Clear your local demo profile, saved jobs, and customizations.</p></div><button class="button danger" id="resetAll">Reset demo</button></div><p class="muted small">This design demo does not connect to a real account or backend.</p></section>
+    </section>
+    <footer class="footer"><span>© 2026 TalentBridge AI</span><span>Build your next chapter <b>✦</b></span></footer>
+  </main>
+
+  <div class="tour-overlay" id="tourOverlay" hidden>
+    <div class="tour-backdrop" id="tourBackdrop" aria-hidden="true"></div>
+    <div class="tour-box" role="dialog" aria-modal="true" aria-labelledby="tourTitle">
+      <div class="tour-box-top"><span id="tourStep" aria-label="Step 1 of 8">01 / 08</span><button id="tourClose" class="close-button" aria-label="Close tour">×</button></div>
+      <div class="tour-progress" id="tourProgress" role="progressbar" aria-label="Guided tour progress" aria-valuemin="1" aria-valuemax="21" aria-valuenow="1"><i id="tourBar"></i></div>
+      <div class="tour-mascot-row">
+        <img class="tour-mascot" src="../../images/jerry-mascot.png" alt="Jerry, your floating pixel robot guide">
+        <div class="tour-mascot-copy"><strong id="tourGreeting">Hey, I'm Jerry!</strong><p id="tourVoice">Think of me as an old friend who can explain the dashboard one step at a time.</p></div>
+        <div class="tour-symbol" id="tourSymbol" aria-hidden="true">✦</div>
+      </div>
+      <h2 id="tourTitle">Welcome to TalentBridge AI</h2><p id="tourDescription">A quick tour of your workspace.</p>
+      <div class="tour-target" id="tourTarget">Current section: Overview</div>
+      <div class="tour-tip"><strong>Helpful tip</strong><p id="tourTip">Explore each section at your own pace.</p></div>
+      <div class="tour-buttons"><button class="text-button" id="tourSkip">Exit guide</button><div class="tour-step-actions"><button class="button outline" id="tourPrev" disabled>← Back</button><button class="button primary" id="tourNext">Next step →</button></div></div>
+      <p class="tour-keyboard-hint">Tip: use ← / → to move through steps, or Esc to close.</p>
+    </div>
+  </div>
+  <div class="jerry-widget" id="jerryWidget">
+    <button class="jerry-launcher" id="jerryLauncher" type="button" aria-label="Ask Jerry for help" aria-expanded="false" aria-controls="jerryPanel">
+      <span class="jerry-launcher-halo" aria-hidden="true"></span>
+      <img src="../../images/jerry-mascot.png" alt="">
+      <span class="jerry-sleep-indicator" aria-hidden="true">Zzz</span>
+      <span class="jerry-speaking-indicator" aria-hidden="true">•••</span>
+      <span class="jerry-launcher-label">Ask Jerry</span>
+    </button>
+    <aside class="jerry-panel" id="jerryPanel" aria-label="Jerry's dashboard help" hidden>
+      <header class="jerry-panel-header">
+        <img src="../../images/jerry-mascot.png" alt="">
+        <div><strong>Jerry</strong><span>Your guide, old friend, and patient teacher</span></div>
+        <button id="jerryClose" class="jerry-close" type="button" aria-label="Close Jerry help">×</button>
+      </header>
+      <div class="jerry-welcome">
+        <p class="jerry-eyebrow">YOUR DASHBOARD BUDDY</p>
+        <strong>Hey, good to see you! 👋</strong>
+        <p>I'm Jerry. Ask me about any tab or setting and we'll figure it out together—no silly questions here. If I doze off after a minute of quiet, just tap my little robot self to wake me.</p>
+        <button class="jerry-start-tour" id="jerryStartTour" type="button">Show me around from the beginning <span>→</span></button>
+      </div>
+      <div class="jerry-quick-title">Things we can work on together</div>
+      <div class="jerry-quick-actions" aria-label="Suggested questions">
+        <button type="button" data-jerry-question="How do I customize my profile?">Customize my profile</button>
+        <button type="button" data-jerry-question="How do I add my own custom profile fields?">Add a custom profile field</button>
+        <button type="button" data-jerry-question="How do I build and save my own dashboard theme?">Build my own theme</button>
+        <button type="button" data-jerry-question="How do I change the dashboard theme, animation, and spacing?">Change my dashboard look</button>
+        <button type="button" data-jerry-question="How do I customize my Smart Card?">Make my Smart Card</button>
+        <button type="button" data-jerry-question="What is the difference between public and private profile?">Public vs private</button>
+        <button type="button" data-jerry-question="What does this tab do?">Explain this tab</button>
+      </div>
+      <div class="jerry-chat-log" id="jerryChatLog" aria-live="polite" aria-relevant="additions text">
+        <div class="jerry-message jerry-message-bot"><span class="jerry-message-name">Jerry</span><p>First tip from your old pal: try the questions above, or ask about a button you can see right now.</p></div>
+      </div>
+      <form class="jerry-ask-form" id="jerryAskForm">
+        <label class="sr-only" for="jerryQuestion">Ask Jerry a question</label>
+        <input id="jerryQuestion" name="question" placeholder="Ask me anything about this dashboard…" autocomplete="off" maxlength="240">
+        <button type="submit" aria-label="Send question">Ask <span>↑</span></button>
+      </form>
+      <p class="jerry-disclaimer">I'm the built-in offline guide for visible dashboard features. I can't access private accounts or backend data; I doze off after 60 seconds of inactivity, so tap me to wake me.</p>
+    </aside>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/dashboard/jdashboard.js"></script>
+  <script src="../../js/dashboard/jerry-guide/jerry-guide.js"></script>
+</body>
+</html>

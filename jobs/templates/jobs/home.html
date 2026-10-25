@@ -7,6 +7,7 @@
   <meta name="description" content="Search current job opportunities and find a role that fits your skills with TalentBridge AI.">
   <title>Find Jobs | TalentBridge AI</title>
   <link rel="stylesheet" href="{% static 'site-header.css' %}">
+  <link rel="stylesheet" href="{% static 'motion.css' %}">
   <style>
     :root { color-scheme: light; font-family: Inter, Manrope, Arial, sans-serif; color: #15233e; background: #f7faff; }
     * { box-sizing: border-box; }
@@ -38,21 +39,24 @@
     .empty-jobs a { color: #075cff; font-weight: 800; }
     @media (max-width: 680px) { .jobs-search { grid-template-columns: 1fr; } .jobs-search button { width: 100%; } .jobs-grid { grid-template-columns: 1fr; } .jobs-results-heading { align-items: flex-start; flex-direction: column; } }
   </style>
+  <link rel="stylesheet" href="{% static 'dark-mode.css' %}">
+  <script src="{% static 'dark-mode.js' %}"></script>
 </head>
-<body>
+<body data-public-page>
   <header class="navbar">
-    <div class="nav-container">
-        <div class="logo"><a href="/index.html">TalentBridge AI<span class="logo-accent">:</span></a></div>
-        <nav class="nav-links" aria-label="Main navigation">
-            <a href="/pages/employer.html">For Employers</a>
-            <a href="/pages/employee.html" class="active" aria-current="page">For Job Seekers</a>
-            <a href="/pages/pricing.html">Pricing</a>
-        </nav>
-        <div class="auth-actions">
-            <a href="/pages/login.html" class="auth-btn auth-signin">Sign In</a>
-            <a href="/pages/signup-role.html" class="auth-btn auth-signup">Sign Up</a>
-        </div>
+  <div class="nav-container">
+    <div class="logo"><a href="/index.html">TalentBridge AI<span class="logo-accent">:</span></a></div>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/pages/employer.html">For Employers</a>
+      <a href="/pages/jobseaker.html" aria-current="page">For Job Seekers</a>
+      <a href="/pages/pricing.html">Pricing</a>
+    </nav>
+    <div class="auth-actions">
+      <a href="/pages/login.html" class="auth-btn auth-signin">Sign In</a>
+      <a href="/pages/signup-role.html" class="auth-btn auth-signup">Sign Up</a>
+      <a href="/pages/dashboard/cdashboard.html" class="auth-btn auth-dashboard">Dashboard</a>
     </div>
+  </div>
 </header>
 
   <main>
@@ -97,5 +101,6 @@
       </div>
     </section>
   </main>
+  <script src="{% static 'motion.js' %}"></script>
 </body>
 </html>

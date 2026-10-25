@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" data-workspace-page>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f8ff">
+  <title>Customize Dashboard | TalentBridge AI</title>
+  <link rel="stylesheet" href="../../css/dashboard/cdashboard.css">
+  <link rel="stylesheet" href="../../css/dashboard/customize.css">
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <script src="../../js/dashboard/customize.js" defer></script>
+  <link rel="stylesheet" href="../../css/site-header.css">
+  <link rel="stylesheet" href="../../css/motion.css">
+  <link rel="stylesheet" href="../../css/dark-mode.css">
+  <script src="../../js/dark-mode.js"></script>
+</head>
+<body class="customization-page">
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo"><a href="../../index.html">TalentBridge AI<span class="logo-accent">:</span></a></div>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="../employer.html">For Employers</a>
+      <a href="../jobseaker.html">For Job Seekers</a>
+      <a href="../pricing.html">Pricing</a>
+    </nav>
+    <div class="auth-actions">
+      <a href="../login.html" class="auth-btn auth-signin">Sign In</a>
+      <a href="../signup-role.html" class="auth-btn auth-signup">Sign Up</a>
+      <a href="cdashboard.html" class="auth-btn auth-dashboard" aria-current="page">Dashboard</a>
+    </div>
+  </div>
+</header>
+  <div class="app-shell">
+    <aside class="sidebar customize-sidebar">
+      <a class="brand" href="cdashboard.html"><span class="brand-mark"><i data-lucide="network"></i></span><span>TalentBridge <b>AI</b></span></a>
+      <div class="customize-sidebar-intro">
+        <span class="settings-illustration"><i data-lucide="sliders-horizontal"></i></span>
+        <strong>Your workspace</strong>
+        <p>Make your dashboard work your way.</p>
+      </div>
+      <nav class="main-nav" aria-label="Customization navigation">
+        <a class="nav-link" href="cdashboard.html"><i data-lucide="layout-dashboard"></i><span>Back to dashboard</span></a>
+        <a class="nav-link" href="organize-cards.html"><i data-lucide="move"></i><span>Floating card organizer</span></a>
+        <a class="nav-link active" href="#cards"><i data-lucide="panels-top-left"></i><span>Cards & sections</span></a>
+        <a class="nav-link" href="#appearance"><i data-lucide="palette"></i><span>Theme & appearance</span></a>
+        <a class="nav-link" href="#your-cards"><i data-lucide="square-plus"></i><span>Your cards</span></a>
+        <a class="nav-link" href="#layout"><i data-lucide="arrow-up-down"></i><span>Card order</span></a>
+      </nav>
+      <div class="sidebar-help">
+        <i data-lucide="lightbulb"></i>
+        <div><strong>Tip</strong><p>Hide anything you don't use. You can add it back at any time.</p></div>
+      </div>
+      <a class="sidebar-back-link" href="cdashboard.html"><i data-lucide="arrow-left"></i> Return to dashboard</a>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar customize-topbar">
+        <div class="customize-breadcrumb"><span>Workspace</span><i data-lucide="chevron-right"></i><strong>Customize dashboard</strong></div>
+        <div class="topbar-actions">
+          <button class="icon-btn" id="previewDashboardBtn" title="Preview dashboard" aria-label="Preview dashboard"><i data-lucide="eye"></i></button>
+          <a class="btn btn-outline" href="organize-cards.html"><i data-lucide="move"></i> Organize cards</a>
+          <a class="btn btn-outline" href="cdashboard.html"><i data-lucide="arrow-left"></i> Dashboard</a>
+        </div>
+      </header>
+
+      <div class="customize-content">
+        <section class="customize-hero">
+          <div class="customize-hero-copy">
+            <span class="section-kicker"><i data-lucide="sparkles"></i> PERSONAL WORKSPACE SETTINGS</span>
+            <h1>Make your dashboard <span>yours.</span></h1>
+            <p>Choose the information you want to see, add cards when you need them, and keep your workspace simple. These choices apply to your view only.</p>
+            <div class="personal-badge"><i data-lucide="shield-check"></i> Personal preferences · Other users are not affected</div>
+          </div>
+          <div class="customize-hero-visual" aria-hidden="true">
+            <div class="visual-card visual-card-main"><span class="visual-icon"><i data-lucide="layout-dashboard"></i></span><div><b>Your layout</b><small>Just the way you like it</small></div><i data-lucide="check-circle-2"></i></div>
+            <div class="visual-card visual-card-mini"><i data-lucide="palette"></i><span>Theme</span><b>Personal</b></div>
+            <div class="visual-orb orb-one"></div><div class="visual-orb orb-two"></div>
+          </div>
+        </section>
+
+        <div class="customize-page-grid">
+          <div class="customize-main-column">
+            <section class="settings-panel" id="cards">
+              <div class="settings-heading"><div class="heading-icon"><i data-lucide="panels-top-left"></i></div><div><h2>Cards & sections</h2><p>Show only what is useful to you. Use Edit to change a card size, picture, or profile visibility.</p></div></div>
+              <div class="card-section-label"><span>ON YOUR DASHBOARD</span><span id="visibleCount">8 cards visible</span></div>
+              <div id="activeCards" class="custom-card-list"></div>
+              <div class="hidden-card-divider"><span>AVAILABLE TO ADD</span><span>+ Add a card</span></div>
+              <p class="available-help">Choose a card below to add it back to your dashboard. For example, hide Documents & Reports when you don't need it—or add it back when you do.</p>
+              <div id="availableCards" class="available-card-grid"></div>
+              <section id="cardAppearanceEditor" class="card-appearance-editor" hidden aria-live="polite">
+                <div class="card-editor-heading"><div><span class="section-kicker">CARD APPEARANCE</span><h3 id="cardEditorTitle">Customize card</h3></div><button type="button" id="closeCardEditor" class="icon-btn" aria-label="Close card settings"><i data-lucide="x"></i></button></div>
+                <label>Card size<select id="editorCardSize"><option value="compact">Compact</option><option value="standard">Standard</option><option value="wide">Wide</option></select></label>
+                <label>Picture URL<input id="editorCardImageUrl" type="url" placeholder="https://example.com/image.jpg"></label>
+                <label class="editor-image-upload">Or choose a picture<input id="editorCardImageFile" type="file" accept="image/png,image/jpeg,image/webp"></label>
+                <div class="card-image-preview" id="cardImagePreview" hidden></div>
+                <button type="button" class="text-btn" id="clearCardImage">Remove picture</button>
+                <label class="public-card-toggle"><input id="editorCardPublic" type="checkbox"><span><strong>Show in company profile preview</strong><small>Included in the company profile preview in this browser.</small></span></label>
+              </section>
+            </section>
+
+            <section class='settings-panel custom-card-builder' id='your-cards'>
+              <div class='settings-heading'><div class='heading-icon'><i data-lucide='square-plus'></i></div><div><h2>Your own cards</h2><p>Add personal notes or reminders to your dashboard. They stay in this browser.</p></div></div>
+              <form id='customCardForm' class='custom-card-form'>
+                <label>Card title<input id='customCardTitle' maxlength='48' required placeholder='e.g. This week focus'></label>
+                <label>Note<textarea id='customCardBody' maxlength='280' rows='3' required placeholder='Write a short reminder or useful note...'></textarea></label>
+                <div class='custom-card-form-footer'><label>Icon<select id='customCardIcon'><option value='notebook-pen'>Note</option><option value='target'>Focus</option><option value='lightbulb'>Idea</option><option value='calendar-check'>Plan</option><option value='sparkles'>Other</option></select></label><button class='btn btn-primary' type='submit'><i data-lucide='plus'></i> Add card</button></div>
+              </form>
+              <div id='customCardsList' class='custom-cards-list' aria-live='polite'></div>
+            </section>
+            <section class="settings-panel" id="layout">
+              <div class="settings-heading"><div class="heading-icon"><i data-lucide="arrow-up-down"></i></div><div><h2>Arrange your cards</h2><p>Use the arrows to move cards up or down within their dashboard row.</p></div></div>
+              <div id="reorderCards" class="reorder-card-list"></div>
+              <div class="inline-tip"><i data-lucide="info"></i><span>Statistics, analytics, jobs, and resource cards stay in their dashboard groups so your page remains clear on desktop and mobile.</span></div>
+            </section>
+          </div>
+
+          <aside class="customize-side-column">
+            <section class="settings-panel sticky-settings" id="appearance">
+              <div class="settings-heading"><div class="heading-icon"><i data-lucide="palette"></i></div><div><h2>Theme & appearance</h2><p>Personalize how your workspace looks.</p></div></div>
+              <div class="setting-control-block">
+                <label for="themeSelectPage" class="control-title">Color mode</label>
+                <div class="theme-choice-grid">
+                  <button type="button" class="theme-choice active" data-theme="light"><span class="theme-preview light-preview"><i data-lucide="sun"></i></span><b>Light</b><small>Bright and clear</small></button>
+                  <button type="button" class="theme-choice" data-theme="dark"><span class="theme-preview dark-preview"><i data-lucide="moon"></i></span><b>Dark</b><small>Lower brightness</small></button>
+                  <button type="button" class="theme-choice" data-theme="system"><span class="theme-preview system-preview"><i data-lucide="monitor"></i></span><b>System</b><small>Follow device</small></button>
+                </div>
+                <select id="themeSelectPage" class="hidden-select" aria-label="Color mode"><option value="light">Light mode</option><option value="dark">Dark mode</option><option value="system">Use device setting</option></select>
+              </div>
+              <div class="setting-control-block">
+                <span class="control-title">Accent color</span>
+                <p class="control-description">Used for buttons, highlights, and selected items.</p>
+                <div class="large-swatches">
+                  <button type="button" class="large-swatch selected" data-accent="#2868e8" style="--swatch:#2868e8" aria-label="Blue accent"><i data-lucide="check"></i></button>
+                  <button type="button" class="large-swatch" data-accent="#8255d9" style="--swatch:#8255d9" aria-label="Purple accent"><i data-lucide="check"></i></button>
+                  <button type="button" class="large-swatch" data-accent="#15966c" style="--swatch:#15966c" aria-label="Green accent"><i data-lucide="check"></i></button>
+                  <button type="button" class="large-swatch" data-accent="#e0782e" style="--swatch:#e0782e" aria-label="Orange accent"><i data-lucide="check"></i></button>
+                  <button type="button" class="large-swatch" data-accent="#df477c" style="--swatch:#df477c" aria-label="Pink accent"><i data-lucide="check"></i></button>
+                  <label class="custom-color-picker" title="Pick a custom color"><i data-lucide="plus"></i><input id="customAccentPage" type="color" value="#2868e8" aria-label="Custom accent color"></label>
+                </div>
+                <label class="custom-hex-label" for="accentHex">Custom color code<input id="accentHex" type="text" value="#2868E8" maxlength="7" spellcheck="false"></label>
+              </div>
+              <div class='setting-control-block'>
+                <label for='fontFamilySelect' class='control-title'>Dashboard font</label>
+                <p class='control-description'>Choose a clear type style for your workspace.</p>
+                <select id='fontFamilySelect' class='appearance-select'><option value='dm-sans'>DM Sans</option><option value='manrope'>Manrope</option><option value='system'>System default</option></select>
+                <label class='font-size-control' for='fontScaleSelect'><span>Page text size <output id='fontScaleOutput'>100%</output></span><input id='fontScaleSelect' type='range' min='90' max='125' step='5' value='100'></label>
+              </div>
+              <div class="setting-control-block compact-setting">
+                <div><b>Compact spacing</b><p class="control-description">Fit more information on screen.</p></div>
+                <label class="switch-label"><input type="checkbox" id="compactTogglePage"><span class="switch-ui"></span></label>
+              </div>
+              <div class="personal-note"><i data-lucide="lock-keyhole"></i><span><b>This is personal.</b> Your theme and card layout are saved in this browser and won't change what teammates see.</span></div>
+            </section>
+
+            <section class="preview-settings-card">
+              <div class="preview-settings-header"><span><i data-lucide="monitor"></i></span><div><b>Live preview</b><small>Your dashboard appearance</small></div><span class="live-indicator">LIVE</span></div>
+              <div class="preview-mockup">
+                <div class="mockup-top"><span></span><span></span><span></span><b>TalentBridge AI</b></div>
+                <div class="mockup-body"><div class="mockup-side"></div><div class="mockup-content"><div class="mockup-hero"></div><div class="mockup-stats"><i></i><i></i><i></i></div><div class="mockup-chart"><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div>
+              </div>
+              <p>Changes preview immediately. Save to keep them for your next visit.</p>
+            </section>
+          </aside>
+        </div>
+
+        <div class="save-bar">
+          <div class="save-status"><span class="save-status-dot"></span><span id="saveStatus">Your changes are not saved yet.</span></div>
+          <div class="save-actions"><button class="btn btn-outline" id="resetAllBtn"><i data-lucide="rotate-ccw"></i> Reset to default</button><button class="btn btn-primary" id="savePreferencesBtn"><i data-lucide="check"></i> Save preferences</button></div>
+        </div>
+        <footer class="customize-footer"><span>© 2026 TalentBridge AI</span><span>Personal dashboard settings</span></footer>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="../../js/motion.js"></script>
+</body>
+</html>

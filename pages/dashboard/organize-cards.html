@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-workspace-page>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f8ff">
+  <title>Organize Cards | TalentBridge AI</title>
+  <link rel="stylesheet" href="../../css/dashboard/cdashboard.css">
+  <link rel="stylesheet" href="../../css/dashboard/organize-cards.css">
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <script src="../../js/dashboard/organize-cards.js" defer></script>
+  <link rel="stylesheet" href="../../css/site-header.css">
+  <link rel="stylesheet" href="../../css/motion.css">
+  <link rel="stylesheet" href="../../css/dark-mode.css">
+  <script src="../../js/dark-mode.js"></script>
+</head>
+<body class="organizer-page">
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo"><a href="../../index.html">TalentBridge AI<span class="logo-accent">:</span></a></div>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="../employer.html">For Employers</a>
+      <a href="../jobseaker.html">For Job Seekers</a>
+      <a href="../pricing.html">Pricing</a>
+    </nav>
+    <div class="auth-actions">
+      <a href="../login.html" class="auth-btn auth-signin">Sign In</a>
+      <a href="../signup-role.html" class="auth-btn auth-signup">Sign Up</a>
+      <a href="cdashboard.html" class="auth-btn auth-dashboard" aria-current="page">Dashboard</a>
+    </div>
+  </div>
+</header>
+  <div class="organizer-shell">
+    <header class="organizer-topbar">
+      <a class="brand" href="cdashboard.html"><span class="brand-mark"><i data-lucide="network"></i></span><span>TalentBridge <b>AI</b></span></a>
+      <nav class="organizer-links" aria-label="Organizer navigation">
+        <a href="cdashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+        <a href="customize.html"><i data-lucide="sliders-horizontal"></i> Customize</a>
+      </nav>
+    </header>
+
+    <main class="organizer-main">
+      <section class="organizer-intro">
+        <div>
+          <span class="section-kicker"><i data-lucide="panels-top-left"></i> DASHBOARD STUDIO</span>
+          <h1>Arrange your cards <span>your way.</span></h1>
+          <p>Drag cards around the board, resize them, add useful cards, or remove ones you no longer need. Your layout is saved in this browser.</p>
+        </div>
+        <div class="organizer-actions">
+          <button type="button" class="btn btn-outline" id="addCardBtn"><i data-lucide="plus"></i> Add a card</button>
+          <button type="button" class="btn btn-primary" id="arrangeModeBtn" aria-pressed="false"><i data-lucide="move"></i> Start arranging</button>
+          <button type="button" class="btn btn-primary" id="saveLayoutBtn"><i data-lucide="check"></i> Save layout</button>
+          <button type="button" class="btn btn-outline" id="standardLayoutBtn">Use dashboard rows</button>
+        </div>
+      </section>
+
+      <div class="organizer-status-row">
+        <p class="organizer-hint"><i data-lucide="mouse-pointer-2"></i><span>Click a card to start arranging. Drag the handle to move it; use the card controls to resize or remove.</span></p>
+        <span id="organizerStatus" role="status" aria-live="polite">Your layout is ready.</span>
+      </div>
+
+      <section id="organizerBoard" class="organizer-board" aria-label="Floating dashboard card layout">
+        <div class="board-grid-decoration" aria-hidden="true"></div>
+        <div id="organizerCards" class="organizer-cards"></div>
+        <div id="organizerEmpty" class="organizer-empty" hidden>
+          <span><i data-lucide="panels-top-left"></i></span>
+          <h2>Your board is clear</h2>
+          <p>Add cards to start building your dashboard layout.</p>
+          <button type="button" class="btn btn-primary" data-open-add><i data-lucide="plus"></i> Add your first card</button>
+        </div>
+      </section>
+      <footer class="organizer-footer"><span>Drag and resize changes are personal to this browser.</span><span>TalentBridge AI · Dashboard studio</span></footer>
+    </main>
+  </div>
+
+  <dialog class="organizer-dialog" id="addCardDialog" aria-labelledby="addCardTitle">
+    <div class="organizer-dialog-head"><div><span class="section-kicker">BUILD YOUR BOARD</span><h2 id="addCardTitle">Add a card</h2><p>Restore a dashboard section or create a personal card.</p></div><button type="button" class="icon-btn" id="closeAddDialog" aria-label="Close add card dialog"><i data-lucide="x"></i></button></div>
+    <section class="addable-section"><h3>Dashboard sections</h3><div id="availableCards" class="available-organizer-cards"></div></section>
+    <form id="organizerCustomForm" class="organizer-custom-form">
+      <h3>Create a personal card</h3>
+      <label>Card title<input id="organizerCardTitle" maxlength="48" required placeholder="e.g. This week's focus"></label>
+      <label>Note<textarea id="organizerCardBody" maxlength="280" rows="3" required placeholder="Add a reminder or short note"></textarea></label>
+      <div class="organizer-custom-actions"><label>Icon<select id="organizerCardIcon"><option value="notebook-pen">Note</option><option value="target">Focus</option><option value="lightbulb">Idea</option><option value="calendar-check">Plan</option><option value="sparkles">Other</option></select></label><button type="submit" class="btn btn-primary"><i data-lucide="plus"></i> Create card</button></div>
+    </form>
+  </dialog>
+  <div class="toast" id="organizerToast" role="status" aria-live="polite"></div>
+  <script src="../../js/motion.js"></script>
+</body>
+</html>

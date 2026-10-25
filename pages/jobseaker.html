@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>For Job Seekers | TalentBridge AI</title>
+<meta name="description" content="Discover recommended roles and find your next opportunity with TalentBridge AI.">
+<link rel="stylesheet" href="../css/jobseaker.css">
+<link rel="stylesheet" href="../css/motion.css">
+  <link rel="stylesheet" href="../css/site-header.css">
+  <link rel="stylesheet" href="../css/dark-mode.css">
+  <script src="../js/dark-mode.js"></script>
+</head>
+<body data-public-page>
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo"><a href="../index.html">TalentBridge AI<span class="logo-accent">:</span></a></div>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="employer.html">For Employers</a>
+      <a href="jobseaker.html" aria-current="page">For Job Seekers</a>
+      <a href="pricing.html">Pricing</a>
+      
+    </nav>
+    <div class="auth-actions">
+      <a href="login.html" class="auth-btn auth-signin">Sign In</a>
+      <a href="signup-role.html" class="auth-btn auth-signup">Sign Up</a>
+      <a href="dashboard/cdashboard.html" class="auth-btn auth-dashboard">Dashboard</a>
+    </div>
+  </div>
+  
+</header>
+<main>
+<section class="hero">
+  <div class="city" role="img" aria-label="New York City skyline and Brooklyn Bridge at sunset"></div><div class="wash"></div>
+  <div class="hero-copy"><p class="eyebrow">FOR JOB SEEKERS</p><h1>Find Your<br><span>Dream Job</span></h1><p class="subtitle">AI-powered matches. Better opportunities.</p></div>
+  <form class="search" id="search-form">
+  <label><span aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg></span><input id="title" type="search" placeholder="Title, company, or skill" aria-label="Job title, company, or skill"></label>
+  <label class="location"><span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span><input id="location" type="search" placeholder="Location" aria-label="Location"></label>
+  <button class="btn primary search-btn" type="submit">Search Jobs <span aria-hidden="true">&rarr;</span></button>
+</form>
+</section>
+<section class="jobs" id="jobs">
+  <div class="section-heading"><h2>Opportunities picked for you</h2><a href="#jobs" id="view-all-jobs" class="view-all">Show all 12 jobs <span aria-hidden="true">&rarr;</span></a></div>
+  <p class="interaction-status" id="interaction-status" role="status" aria-live="polite">Explore these sample opportunities or search by role and location.</p>
+  <div class="grid" id="job-grid">
+  <article class="card" data-title="Data Analyst Google analytics SQL Python" data-location="New York, USA" data-job-id="google-data-analyst" data-legacy-key="Data Analyst Google">
+    <div class="job-head"><div class="company google" aria-hidden="true"><span class="logo-initial">G</span></div><div class="job-name"><h3>Data Analyst</h3><p>Google</p></div><button class="bookmark" type="button" aria-label="Save Data Analyst at Google" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1 7.8 7.7 7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8Z"></path></svg></button></div>
+    <div class="meta"><span class="job-location">New York, USA</span><span class="job-type">Full-time</span></div><div class="bottom"><span>$80K&ndash;$120K</span><b>95% Match</b></div>
+  </article>
+  <article class="card" data-title="Software Engineer Microsoft Azure C sharp" data-location="Redmond, USA" data-job-id="microsoft-software-engineer" data-legacy-key="Software Engineer Microsoft">
+    <div class="job-head"><div class="company ms" aria-hidden="true"><span class="logo-initial">M</span></div><div class="job-name"><h3>Software Engineer</h3><p>Microsoft</p></div><button class="bookmark" type="button" aria-label="Save Software Engineer at Microsoft" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1 7.8 7.7 7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8Z"></path></svg></button></div>
+    <div class="meta"><span class="job-location">Redmond, USA</span><span class="job-type">Full-time</span></div><div class="bottom"><span>$110K&ndash;$160K</span><b>92% Match</b></div>
+  </article>
+  <article class="card" data-title="Product Manager Amazon product strategy" data-location="Seattle, USA" data-job-id="amazon-product-manager" data-legacy-key="Product Manager Amazon">
+    <div class="job-head"><div class="company amazon" aria-hidden="true"><span class="logo-initial">A</span></div><div class="job-name"><h3>Product Manager</h3><p>Amazon</p></div><button class="bookmark" type="button" aria-label="Save Product Manager at Amazon" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1 7.8 7.7 7.8-7.7-1-1.1a5.5 5.5 0 0 0 0-7.8Z"></path></svg></button></div>
+    <div class="meta"><span class="job-location">Seattle, USA</span><span class="job-type">Full-time</span></div><div class="bottom"><span>$150K&ndash;$220K</span><b>88% Match</b></div>
+  </article>
+  <article class="card" data-title="Product Designer Meta UX UI" data-location="Menlo Park, USA" data-job-id="meta-product-designer" data-legacy-key="UI UX Designer Meta">
+    <div class="job-head"><div class="company meta-logo" aria-hidden="true"><span class="logo-initial">M</span></div><div class="job-name"><h3>Product Designer</h3><p>Meta</p></div><button class="bookmark" type="button" aria-label="Save Product Designer at Meta" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1 7.8 7.7 7.8-7.7-1-1.1a5.5 5.5 0 0 0 0-7.8Z"></path></svg></button></div>
+    <div class="meta"><span class="job-location">Menlo Park, USA</span><span class="job-type">Full-time</span></div><div class="bottom"><span>$90K&ndash;$140K</span><b>85% Match</b></div>
+  </article>
+  <article class="card" data-title="UX Designer Adobe design Figma" data-location="San Jose, USA" data-job-id="adobe-ux-designer">
+    <div class="job-head"><div class="company adobe" aria-hidden="true"><span class="logo-initial">A</span></div><div class="job-name"><h3>UX Designer</h3><p>Adobe</p></div><button class="bookmark" type="button" aria-label="Save UX Designer at Adobe" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1 7.8 7.7 7.8-7.7-1-1.1a5.5 5.5 0 0 0 0-7.8Z"></path></svg></button></div>
+    <div class="meta"><span class="job-location">San Jose, USA</span><span class="job-type">Full-time</span></div><div class="bottom"><span>$105K&ndash;$160K</span><b>91% Match</b></div>
+  </article>
+  <article class="card" data-title="Cloud Engineer Tata Consultancy Services TCS AWS" data-location="Bengaluru, India" data-job-id="tcs-cloud-engineer">
+    <div class="job-head"><div class="company tcs" aria-hidden="true"><span class="logo-initial">T</span></div><div class="job-name"><h3>Cloud Engineer</h3><p>Tata Consultancy Services</p></div><button class="bookmark" type="button" aria-label="Save Cloud Engineer at Tata Consultancy Services" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1 7.8 7.7 7.8-7.7-1-1.1a5.5 5.5 0 0 0 0-7.8Z"></path></svg></button></div>
+    <div class="meta"><span class="job-location">Bengaluru, India</span><span class="job-type">Full-time</span></div><div class="bottom"><span>&#8377;18&ndash;30 LPA</span><b>89% Match</b></div>
+  </article>
+  <article class="card" data-title="Product Analyst Flipkart SQL marketplace" data-location="Bengaluru, India" data-job-id="flipkart-product-analyst">
+    <div class="job-head"><div class="company flipkart" aria-hidden="true"><span class="logo-initial">F</span></div><div class="job-name"><h3>Product Analyst</h3><p>Flipkart</p></div><button class="bookmark" type="button" aria-label="Save Product Analyst at Flipkart" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1 7.8 7.7 7.8-7.7-1.1-1.1a5.5 5.5 0 0 0-7.8 0Z"></path></svg></button></div>
+    <div class="meta"><span class="job-location">Bengaluru, India</span><span class="job-type">Full-time</span></div><div class="bottom"><span>&#8377;22&ndash;35 LPA</span><b>90% Match</b></div>
+  </article>
+  <article class="card" data-title="Frontend Developer Zoho JavaScript UI" data-location="Chennai, India" data-job-id="zoho-frontend-developer">
+    <div class="job-head"><div class="company zoho" aria-hidden="true"><span class="logo-initial">Z</span></div><div class="job-name"><h3>Frontend Developer</h3><p>Zoho</p></div><button class="bookmark" type="button" aria-label="Save Frontend Developer at Zoho" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1 7.8 7.7 7.8-7.7-1-1.1a5.5 5.5 0 0 0 0-7.8Z"></path></svg></button></div>
+    <div class="meta"><span class="job-location">Chennai, India</span><span class="job-type">Full-time</span></div><div class="bottom"><span>&#8377;10&ndash;18 LPA</span><b>87% Match</b></div>
+  </article>
+  <article class="card" data-title="Machine Learning Engineer Apple AI Python" data-location="Cupertino, USA" data-job-id="apple-machine-learning-engineer">
+    <div class="job-head"><div class="company apple" aria-hidden="true"><span class="logo-initial">A</span></div><div class="job-name"><h3>Machine Learning Engineer</h3><p>Apple</p></div><button class="bookmark" type="button" aria-label="Save Machine Learning Engineer at Apple" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1 7.8 7.7 7.8-7.7-1-1.1a5.5 5.5 0 0 0 0-7.8Z"></path></svg></button></div>
+    <div class="meta"><span class="job-location">Cupertino, USA</span><span class="job-type">Full-time</span></div><div class="bottom"><span>$140K&ndash;$210K</span><b>93% Match</b></div>
+  </article>
+  <article class="card" data-title="Senior Product Designer Atlassian UX Figma" data-location="Remote, USA" data-job-id="atlassian-senior-product-designer">
+    <div class="job-head"><div class="company atlassian" aria-hidden="true"><span class="logo-initial">A</span></div><div class="job-name"><h3>Senior Product Designer</h3><p>Atlassian</p></div><button class="bookmark" type="button" aria-label="Save Senior Product Designer at Atlassian" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1 7.8 7.7 7.8-7.7-1-1.1a5.5 5.5 0 0 0 0-7.8Z"></path></svg></button></div>
+    <div class="meta"><span class="job-location">Remote, USA</span><span class="job-type">Remote</span></div><div class="bottom"><span>$130K&ndash;$185K</span><b>88% Match</b></div>
+  </article>
+  <article class="card" data-title="Talent Insights Analyst LinkedIn people analytics" data-location="New York, USA" data-job-id="linkedin-talent-insights-analyst">
+    <div class="job-head"><div class="company linkedin" aria-hidden="true"><span class="logo-initial">L</span></div><div class="job-name"><h3>Talent Insights Analyst</h3><p>LinkedIn</p></div><button class="bookmark" type="button" aria-label="Save Talent Insights Analyst at LinkedIn" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1 7.7 7.7 7.8-7.7-1-1.1a5.5 5.5 0 0 0 0-7.8Z"></path></svg></button></div>
+    <div class="meta"><span class="job-location">New York, USA</span><span class="job-type">Hybrid</span></div><div class="bottom"><span>$95K&ndash;$145K</span><b>86% Match</b></div>
+  </article>
+  <article class="card" data-title="Data Engineer Spotify Python SQL" data-location="Remote, USA" data-job-id="spotify-data-engineer">
+    <div class="job-head"><div class="company spotify" aria-hidden="true"><span class="logo-initial">S</span></div><div class="job-name"><h3>Data Engineer</h3><p>Spotify</p></div><button class="bookmark" type="button" aria-label="Save Data Engineer at Spotify" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0 0-7.8Z"></path></svg></button></div>
+    <div class="meta"><span class="job-location">Remote, USA</span><span class="job-type">Remote</span></div><div class="bottom"><span>$120K&ndash;$175K</span><b>84% Match</b></div>
+  </article>
+</div><p id="empty" hidden>No matching sample jobs. Try another search.</p>
+</section>
+</main>
+<script src="../js/jobseaker.js" defer></script>
+<script src="../js/motion.js"></script>
+</body></html>

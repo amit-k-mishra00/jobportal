@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+:root{--navy:#11183f;--muted:#586b99;--purple:#7828ff;--blue:#0877ff;--line:#e7ebf7;--shadow:0 12px 28px rgba(44,70,145,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--navy);font-family:Inter,"Segoe UI",Arial,sans-serif;background:#fff;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button,input{font:inherit}
+.header{position:relative;z-index:5;min-height:78px;padding:12px clamp(20px,5.8vw,96px);display:flex;align-items:center;justify-content:space-between;gap:26px;background:rgba(255,255,255,.96);border-bottom:1px solid #e6eaff}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0}.logo{width:42px;height:42px;display:grid;place-items:center;border-radius:14px 14px 14px 5px;background:linear-gradient(140deg,#a34bff,#652cff 48%,#0788ff);color:white;font-weight:800;font-size:27px;transform:rotate(-5deg)}.brand b{display:block;font-size:clamp(17px,1.35vw,22px);letter-spacing:-.7px}.brand small{display:block;margin-top:2px;color:#526184;font-size:10px}
+.nav{display:flex;align-items:center;gap:clamp(16px,2.8vw,42px)}.nav a{padding:14px 0 12px;border-bottom:2px solid transparent;font-size:14px;font-weight:500;white-space:nowrap}.nav a:hover,.nav a.active{color:#5c2cff}.nav a.active{border-bottom-color:#702bff}
+.actions{display:flex;align-items:center;gap:10px}.btn{min-height:46px;padding:0 23px;border-radius:13px;display:inline-flex;align-items:center;justify-content:center;gap:13px;font-size:14px;font-weight:600;white-space:nowrap;cursor:pointer;transition:transform .2s,box-shadow .2s}.btn:hover{transform:translateY(-2px)}.outline{color:#682dff;border:1.5px solid #bba0ff;background:white}.primary{color:white;border:0;background:linear-gradient(105deg,#8a24ff,#075eff);box-shadow:0 7px 17px rgba(83,71,255,.19)}.menu{display:none;border:0;background:none;font-size:25px;color:var(--navy)}
+.hero{min-height:525px;position:relative;overflow:hidden;padding:clamp(64px,6.5vw,100px) clamp(28px,9.2vw,155px) 125px;display:flex;align-items:flex-start;background:linear-gradient(115deg,#f2f1ff,#dce9ff 62%,#d4dcff)}
+.city{position:absolute;inset:0 0 0 28%;background:url("../images/Manhattan%20Skyline%20at%20Dusk.png") center 52%/cover no-repeat}.wash{position:absolute;inset:0;background:linear-gradient(90deg,rgba(242,242,255,.99),rgba(242,242,255,.92) 28%,rgba(236,239,255,.55) 46%,rgba(223,233,255,.04) 72%),linear-gradient(0deg,rgba(179,192,255,.34),transparent 35%)}
+.hero:before,.hero:after{content:"";position:absolute;pointer-events:none;border-radius:50%;border:1px solid rgba(255,255,255,.55);transform:rotate(-20deg)}.hero:before{width:650px;height:270px;left:-190px;bottom:8px;box-shadow:0 0 0 28px rgba(255,255,255,.1),0 0 0 56px rgba(160,137,255,.08)}.hero:after{width:520px;height:220px;right:-180px;bottom:-105px;box-shadow:0 0 0 28px rgba(255,255,255,.13),0 0 0 56px rgba(109,146,255,.08)}
+.hero-copy{position:relative;z-index:1;max-width:640px}.eyebrow{margin:0 0 18px;color:#4528ff;font-size:14px;font-weight:700;letter-spacing:.35px}h1{margin:0;font-size:clamp(48px,5.2vw,76px);line-height:.98;letter-spacing:-3.8px;font-weight:800}h1 span{display:inline-block;color:#4c35ff;background:linear-gradient(95deg,#087aff,#7b19f5);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}.subtitle{margin:18px 0 0;font-size:clamp(17px,1.5vw,23px);color:#52658e;letter-spacing:-.4px}
+.search{position:absolute;z-index:3;left:50%;bottom:20px;transform:translateX(-50%);width:min(73%,1210px);min-height:82px;padding:8px;display:grid;grid-template-columns:1.05fr .8fr auto;border:1px solid white;border-radius:19px;background:rgba(255,255,255,.7);box-shadow:0 12px 30px rgba(68,84,180,.15);backdrop-filter:blur(16px)}.search label{min-width:0;display:flex;align-items:center;gap:16px;padding:0 22px;background:rgba(255,255,255,.96)}.search label:first-child{border-radius:12px 0 0 12px}.search .location{border-left:1px solid #dce2f2}.search label>span{font-size:27px;color:var(--navy)}.search input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:var(--navy);font-size:15px}.search input::placeholder{color:#61739d;opacity:1}.search-btn{min-height:64px;margin-left:8px;padding:0 clamp(20px,3vw,48px);border-radius:12px}
+.jobs{width:min(90.5%,1500px);margin:0 auto;padding:24px 0 56px}.section-heading{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:18px}.section-heading h2{margin:0;font-size:clamp(22px,2vw,29px);letter-spacing:-.8px}.view-all{color:#3524ff;font-size:15px;font-weight:600;white-space:nowrap}.view-all span{font-size:22px;margin-left:8px}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.card{min-width:0;padding:18px 18px 16px;border:1px solid var(--line);border-radius:16px;background:white;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;animation:rise .65s both}.card:nth-child(2){animation-delay:.08s}.card:nth-child(3){animation-delay:.16s}.card:nth-child(4){animation-delay:.24s}.card:hover{transform:translateY(-5px);box-shadow:0 18px 34px rgba(44,70,145,.14)}.card[hidden]{display:none}.job-head{display:flex;align-items:center;gap:13px;min-width:0}.company{width:58px;height:58px;flex:0 0 58px;display:grid;place-items:center;border:1px solid #edf0f8;border-radius:13px;background:#fff;font-weight:800}.google{font:800 44px Arial;color:#4285f4;text-shadow:1px 1px #34a853}.ms{grid-template-columns:repeat(2,17px);grid-template-rows:repeat(2,17px);gap:3px;align-content:center;justify-content:center}.ms i{width:17px;height:17px;background:#f25022}.ms i:nth-child(2){background:#7fba00}.ms i:nth-child(3){background:#00a4ef}.ms i:nth-child(4){background:#ffb900}.amazon{font:800 45px Arial;color:#111;position:relative}.amazon span{position:absolute;bottom:2px;right:8px;color:#ff9900;font-size:24px}.meta-logo{font-size:49px;color:#087cff}.job-name{min-width:0;flex:1}.job-name h3{margin:0 0 6px;font-size:14px;line-height:1.25}.job-name p{margin:0;color:var(--muted);font-size:13px}.bookmark{align-self:flex-start;border:0;padding:0 2px;color:#15204b;background:transparent;font-size:24px;cursor:pointer;line-height:1}.bookmark.saved{color:#7a2bff}.meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:9px;margin:19px 0 17px;color:#52658e;font-size:12px}.bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;color:#52658e;font-size:13px}.bottom b{padding:9px 12px;border-radius:11px;background:#e1faef;color:#00a65a;font-size:12px;white-space:nowrap}#empty{color:var(--muted);padding:24px 0}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:1100px){.header{gap:16px;padding-inline:24px}.nav{gap:18px}.brand small{display:none}.search{width:86%}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding-left:7%}.city{left:20%}}
+@media(max-width:720px){.header{min-height:70px;padding:12px 16px;gap:8px}.logo{width:36px;height:36px;font-size:23px}.brand{gap:8px}.brand b{font-size:15px}.brand small{display:none}.actions{margin-left:auto;gap:6px}.actions .btn{min-height:37px;padding:0 10px;font-size:11px;border-radius:9px}.menu{display:block;order:3}.nav{display:none;position:absolute;top:100%;left:0;right:0;padding:12px 20px 18px;background:white;box-shadow:0 12px 20px #1e2d641a;flex-wrap:wrap;justify-content:flex-start}.nav.open{display:flex}.nav a{padding:8px 0}.hero{min-height:570px;padding:52px 24px 150px}.city{inset:190px 0 0;background-position:center;opacity:.72}.wash{background:linear-gradient(180deg,rgba(243,243,255,.98),rgba(242,243,255,.88) 42%,rgba(224,231,255,.18))}h1{font-size:clamp(47px,12vw,66px);letter-spacing:-2.7px}.subtitle{max-width:340px;line-height:1.4}.search{bottom:18px;width:calc(100% - 28px);padding:7px;grid-template-columns:1fr 1fr;gap:6px}.search label{min-height:48px;padding:0 11px;gap:8px;border-radius:10px!important}.search .location{border-left:0}.search label>span{font-size:21px}.search input{font-size:12px}.search-btn{grid-column:1/-1;min-height:47px;margin:0}.jobs{width:calc(100% - 28px);padding-top:22px}.section-heading{align-items:flex-start}.section-heading h2{font-size:22px}.view-all{font-size:12px;padding-top:5px}.grid{grid-template-columns:1fr;gap:12px}.card{padding:16px}.meta{font-size:12px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* Reference inspired skyline hero treatment */
+.header{position:absolute;top:12px;left:6.1%;right:6.1%;width:auto;min-height:70px;padding:8px 28px;border:1px solid rgba(255,255,255,.82);border-radius:17px;background:rgba(255,255,255,.78);box-shadow:0 10px 35px rgba(47,69,151,.1);backdrop-filter:blur(18px)}
+.hero{min-height:700px;padding:185px clamp(28px,7.4vw,124px) 105px;background:linear-gradient(120deg,#dce2ff,#d9e7ff 55%,#c6d9ff)}
+.city{inset:0;background-position:center 52%;}
+.wash{background:linear-gradient(90deg,rgba(242,243,255,.98) 0%,rgba(242,243,255,.94) 27%,rgba(242,243,255,.72) 39%,rgba(228,236,255,.2) 59%,rgba(216,229,255,.02) 78%),linear-gradient(0deg,rgba(156,181,255,.43),transparent 30%),linear-gradient(180deg,rgba(174,190,255,.30),transparent 29%)}
+.hero:before{width:700px;height:360px;left:-290px;bottom:-65px;border-width:2px;box-shadow:0 0 0 36px rgba(255,255,255,.16),0 0 0 74px rgba(156,130,255,.12)}
+.hero:after{width:600px;height:280px;right:-280px;bottom:-115px;border-width:2px;box-shadow:0 0 0 34px rgba(255,255,255,.17),0 0 0 70px rgba(108,146,255,.13)}
+.hero-copy{max-width:620px}.hero-copy h1{font-size:clamp(58px,6vw,88px);letter-spacing:-4px;line-height:.99}.hero-copy h1 span{font-size:1.12em}.subtitle{font-size:clamp(18px,1.7vw,26px)}
+.search{width:min(72%,1200px);bottom:18px;min-height:84px;border-radius:20px;background:rgba(255,255,255,.78);box-shadow:0 14px 35px rgba(50,74,158,.2);backdrop-filter:blur(20px)}
+@media(max-width:1100px){.header{left:3%;right:3%;padding-inline:20px}.hero{min-height:610px;padding-top:170px}.city{left:0}}
+@media(max-width:1100px){.hero{min-height:680px}}
+@media(max-width:720px){.hero{min-height:690px}.header{top:8px;left:12px;right:12px;min-height:64px;padding:8px 12px;border-radius:14px;background:rgba(255,255,255,.9)}.hero{min-height:690px;padding:125px 24px 150px}.city{inset:0;background-position:58% center;opacity:1}.wash{background:linear-gradient(180deg,rgba(241,243,255,.92),rgba(241,243,255,.78) 32%,rgba(225,233,255,.16) 75%),linear-gradient(90deg,rgba(241,243,255,.58),transparent 85%)}.hero-copy h1{font-size:clamp(50px,12vw,70px);letter-spacing:-2.8px}.hero-copy h1 span{font-size:1.06em}.search{width:calc(100% - 28px);bottom:18px}}
+.interaction-status { min-height: 1.5em; margin: -5px 0 14px; color: var(--muted); font-size: 13px; line-height: 1.5; }
+.bookmark { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 11px; transition: color .2s, background-color .2s, transform .2s; }
+.bookmark:hover { background: #f1edff; }
+.bookmark:focus-visible,
+.menu:focus-visible,
+.nav a:focus-visible,
+.actions .btn:focus-visible,
+.search input:focus-visible {
+  outline: 3px solid rgba(95, 74, 255, .38);
+  outline-offset: 3px;
+}
+.bookmark svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.8; transition: transform .2s, fill .2s; }
+.bookmark.saved svg { fill: currentColor; transform: scale(1.08); }
+.card:has(.bookmark[aria-pressed="true"]) { border-color: #cfc1ff; }
+@media (prefers-reduced-motion: reduce) {
+  .bookmark,
+  .bookmark svg { transition: none; }
+}
+/* Consistent company marks and metadata for the expanded sample job list. */
+.company { overflow: hidden; }
+.company > span { display: block; }
+.google { color: #4285f4; background: conic-gradient(#4285f4 0 29%, #34a853 29% 48%, #fbbc05 48% 65%, #ea4335 65% 82%, #4285f4 82%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font: 800 39px/1 Arial, sans-serif; }
+.company.ms { grid-template-columns: repeat(2, 16px); grid-template-rows: repeat(2, 16px); gap: 3px; }
+.company.ms i { width: 16px; height: 16px; }
+.company.amazon { position: relative; border: 0; background: transparent; color: #172033; font: 800 42px/.9 Arial, sans-serif; }
+.company.amazon span { margin-top: -7px; letter-spacing: -5px; }
+.company.amazon i { position: absolute; width: 26px; height: 9px; left: 14px; bottom: 11px; border-bottom: 2px solid #ff9900; border-radius: 50%; transform: rotate(8deg); }
+.company.meta-logo { border: 0; background: transparent; color: #0866ff; font: 700 46px/1 Arial, sans-serif; }
+.company.adobe { border: 0; border-radius: 10px; background: #e1251b; color: white; font: 800 34px/1 Arial, sans-serif; }
+.company.tcs { background: #f4f9ff; color: #1267b1; font: 800 14px/1 Arial, sans-serif; letter-spacing: -.8px; }
+.company.flipkart { border: 0; background: #f5c644; color: #1553a4; font: 800 14px/1 Arial, sans-serif; }
+.company.zoho { border: 0; background: #fff; color: #2563eb; font: 800 20px/1 Arial, sans-serif; letter-spacing: -1px; }
+.company.apple { border: 0; background: #111827; color: #fff; font: 700 26px/1 Arial, sans-serif; }
+.company.atlassian { border: 0; background: #eaf3ff; color: #1868db; font: 800 30px/1 Arial, sans-serif; }
+.company.linkedin { border: 0; border-radius: 12px; background: #0a66c2; color: #fff; font: 800 24px/1 Arial, sans-serif; letter-spacing: -2px; }
+.company.spotify { border: 0; border-radius: 50%; background: #1ed760; color: #111827; font: 800 29px/1 Arial, sans-serif; }
+.meta > span { display: inline-flex; align-items: center; gap: 6px; }
+.job-location::before { content: ""; width: 9px; height: 9px; flex: 0 0 9px; border: 1.5px solid currentColor; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); }
+.job-type::before { content: ""; width: 11px; height: 8px; flex: 0 0 11px; border: 1.5px solid currentColor; border-radius: 2px; }
+.search label > span svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.bookmark svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+.bookmark.saved svg { fill: currentColor; }
+
+.company.apple { font-size: 0; }
+.company.apple svg { width: 31px; height: 31px; display: block; }
+.company.spotify { font-size: 0; }
+.company.spotify svg { width: 34px; height: 34px; display: block; }
+
+.company.amazon { background: #fff; }
+
+/* Company tiles use a clear, brand-tinted initial instead of remote logo assets. */
+body[data-public-page] .company {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  gap: 0;
+  place-items: center;
+  background: #fff;
+  color: #334155;
+  border: 1px solid #edf0f8;
+  -webkit-text-fill-color: initial;
+  background-clip: border-box;
+}
+body[data-public-page] .company .logo-initial {
+  display: block;
+  font: 800 25px/1 Arial, sans-serif;
+  letter-spacing: -1px;
+  color: #334155;
+}
+body[data-public-page] .company.google .logo-initial { color: #4285f4; }
+body[data-public-page] .company.ms .logo-initial { color: #5e5e5e; }
+body[data-public-page] .company.amazon .logo-initial { color: #172033; }
+body[data-public-page] .company.meta-logo .logo-initial { color: #0866ff; }
+body[data-public-page] .company.adobe .logo-initial { color: #e1251b; }
+body[data-public-page] .company.tcs .logo-initial { color: #1267b1; }
+body[data-public-page] .company.flipkart .logo-initial { color: #1553a4; }
+body[data-public-page] .company.zoho .logo-initial { color: #e42527; }
+body[data-public-page] .company.apple .logo-initial { color: #111827; }
+body[data-public-page] .company.atlassian .logo-initial { color: #1868db; }
+body[data-public-page] .company.linkedin .logo-initial { color: #0a66c2; }
+body[data-public-page] .company.spotify .logo-initial { color: #1db954; }

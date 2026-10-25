@@ -10,20 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <script>
-        // Immediately prevent browser scroll restoration on refresh
-        if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'manual';
-        }
-        if (window.location.hash) {
-            history.replaceState(null, '', window.location.pathname);
-        }
-        window.scrollTo(0, 0);
-    </script>
+
   <link rel="stylesheet" href="css/motion.css">
   <link rel="stylesheet" href="css/site-header.css">
+  <link rel="stylesheet" href="css/dark-mode.css">
+  <script src="js/dark-mode.js"></script>
 </head>
-<body>
+<body data-public-page>
 
     <!-- Navigation Bar -->
     <header class="navbar">
@@ -33,12 +26,14 @@
             </div>
             <nav class="nav-links" aria-label="Main navigation">
                 <a href="pages/employer.html">For Employers</a>
-                <a href="pages/employee.html">For Job Seekers</a>
+                <a href="pages/jobseaker.html">For Job Seekers</a>
                 <a href="pages/pricing.html">Pricing</a>
             </nav>
             <div class="auth-actions">
                 <a href="pages/login.html" class="auth-btn auth-signin">Sign In</a>
                 <a href="pages/signup-role.html" class="auth-btn auth-signup">Sign Up</a>
+                <a href="pages/dashboard/cdashboard.html" class="auth-btn auth-dashboard">Dashboard</a>
+                <a href="pages/dashboard/jdashboard.html" class="auth-btn auth-jdashboard">JDashboard</a>
             </div>
         </div>
     </header>
@@ -94,7 +89,8 @@
     <span class="btn-sub">For Companies / HR</span>
 </a>
 
-<a href="pages/employee.html" class="btn btn-secondary" style="text-decoration: none;">
+
+<a href="pages/jobseaker.html" class="btn btn-secondary" style="text-decoration: none;">
     <span class="btn-title">Find Opportunities &rarr;</span>
     <span class="btn-sub">For Job Seekers</span>
 </a>
@@ -845,7 +841,7 @@
             </p>
 
             <div class="jobseekers-actions">
-                <a href="pages/signup-role.html" class="jobseekers-btn jobseekers-btn-primary">
+                <a href="pages/jobseeker-signup.html" class="jobseekers-btn jobseekers-btn-primary">
                     Create your Smart Card <span aria-hidden="true">&rarr;</span>
                 </a>
                 <a href="#smart-card-steps" class="jobseekers-btn jobseekers-btn-secondary">
@@ -910,22 +906,22 @@
                             <div class="jobseekers-skills-box">
                                 <h4>SKILLS</h4>
                                 <div class="jobseekers-skills">
-                                    <a href="pages/signup-role.html">Python</a>
-                                    <a href="pages/signup-role.html">Django</a>
-                                    <a href="pages/signup-role.html">REST APIs</a>
-                                    <a href="pages/signup-role.html">PostgreSQL</a>
-                                    <a href="pages/signup-role.html">AWS</a>
-                                    <a href="pages/signup-role.html">+3</a>
+                                    <a href="pages/jobseeker-signup.html">Python</a>
+                                    <a href="pages/jobseeker-signup.html">Django</a>
+                                    <a href="pages/jobseeker-signup.html">REST APIs</a>
+                                    <a href="pages/jobseeker-signup.html">PostgreSQL</a>
+                                    <a href="pages/jobseeker-signup.html">AWS</a>
+                                    <a href="pages/jobseeker-signup.html">+3</a>
                                 </div>
                             </div>
 
                             <div class="jobseekers-certificates">
                                 <h4>CERTIFICATES</h4>
                                 <div class="jobseekers-certificate-list">
-                                    <a href="pages/signup-role.html">AWS Certified</a>
-                                    <a href="pages/signup-role.html">Docker</a>
-                                    <a href="pages/signup-role.html">PostgreSQL</a>
-                                    <a href="pages/signup-role.html">System Design</a>
+                                    <a href="pages/jobseeker-signup.html">AWS Certified</a>
+                                    <a href="pages/jobseeker-signup.html">Docker</a>
+                                    <a href="pages/jobseeker-signup.html">PostgreSQL</a>
+                                    <a href="pages/jobseeker-signup.html">System Design</a>
                                 </div>
                             </div>
 
@@ -961,12 +957,12 @@
                                     <span>AWS deployment</span>
                                     <span>Data modelling</span>
                                 </div>
-                                <a href="pages/signup-role.html">Build a profile like this <span aria-hidden="true">&rarr;</span></a>
+                                <a href="pages/jobseeker-signup.html">Build a profile like this <span aria-hidden="true">&rarr;</span></a>
                             </div>
                         </details>
                         <div class="jobseekers-card-footer">
                             <span class="jobseekers-card-status"><span></span> Profile complete</span>
-                            <a class="jobseekers-card-link" href="pages/signup-role.html">Create a card like this <span aria-hidden="true">&rarr;</span></a>
+                            <a class="jobseekers-card-link" href="pages/jobseeker-signup.html">Create a card like this <span aria-hidden="true">&rarr;</span></a>
                         </div>
                     </article>
 
@@ -1001,7 +997,7 @@
                         </div>
                         <div class="jobseekers-experience-footer">
                             <span>Show employers your experience</span>
-                            <a href="pages/signup-role.html">Create your Smart Card <span aria-hidden="true">&rarr;</span></a>
+                            <a href="pages/jobseeker-signup.html">Create your Smart Card <span aria-hidden="true">&rarr;</span></a>
                         </div>
                     </article>
                 </div>
@@ -1632,10 +1628,10 @@
                         TalentBridge AI is the AI recruiting platform and talent marketplace for startups. Post jobs, source candidates with AI agents, or partner with a dedicated recruiter.
                     </p>
                     <div class="footer-social-links">
-                        <a href="#" class="footer-social-tag" aria-label="LinkedIn">in</a>
-                        <a href="#" class="footer-social-tag" aria-label="X (formerly Twitter)">X</a>
-                        <a href="#" class="footer-social-tag" aria-label="Instagram">ig</a>
-                        <a href="#" class="footer-social-tag" aria-label="YouTube">yt</a>
+                        <span class="footer-social-tag footer-social-tag-static" aria-hidden="true">in</span>
+                        <span class="footer-social-tag footer-social-tag-static" aria-hidden="true">X</span>
+                        <span class="footer-social-tag footer-social-tag-static" aria-hidden="true">ig</span>
+                        <span class="footer-social-tag footer-social-tag-static" aria-hidden="true">yt</span>
                     </div>
                 </div>
 
@@ -1653,12 +1649,12 @@
                 <div class="footer-col">
                     <h4 class="footer-col-title">FOR CANDIDATES</h4>
                     <ul class="footer-links-list">
-                        <li><a href="pages/employee.html">Candidate overview</a></li>
-                        <li><a href="pages/employee.html">Startup jobs</a></li>
-                        <li><a href="pages/employee.html">Remote jobs</a></li>
-                        <li><a href="pages/employee.html">Remote work guide</a></li>
-                        <li><a href="pages/employee.html">Get discovered</a></li>
-                        <li><a href="pages/employee.html">Salary calculator</a></li>
+                        <li><a href="pages/jobseaker.html">Candidate overview</a></li>
+                        <li><a href="pages/jobseaker.html">Startup jobs</a></li>
+                        <li><a href="pages/jobseaker.html">Remote jobs</a></li>
+                        <li><a href="pages/jobseaker.html">Remote work guide</a></li>
+                        <li><a href="pages/jobseaker.html">Get discovered</a></li>
+                        <li><a href="pages/jobseaker.html">Salary calculator</a></li>
                     </ul>
                 </div>
 
@@ -1668,9 +1664,9 @@
                     <ul class="footer-links-list">
                         <li><a href="index.html">About TalentBridge AI</a></li>
                         <li><a href="#success-stories">Customer stories</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><span class="footer-link-placeholder" aria-disabled="true">Blog</span></li>
+                        <li><span class="footer-link-placeholder" aria-disabled="true">Careers</span></li>
+                        <li><span class="footer-link-placeholder" aria-disabled="true">Contact</span></li>
                     </ul>
                 </div>
 
@@ -1678,12 +1674,12 @@
                 <div class="footer-col">
                     <h4 class="footer-col-title">TRUST & SUPPORT</h4>
                     <ul class="footer-links-list">
-                        <li><a href="#">Help center</a></li>
-                        <li><a href="#">Trust center</a></li>
-                        <li><a href="#">AI audit center</a></li>
-                        <li><a href="#">Platform status</a></li>
+                        <li><span class="footer-link-placeholder" aria-disabled="true">Help center</span></li>
+                        <li><span class="footer-link-placeholder" aria-disabled="true">Trust center</span></li>
+                        <li><span class="footer-link-placeholder" aria-disabled="true">AI audit center</span></li>
+                        <li><span class="footer-link-placeholder" aria-disabled="true">Platform status</span></li>
                         <li><a href="pages/privacy.html">Privacy & cookies</a></li>
-                        <li><a href="#">Cookie Preferences</a></li>
+                        <li><span class="footer-link-placeholder" aria-disabled="true">Cookie Preferences</span></li>
                         <li><a href="pages/terms.html">Terms &amp; Conditions</a></li>
                     </ul>
                 </div>

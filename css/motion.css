@@ -54,3 +54,7 @@ html {
     transition-delay: 0ms;
   }
 }
+.motion-interactive:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, .36);
+  outline-offset: 3px;
+}
