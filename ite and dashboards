@@ -1,0 +1,52 @@
+ MERGE_NOTES.txt                           |   7 [32m+[m
+ README.md                                 |  44 [32m+[m[31m-[m
+ css/dark-mode.css                         | 801 [32m++++++++++++++++++++++++++++++[m
+ css/dashboard/cdashboard.css              | 362 [32m++++++++++++++[m
+ css/dashboard/customize.css               | 186 [32m+++++++[m
+ css/dashboard/dstyle.css                  | 325 [32m++++++++++++[m
+ css/dashboard/jdashboard.css              | 468 [32m+++++++++++++++++[m
+ css/dashboard/jerry-guide/jerry-guide.css | 120 [32m+++++[m
+ css/dashboard/organize-cards.css          |  80 [32m+++[m
+ css/forgot-password.css                   |  21 [32m+[m
+ css/jobseaker.css                         | 111 [32m+++++[m
+ css/motion.css                            |   4 [32m+[m
+ css/posting-job.css                       |  46 [32m+[m[31m-[m
+ css/pricing.css                           |  15 [32m+[m
+ css/site-header.css                       | 132 [32m+++++[m
+ css/style.css                             | 199 [32m++++++++[m
+ customise.js                              | 344 [32m+++++++++++++[m
+ images/Manhattan Skyline at Dusk.png      | Bin [31m0[m -> [32m2534546[m bytes
+ images/jerry-mascot.png                   | Bin [31m0[m -> [32m491922[m bytes
+ images/talentbridge_nyc_skyline.png       | Bin [31m0[m -> [32m1801098[m bytes
+ index.html                                |  86 [32m++[m[31m--[m
+ jobs/templates/jobs/home.html             |  29 [32m+[m[31m-[m
+ js/auth.js                                |  31 [32m++[m
+ js/dark-mode.js                           | 154 [32m++++++[m
+ js/dashboard/cdashboard.js                | 687 [32m+++++++++++++++++++++++++[m
+ js/dashboard/customize.js                 | 566 [32m+++++++++++++++++++++[m
+ js/dashboard/dscript.js                   | 574 [32m+++++++++++++++++++++[m
+ js/dashboard/jdashboard.js                | 343 [32m+++++++++++++[m
+ js/dashboard/jerry-guide/jerry-guide.js   | 430 [32m++++++++++++++++[m
+ js/dashboard/organize-cards.js            | 302 [32m+++++++++++[m
+ js/jobseaker.js                           | 106 [32m++++[m
+ js/motion.js                              | 112 [32m+++[m[31m--[m
+ js/posting-job.js                         | 589 [32m++++++++++++++++++++++[m
+ js/script.js                              | 335 [32m+++++++[m[31m------[m
+ pages/company-signup.html                 |  32 [32m+[m[31m-[m
+ pages/dashboard/cdashboard.html           | 383 [32m++++++++++++++[m
+ pages/dashboard/customize.html            | 177 [32m+++++++[m
+ pages/dashboard/dindex.html               | 380 [32m++++++++++++++[m
+ pages/dashboard/jdashboard.html           | 380 [32m++++++++++++++[m
+ pages/dashboard/organize-cards.html       |  89 [32m++++[m
+ pages/employee.html                       | 103 [31m----[m
+ pages/employer.html                       |  75 [32m+[m[31m--[m
+ pages/forgot-password.html                |  57 [32m+++[m
+ pages/jobseaker.html                      |  99 [32m++++[m
+ pages/jobseeker-signup.html               |  32 [32m+[m[31m-[m
+ pages/login.html                          |  34 [32m+[m[31m-[m
+ pages/posting-job.html                    | 230 [32m++++++[m[31m---[m
+ pages/pricing.html                        |  45 [32m+[m[31m-[m
+ pages/privacy.html                        |  33 [32m+[m[31m-[m
+ pages/signup-role.html                    |  31 [32m+[m[31m-[m
+ pages/terms.html                          |  33 [32m+[m[31m-[m
+ 51 files changed, 9268 insertions(+), 554 deletions(-)
